@@ -1,0 +1,159 @@
+{
+  "day": 2,
+  "title": "Kepercayaan Mulai Terbentuk",
+  "morning_briefing": {
+	"narrator": "Raja Aldric tampak sedikit lebih percaya diri — tapi masih jelas mengharapkan kehadiran Keshar di setiap keputusan.",
+	"dialogues": [
+	  { "speaker": "Raja Aldric", "text": "Keshar, aku merasa kemarin berjalan lebih baik dari yang kuduga." },
+	  { "speaker": "Keshar", "text": "Yang Mulia mulai menemukan ritmenya." }
+	]
+  },
+  "visitors": [
+	{
+	  "id": "v1_pencuri_roti",
+	  "name": "Anak Pencuri Roti",
+	  "narrator": "Dua penjaga menyeret masuk seorang anak kecil, berusia sekitar 8 tahun. Matanya merah karena menangis.",
+	  "dialogues": [
+		{ "speaker": "Penjaga", "text": "Yang Mulia, anak ini tertangkap mencuri roti dari pedagang di pasar." },
+		{ "speaker": "Anak", "text": "...Ibuku sakit. Kami tidak punya uang. Aku hanya... aku lapar." },
+		{ "speaker": "Raja Aldric", "text": "Keshar... ini anak kecil." }
+	  ],
+	  "choices": [
+		{
+		  "id": "A",
+		  "text": "Sarankan bebaskan anak — beri makanan dari dapur kerajaan",
+		  "effects": { "stability": 5, "trust_king": 3 },
+		  "king_follow_text": "Bebaskan dia. Dan... beri dia makanan untuk dibawa pulang.",
+		  "king_refuse_text": "Tapi pedagang itu menuntut kompensasi...",
+		  "king_refuse_effect": { "stability": 3, "treasury": -2 },
+		  "keshar_text": "Menghukum anak lapar hanya akan memperburuk citra kerajaan, Yang Mulia."
+		},
+		{
+		  "id": "B",
+		  "text": "Sarankan penjara pendek — contoh agar tidak ada pencurian lagi",
+		  "effects": { "stability": -4, "fear": 5 },
+		  "king_follow_text": "Hukum perlu ditegakkan. Bahkan untuk anak kecil.",
+		  "king_refuse_text": "Dia masih sangat kecil, Keshar...",
+		  "king_refuse_effect": { "stability": 1 },
+		  "keshar_text": "Tanpa hukum yang konsisten, Yang Mulia, semua orang akan mencuri."
+		},
+		{
+		  "id": "C",
+		  "text": "Sarankan hukum publik — cambuk ringan di alun-alun sebagai efek jera",
+		  "effects": { "stability": -6, "fear": 10, "influence": 3 },
+		  "king_follow_text": "Laksanakan hukuman di alun-alun. Biar semua orang lihat.",
+		  "king_refuse_text": "Aku tidak bisa menghukum anak ini di depan publik, Keshar. Tidak bisa.",
+		  "king_refuse_effect": { "trust_king": -3 },
+		  "keshar_text": "Rasa takut adalah alat kekuasaan yang paling efisien, Yang Mulia."
+		}
+	  ]
+	},
+	{
+	  "id": "v2_pedagang_pajak",
+	  "name": "Master Hen — Pedagang Mengeluh Pajak",
+	  "narrator": "Master Hen, pedagang berbadan tambun, masuk dengan ekspresi kesal.",
+	  "dialogues": [
+		{ "speaker": "Master Hen", "text": "Yang Mulia, pajak perdagangan bulan ini terlalu besar! Bagaimana kami bisa untung?" },
+		{ "speaker": "Raja Aldric", "text": "Pajak memang penting untuk kas kerajaan... tapi pedagang juga perlu bernapas. Keshar?" }
+	  ],
+	  "choices": [
+		{
+		  "id": "A",
+		  "text": "Sarankan turunkan pajak perdagangan 10%",
+		  "effects": { "stability": 4, "treasury": -6 },
+		  "king_follow_text": "Turunkan. Pedagang yang puas berdagang lebih banyak — jangka panjangnya menguntungkan.",
+		  "king_refuse_text": "Tapi menteri keuangan baru saja mengingatkan soal cadangan kas...",
+		  "king_refuse_effect": { "treasury": -3, "stability": 2 },
+		  "keshar_text": "Investasi jangka panjang, Yang Mulia. Pedagang senang, ekonomi berputar."
+		},
+		{
+		  "id": "B",
+		  "text": "Sarankan pertahankan pajak",
+		  "effects": { "treasury": 4 },
+		  "king_follow_text": "Peraturan ada alasannya. Jika kita turunkan pajak setiap ada keluhan, kas kita kosong.",
+		  "king_refuse_text": "Tapi dia punya pengaruh di komunitas pedagang...",
+		  "king_refuse_effect": { "treasury": 2 },
+		  "keshar_text": "Pedagang selalu mengeluh, Yang Mulia. Ini bukan krisis."
+		},
+		{
+		  "id": "C",
+		  "text": "Sarankan naikkan pajak — kerajaan sedang dalam krisis",
+		  "effects": { "treasury": 10, "stability": -8 },
+		  "king_follow_text": "Naikkan. Kerajaan butuh dana, dan pedagang cukup kaya untuk menanggungnya.",
+		  "king_refuse_text": "Itu akan membuat mereka sangat marah, Keshar...",
+		  "king_refuse_effect": { "treasury": 0 },
+		  "keshar_text": "Pedagang selalu mengeluh tapi tetap berdagang. Mereka tidak punya pilihan lain."
+		}
+	  ]
+	},
+	{
+	  "id": "v3_tentara_gaji",
+	  "name": "Kapten Garen — Tentara Belum Dibayar",
+	  "narrator": "Kapten Garen kembali, nada suaranya lebih tegang dari biasanya.",
+	  "dialogues": [
+		{ "speaker": "Kapten Garen", "text": "Yang Mulia... gaji bulan lalu belum dibayarkan. Ada beberapa yang sudah mulai berbisik-bisik." },
+		{ "speaker": "Raja Aldric", "text": "Bisik-bisik? Itu mengkhawatirkan. Keshar, apa yang harus kulakukan?" }
+	  ],
+	  "choices": [
+		{
+		  "id": "A",
+		  "text": "Sarankan bayar penuh gaji tentara sekarang",
+		  "effects": { "treasury": -10, "military": 8 },
+		  "king_follow_text": "Bayar mereka sekarang. Tentara tidak dibayar adalah tentara yang bisa dibeli orang lain.",
+		  "king_refuse_text": "Ini akan menguras kas kita untuk bulan ini...",
+		  "king_refuse_effect": { "treasury": -5, "military": 3 },
+		  "keshar_text": "Militer adalah tulang punggung kerajaan, Yang Mulia. Jangan pernah buat mereka menunggu."
+		},
+		{
+		  "id": "B",
+		  "text": "Sarankan tunda — janjikan bonus bulan depan",
+		  "effects": { "military": -5 },
+		  "king_follow_text": "Tunda dulu. Janji bonus lebih menarik dari gaji biasa.",
+		  "king_refuse_text": "Kamu yakin mereka mau menunggu?",
+		  "king_refuse_effect": { "military": -2 },
+		  "keshar_text": "Janji bonus bulan depan, Yang Mulia. Ini strategi, bukan penundaan."
+		},
+		{
+		  "id": "C",
+		  "text": "Sarankan paksa loyalitas — hukum siapapun yang 'berbisik'",
+		  "effects": { "military": -8, "influence": 6 },
+		  "king_follow_text": "Cari siapa yang berbisik dan hukum mereka. Yang lain akan bungkam.",
+		  "king_refuse_text": "Itu akan membuat mereka semakin benci, bukan semakin loyal.",
+		  "king_refuse_effect": { "military": -1 },
+		  "keshar_text": "Bukan gaji yang mereka butuhkan, Yang Mulia. Mereka butuh tahu konsekuensi tidak loyal."
+		}
+	  ]
+	}
+  ],
+  "night_event": {
+	"narrator": "Permaisuri Elara menghentikan Keshar di koridor, jauh dari telinga raja.",
+	"dialogues": [
+	  { "speaker": "Permaisuri Elara", "text": "Keshar... raja itu masih sangat muda. Dia baru saja kehilangan ayahnya. Jangan terlalu keras padanya." }
+	],
+	"choices": [
+	  {
+		"id": "A",
+		"text": "Setuju — 'Tentu, Yang Mulia Ratu. Saya hanya ingin yang terbaik untuknya.'",
+		"effects": { "trust_king": 3 },
+		"king_response": "Bagus. Jaga dia baik-baik, Keshar.",
+		"keshar_text": "Tentu, Yang Mulia. Saya juga sayang pada raja."
+	  },
+	  {
+		"id": "B",
+		"text": "Diam — angguk tapi tidak berjanji apa-apa",
+		"effects": { "influence": 2 },
+		"king_response": null,
+		"keshar_text": null,
+		"narrator_result": "Keshar mengangguk hormat tapi tidak berkata-kata. Permaisuri menatapnya lama sebelum pergi."
+	  },
+	  {
+		"id": "C",
+		"text": "'Kerajaan butuh pemimpin kuat, bukan anak manja.'",
+		"effects": { "trust_king": -3, "influence": 5 },
+		"king_response": null,
+		"keshar_text": "Dengan segala hormat — kerajaan sedang krisis. Raja harus keras sekarang, atau tidak ada kerajaan untuk dilunakkan nanti.",
+		"elara_response": "(dengan dingin) Hati-hati dengan kata-katamu, Keshar."
+	  }
+	]
+  }
+}

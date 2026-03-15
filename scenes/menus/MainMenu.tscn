@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://ba7b2hdk8aw70"]
+
+[ext_resource type="Script" uid="uid://csyrxyoofna74" path="res://scripts/scenes/MainMenu.gd" id="1_wlpbi"]
+
+[node name="MainMenu" type="Control" unique_id=2004956904]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_wlpbi")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=3267001]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.050980393, 0.050980393, 0.078431375, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1329675500]
+layout_mode = 0
+offset_left = 415.0
+offset_top = 406.0
+offset_right = 756.0
+offset_bottom = 582.0
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer" unique_id=111788877]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9019608, 0.8509804, 0.6, 1)
+theme_override_font_sizes/font_size = 24
+text = "Keshar: Shadow of the Crown"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=723311808]
+layout_mode = 2
+
+[node name="ButtonContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=1487500364]
+layout_mode = 2
+
+[node name="StartButton" type="Button" parent="VBoxContainer/ButtonContainer" unique_id=949118788]
+layout_mode = 2
+text = "Mulai Permainan Baru"
+
+[node name="ContinueButton" type="Button" parent="VBoxContainer/ButtonContainer" unique_id=377997064]
+layout_mode = 2
+text = "Lanjutkan"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer/ButtonContainer" unique_id=531971252]
+layout_mode = 2
+text = "Keluar"
+
+[node name="VersionLabel" type="Label" parent="." unique_id=712253291]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 612.0
+offset_right = 195.0
+offset_bottom = 646.0
+theme_override_colors/font_color = Color(0.9019608, 0.8509804, 0.6, 1)
+theme_override_font_sizes/font_size = 16
+text = "v0.1"
+vertical_alignment = 1
