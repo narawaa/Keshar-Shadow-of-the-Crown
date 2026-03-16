@@ -1,14 +1,23 @@
 [gd_scene format=3 uid="uid://b4dpi5htp3ilp"]
 
+[ext_resource type="Script" uid="uid://doallv1nly2qn" path="res://scripts/scenes/GameScene.gd" id="1_h1nqe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h1nqe"]
+expand_margin_left = 10.0
+expand_margin_top = 6.0
+expand_margin_right = 10.0
+expand_margin_bottom = 6.0
+
 [node name="GameScene" type="Control" unique_id=403271159]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_h1nqe")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1961168510]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
-color = Color(0.050980393, 0.050980393, 0.078431375, 1)
+color = Color(0.78407705, 0.7858723, 0.85282385, 1)
 
 [node name="TopBar" type="HBoxContainer" parent="." unique_id=242063537]
 layout_mode = 0
@@ -82,43 +91,94 @@ text = "50"
 layout_mode = 2
 text = "Raja: Netral (0)"
 
-[node name="DialogLayer" type="Control" parent="." unique_id=1296021482]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="DialogBox" type="PanelContainer" parent="DialogLayer" unique_id=644264437]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="DialogVBox" type="VBoxContainer" parent="DialogLayer/DialogBox" unique_id=1423445227]
-layout_mode = 2
-
-[node name="SpeakerLabel" type="Label" parent="DialogLayer/DialogBox/DialogVBox" unique_id=835825823]
-layout_mode = 2
-
-[node name="DialogLabel" type="RichTextLabel" parent="DialogLayer/DialogBox/DialogVBox" unique_id=959110028]
-layout_mode = 2
-
 [node name="ChoicePanel" type="PanelContainer" parent="." unique_id=1577953972]
+z_index = 10
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 720.0
+offset_top = 280.0
+offset_right = 1120.0
+offset_bottom = 337.0
 
 [node name="ChoiceContainer" type="VBoxContainer" parent="ChoicePanel" unique_id=1546422051]
+z_index = 11
 layout_mode = 2
-
-[node name="DialogLabel" type="RichTextLabel" parent="ChoicePanel/ChoiceContainer" unique_id=634600538]
-layout_mode = 2
+theme_override_constants/separation = 2
 
 [node name="CharacterLayer" type="Control" parent="." unique_id=1673044929]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -1.0
+offset_top = 116.0
+offset_right = 1149.0
+offset_bottom = 509.0
 
-[node name="King" type="Sprite2D" parent="CharacterLayer" unique_id=2015314125]
+[node name="King" type="Node2D" parent="CharacterLayer" unique_id=1724101468]
 
-[node name="Visitor" type="Sprite2D" parent="CharacterLayer" unique_id=110609332]
+[node name="Sprite2D" type="Sprite2D" parent="CharacterLayer/King" unique_id=699344808]
 
-[node name="Keshar" type="Sprite2D" parent="CharacterLayer" unique_id=1664764602]
+[node name="DialogBubble" type="Control" parent="CharacterLayer/King" unique_id=150287340]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 450.0
+offset_top = 20.0
+offset_right = 690.0
+offset_bottom = 84.0
+
+[node name="Panel" type="PanelContainer" parent="CharacterLayer/King/DialogBubble" unique_id=152767919]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 0
+offset_right = 250.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_h1nqe")
+
+[node name="DialogLabel" type="RichTextLabel" parent="CharacterLayer/King/DialogBubble/Panel" unique_id=680874735]
+layout_mode = 2
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+
+[node name="Visitor" type="Node2D" parent="CharacterLayer" unique_id=1145926443]
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterLayer/Visitor" unique_id=69837576]
+
+[node name="DialogBubble" type="Control" parent="CharacterLayer/Visitor" unique_id=553345982]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 100.0
+offset_top = 200.0
+offset_right = 340.0
+offset_bottom = 264.0
+
+[node name="Panel" type="PanelContainer" parent="CharacterLayer/Visitor/DialogBubble" unique_id=2046023708]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 0
+offset_right = 250.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_h1nqe")
+
+[node name="DialogLabel" type="RichTextLabel" parent="CharacterLayer/Visitor/DialogBubble/Panel" unique_id=1806159115]
+layout_mode = 2
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+
+[node name="Keshar" type="Node2D" parent="CharacterLayer" unique_id=522255773]
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterLayer/Keshar" unique_id=1548357130]
+
+[node name="DialogBubble" type="Control" parent="CharacterLayer/Keshar" unique_id=2018432781]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 800.0
+offset_top = 100.0
+offset_right = 1040.0
+offset_bottom = 164.0
+
+[node name="Panel" type="PanelContainer" parent="CharacterLayer/Keshar/DialogBubble" unique_id=873433559]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 0
+offset_right = 250.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_h1nqe")
+
+[node name="DialogLabel" type="RichTextLabel" parent="CharacterLayer/Keshar/DialogBubble/Panel" unique_id=33123669]
+layout_mode = 2
+fit_content = true
+scroll_active = false
+autowrap_mode = 2

@@ -2,20 +2,44 @@ extends Node
 
 signal choice_selected(choice)
 
-func show_choices(container: VBoxContainer, choices: Array):
-	
-	for child in container.get_children():
-		child.queue_free()
-	
-	for choice in choices:
+var container
+
+func setup(choice_container):
+	container = choice_container
+
+func show_choices(choices:Array):
+	for c in container.get_children():
+		c.queue_free()
 		
+	var normal_style = StyleBoxFlat.new()
+	normal_style.bg_color = Color("#2b2b2b")
+
+	var focus_style = StyleBoxFlat.new()
+	focus_style.bg_color = Color("#5a7cff")
+
+	for choice in choices:
 		var btn = Button.new()
-		btn.text = choice.get("text", "???")
-		btn.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		btn.custom_minimum_size = Vector2(0, 50)
+		btn.text = choice.get("text","")
+		
+		btn.custom_minimum_size = Vector2(0,32)
+		btn.add_theme_font_size_override("font_size", 16)
+		btn.autowrap_mode = TextServer.AUTOWRAP_WORD
+		btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		btn.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
+
+		btn.focus_mode = Control.FOCUS_ALL
+		
+		btn.add_theme_stylebox_override("normal", normal_style)
+		btn.add_theme_stylebox_override("focus", focus_style)
+		btn.add_theme_stylebox_override("hover", focus_style)
 		
 		btn.pressed.connect(func():
-			choice_selected.emit(choice)
+			print("CHOICE CLICKED")
+			emit_signal("choice_selected", choice)
 		)
-		
+
 		container.add_child(btn)
+		
+	if container.get_child_count() > 0:
+		await get_tree().process_frame
+		container.get_child(0).grab_focus()

@@ -19,11 +19,10 @@ func _ready() -> void:
 	# Cek apakah ada save file
 	var has_save = SaveManager.has_save()
 	continue_btn.disabled = not has_save
-	continue_btn.tooltip_text = "" if has_save else "Belum ada data tersimpan"
 	
-	version_label.text = "v0.1 — Demo"
+	version_label.text = "v0.1 — Prototype"
 	
-	# Animasi masuk sederhana
+	# Animasi
 	modulate = Color(0, 0, 0, 0)
 	var tween = create_tween()
 	tween.tween_property(self, "modulate", Color(1, 1, 1, 1), 1.0)
