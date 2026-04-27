@@ -1,10 +1,5 @@
 extends Control
 
-# =============================================
-# MainMenu.gd
-# Menu utama: mulai baru, lanjutkan, keluar
-# =============================================
-
 @onready var title_label: Label = $VBoxContainer/TitleLabel
 @onready var start_btn: Button = $VBoxContainer/ButtonContainer/StartButton
 @onready var continue_btn: Button = $VBoxContainer/ButtonContainer/ContinueButton
@@ -27,6 +22,8 @@ func _ready() -> void:
 	var tween = create_tween()
 	tween.tween_property(self, "modulate", Color(1, 1, 1, 1), 1.0)
 
+
+# ======================================
 func _on_start_pressed() -> void:
 	GameState.reset()
 	SaveManager.delete_save()

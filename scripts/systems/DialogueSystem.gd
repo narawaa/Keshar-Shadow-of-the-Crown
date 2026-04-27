@@ -2,82 +2,119 @@ extends Node
 
 signal dialogue_finished
 
-var dialog_queue : Array = []
+var dialog_queue: Array = []
 var index := 0
 
-var king_label
-var keshar_label
-var visitor_label
+var king_label: RichTextLabel
+var keshar_label: RichTextLabel
+var visitor_label: RichTextLabel
 
 var typing := false
-var typing_speed := 0.02
+var typing_speed := 0.03
 
-func setup(king, keshar, visitor):
-	king_label = king
-	keshar_label = keshar
+var _timer: Timer
+var _active_label: RichTextLabel = null
+var _full_text: String = ""
+
+func _ready() -> void:
+	_timer = Timer.new()
+	_timer.wait_time = typing_speed
+	_timer.one_shot = false
+	_timer.autostart = false
+	_timer.timeout.connect(_on_timer_tick)
+	add_child(_timer)
+
+func setup(king: RichTextLabel, keshar: RichTextLabel, visitor: RichTextLabel) -> void:
+	king_label    = king
+	keshar_label  = keshar
 	visitor_label = visitor
 
-func start_dialogues(dialogs:Array):
+func start_dialogues(dialogs: Array) -> void:
 	dialog_queue = dialogs
 	index = 0
 	_show_next()
-	
-func next():
-	if typing:
-		_finish_typing()
-		return
 
+func next() -> void:
+	if typing:
+		_timer.stop()
+		if _active_label:
+			_active_label.visible_characters = -1
+		typing = false
+		_active_label = null
+		return
 	_show_next()
 
-func _show_next():
+
+# ======================================
+func _show_next() -> void:
 	if index >= dialog_queue.size():
 		emit_signal("dialogue_finished")
 		return
 
-	var entry = dialog_queue[index]
+	var entry   = dialog_queue[index]
 	index += 1
 
-	var speaker = entry.get("speaker","")
-	var text = entry.get("text","")
+	var speaker: String = entry.get("speaker", "")
+	var text: String    = entry.get("text", "")
 
 	_clear_labels()
 
+	var target: RichTextLabel
 	match speaker:
-		"Raja Aldric":
-			_type_text(king_label, text)
-		"Keshar":
-			_type_text(keshar_label, text)
-		_:
-			_type_text(visitor_label, text)
+		"Raja Aldric": target = king_label
+		"Keshar":      target = keshar_label
+		_:             target = visitor_label
 
-func _type_text(label:RichTextLabel,text:String):
-	label.text = ""
-	
-	var bubble = label.get_parent().get_parent()
-	bubble.visible = true
+	_start_typing(target, text)
+
+func _start_typing(label: RichTextLabel, text: String) -> void:
+	_active_label = label
+	_full_text    = text
+
+	label.text = text
+	label.visible_characters = 0
+	label.get_parent().get_parent().visible = true
+
+	if text.is_empty():
+		emit_signal("dialogue_finished")
+		return
 
 	typing = true
-	for c in text:
-		label.text += c
-		await get_tree().create_timer(typing_speed).timeout
+	_timer.wait_time = typing_speed
+	_timer.start()
 
-		if not typing:
-			label.text = text
-			return
+func _on_timer_tick() -> void:
+	if _active_label == null:
+		_timer.stop()
+		typing = false
+		return
 
-	typing = false
+	var cur   = _active_label.visible_characters
+	var total = _full_text.length()
 
-func _finish_typing():
-	typing = false
-	
-func _hide_bubble(label:RichTextLabel):
+	if cur >= total:
+		_timer.stop()
+		typing = false
+		_active_label = null
+		return
+
+	_active_label.visible_characters += 1
+
+func _hide_bubble(label: RichTextLabel) -> void:
 	label.text = ""
+	label.visible_characters = 0
 	label.get_parent().get_parent().visible = false
-	
-func _clear_labels():
-	if king_label:
-		_hide_bubble(king_label)
-	if keshar_label:
-		_hide_bubble(keshar_label)
-	if visitor_label:
-		_hide_bubble(visitor_label)
+
+func _clear_labels() -> void:
+	if king_label:    _hide_bubble(king_label)
+	if keshar_label:  _hide_bubble(keshar_label)
+	if visitor_label: _hide_bubble(visitor_label)
+
+func force_stop():
+	if _timer:
+		_timer.stop()
+	typing = false
+	_active_label = null
+	dialog_queue.clear()
+	index = 0
+	_clear_labels()

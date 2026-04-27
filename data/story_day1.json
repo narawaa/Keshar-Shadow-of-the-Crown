@@ -2,7 +2,7 @@
   "day": 1,
   "title": "Awal yang Berat",
   "morning_briefing": {
-	"narrator": "Keshar memasuki ruang tahta untuk pertama kalinya sebagai penasihat resmi. Raja Aldric — muda, cerdas, tapi belum matang — duduk di singgasana yang tampak terlalu besar untuknya.",
+	"narrator": "Keshar memasuki ruang tahta untuk pertama kalinya sebagai penasihat resmi. Raja Aldric, muda, cerdas, tapi belum matang, duduk di singgasana yang tampak terlalu besar untuknya.",
 	"dialogues": [
 	  { "speaker": "Raja Aldric", "text": "Hari pertama... aku harap rakyat percaya padaku." },
 	  { "speaker": "Keshar", "text": "Mereka akan percaya jika Yang Mulia memberi mereka alasan untuk percaya." }
@@ -34,13 +34,13 @@
 		  "king_follow_text": "Sabar. Kita lihat dulu perkembangannya.",
 		  "king_refuse_text": "Tapi anak-anak mereka lapar, Keshar...",
 		  "king_refuse_effect": { "stability": -2, "treasury": -4 },
-		  "keshar_text": "Sabar dulu, Yang Mulia. Kita perlu tahu seberapa parah sebelum membuang harta kerajaan."
+		  "keshar_text": "Sabar dulu, Yang Mulia. Kita perlu tahu seberapa parah sebelum memberikan harta kerajaan."
 		},
 		{
 		  "id": "C",
 		  "text": "Sarankan tunda pajak desa tersebut 3 bulan",
 		  "effects": { "stability": 5, "influence": 3 },
-		  "king_follow_text": "Tunda pajaknya. Itu lebih bijak dari memberi — mereka belajar mandiri.",
+		  "king_follow_text": "Tunda pajaknya. Itu lebih bijak dari memberi.",
 		  "king_refuse_text": "Bukankah kas kita butuh pemasukan itu?",
 		  "king_refuse_effect": { "stability": 2, "influence": 1 },
 		  "keshar_text": "Tunda pajaknya, Yang Mulia. Mereka bisa bangkit sendiri jika diberi waktu."
@@ -49,10 +49,10 @@
 	},
 	{
 	  "id": "v2_bangsawan_arogan",
-	  "name": "Lord Caelen — Bangsawan Arogan",
+	  "name": "Lord Caelen, Bangsawan Arogan",
 	  "narrator": "Lord Caelen masuk dengan jubah mewah, berjalan seolah ruangan ini miliknya.",
 	  "dialogues": [
-		{ "speaker": "Lord Caelen", "text": "Rakyatku sudah membayar terlalu banyak pajak. Pajak desa saya harus dikurangi — sekarang." },
+		{ "speaker": "Lord Caelen", "text": "Rakyatku sudah membayar terlalu banyak pajak. Pajak desa saya harus dikurangi sekarang!" },
 		{ "speaker": "Raja Aldric", "text": "Dia... meminta atau menuntut? Keshar?" }
 	  ],
 	  "choices": [
@@ -67,27 +67,28 @@
 		},
 		{
 		  "id": "B",
-		  "text": "Sarankan tolak — pajak tetap seperti adanya",
+		  "text": "Sarankan tolak, pajak tetap seperti adanya",
 		  "effects": { "trust_king": 2, "influence": 3 },
 		  "king_follow_text": "Pajak tetap. Kerajaan punya aturan yang berlaku untuk semua.",
 		  "king_refuse_text": "Tapi dia cukup berpengaruh... aku tidak ingin musuh baru.",
-		  "king_refuse_effect": { "trust_king": 1 },
+		  "king_refuse_effect": { "trust_king": -1 },
 		  "keshar_text": "Jika satu bangsawan dapat pengecualian, semua akan meminta hal sama, Yang Mulia."
 		},
 		{
 		  "id": "C",
 		  "text": "Sarankan paksa Lord Caelen bayar lebih sebagai 'kontribusi darurat'",
 		  "effects": { "treasury": 10, "stability": -6 },
-		  "king_follow_text": "Justru sebaliknya — minta kontribusi darurat dari desa Caelen yang sangat kaya.",
+		  "king_follow_text": "Justru sebaliknya, minta kontribusi darurat dari desa Caelen yang sangat kaya.",
 		  "king_refuse_text": "Itu terlalu berani, Keshar. Aku tidak ingin konflik.",
 		  "king_refuse_effect": { "treasury": 0, "stability": 0 },
-		  "keshar_text": "Desa Caelen sangat kaya, Yang Mulia. Ini bukan penghinaan — ini logika."
+		  "keshar_text": "Desa Caelen sangat kaya, Yang Mulia. Ini bukan penghinaan, ini logika.",
+		  "visitor_king_follow_response": "Ini penghinaan!"
 		}
 	  ]
 	},
 	{
 	  "id": "v3_monster",
-	  "name": "Kapten Garen — Laporan Monster",
+	  "name": "Kapten Garen, Laporan Monster",
 	  "narrator": "Kapten Garen masuk, wajahnya serius.",
 	  "dialogues": [
 		{ "speaker": "Kapten Garen", "text": "Yang Mulia, ada laporan monster terlihat di hutan utara. Penduduk desa Mirefall panik." },
@@ -100,12 +101,12 @@
 		  "effects": { "military": -3, "stability": 5 },
 		  "king_follow_text": "Kirim pasukan. Keselamatan rakyat didahulukan.",
 		  "king_refuse_text": "Apakah kita perlu sekian banyak tentara hanya untuk satu monster?",
-		  "king_refuse_effect": { "military": -1, "stability": 2 },
+		  "king_refuse_effect": { "military": -1, "stability": -2 },
 		  "keshar_text": "Keselamatan rakyat harus didahulukan, Yang Mulia."
 		},
 		{
 		  "id": "B",
-		  "text": "Sarankan abaikan — mungkin hanya rumor",
+		  "text": "Sarankan abaikan, mungkin hanya rumor",
 		  "effects": { "stability": -6 },
 		  "king_follow_text": "Monster muncul dan hilang sendiri. Jangan buang sumber daya militer untuk rumor.",
 		  "king_refuse_text": "Bagaimana kalau itu nyata dan ada yang terluka?",
@@ -116,7 +117,7 @@
 		  "id": "C",
 		  "text": "Jadikan latihan militer sekaligus memburu monster",
 		  "effects": { "military": 4, "stability": -3 },
-		  "king_follow_text": "Ini kesempatan emas. Latihan tempur nyata — tentara kita perlu diasah.",
+		  "king_follow_text": "Ini kesempatan emas. Latihan tempur nyata, tentara kita perlu diasah.",
 		  "king_refuse_text": "Kamu mau pakai nyawa rakyat sebagai ajang latihan?",
 		  "king_refuse_effect": { "military": 1, "stability": -1 },
 		  "keshar_text": "Kesempatan yang tidak boleh dilewatkan, Yang Mulia. Dua manfaat sekaligus."
@@ -135,14 +136,14 @@
 		"text": "'Setiap raja belajar. Yang penting kamu mau mendengar.'",
 		"effects": { "trust_king": 5, "king_personality": 5 },
 		"king_response": "...Terima kasih, Keshar. Aku akan berusaha.",
-		"keshar_text": "Raja terbaik bukan yang tidak pernah ragu — tapi yang berani menghadapi keraguannya.",
+		"keshar_text": "Raja terbaik bukan yang tidak pernah ragu tapi yang berani menghadapi keraguannya.",
 		"personality_shift": "strong"
 	  },
 	  {
 		"id": "B",
 		"text": "'Rakyat butuh keputusan, bukan keraguan.'",
 		"effects": { "trust_king": -2, "king_personality": 5 },
-		"king_response": "(diam, lalu mengangguk keras) Kamu benar. Aku harus lebih tegas.",
+		"king_response": "Kamu benar. Aku harus lebih tegas.",
 		"keshar_text": "Keraguan adalah kemewahan yang tidak bisa dibeli kerajaan, Yang Mulia.",
 		"personality_shift": "strong"
 	  },

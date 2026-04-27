@@ -1,10 +1,5 @@
 extends Node
 
-# =============================================
-# StoryLoader.gd — Autoload
-# Memuat dan parse file JSON cerita per hari
-# =============================================
-
 var _cache: Dictionary = {}
 
 func load_day(day_number: int) -> Dictionary:
@@ -35,6 +30,7 @@ func get_visitor(day: int, visitor_index: int) -> Dictionary:
 	var day_data = load_day(day)
 	if day_data.is_empty():
 		return {}
+	
 	var visitors = day_data.get("visitors", [])
 	if visitor_index >= visitors.size():
 		return {}

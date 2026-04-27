@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://cxoj8a23th3mn"]
+
+[ext_resource type="Script" uid="uid://cb1c5vxxr0r6w" path="res://scripts/systems/DayTransition.gd" id="1_dtr"]
+
+[node name="DayTransition" type="CanvasLayer" unique_id=196222979]
+layer = 10
+script = ExtResource("1_dtr")
+
+[node name="Overlay" type="ColorRect" parent="." unique_id=383988418]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=9893613]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBox" type="VBoxContainer" parent="CenterContainer" unique_id=610292216]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="DayLabel" type="Label" parent="CenterContainer/VBox" unique_id=1856536713]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.88, 0.55, 1)
+theme_override_font_sizes/font_size = 52
+text = "Hari ke-"
+horizontal_alignment = 1
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/VBox" unique_id=1524881767]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.75, 0.75, 1)
+theme_override_font_sizes/font_size = 22
+horizontal_alignment = 1
+
+[node name="NextButton" type="Button" parent="CenterContainer/VBox" unique_id=1614065311]
+layout_mode = 2
+text = "Lanjutkan ke hari berikutnya ▶"
+
+[connection signal="pressed" from="CenterContainer/VBox/NextButton" to="." method="_on_next_button_pressed"]

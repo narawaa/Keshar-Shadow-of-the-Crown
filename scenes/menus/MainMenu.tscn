@@ -9,16 +9,16 @@ script = ExtResource("1_wlpbi")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=3267001]
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 color = Color(0.050980393, 0.050980393, 0.078431375, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1329675500]
 layout_mode = 0
-offset_left = 405.0
-offset_top = 405.0
-offset_right = 746.0
-offset_bottom = 581.0
+offset_left = 821.0
+offset_top = 700.0
+offset_right = 1162.0
+offset_bottom = 876.0
 alignment = 1
 
 [node name="TitleLabel" type="Label" parent="VBoxContainer" unique_id=111788877]
@@ -49,9 +49,9 @@ text = "Keluar"
 [node name="VersionLabel" type="Label" parent="." unique_id=712253291]
 layout_mode = 0
 offset_left = 17.0
-offset_top = 612.0
+offset_top = 1040.0
 offset_right = 195.0
-offset_bottom = 646.0
+offset_bottom = 1074.0
 theme_override_colors/font_color = Color(0.9019608, 0.8509804, 0.6, 1)
 theme_override_font_sizes/font_size = 16
 vertical_alignment = 1

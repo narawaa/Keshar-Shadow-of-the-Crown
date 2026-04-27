@@ -2,164 +2,164 @@
   "day": 3,
   "title": "Ketegangan Meningkat",
   "morning_briefing": {
-    "narrator": "Suasana kerajaan mulai terasa berat. Para bangsawan lebih banyak berbisik dari biasanya.",
-    "dialogues": [
-      { "speaker": "Raja Aldric", "text": "Keshar, ada yang aneh. Para bangsawan... mereka menatapku dengan cara yang berbeda." },
-      { "speaker": "Keshar", "text": "Yang Mulia semakin diperhatikan. Itu tanda bahwa posisi Yang Mulia mulai dihitung orang." }
-    ]
+	"narrator": "Suasana kerajaan mulai terasa berat. Para bangsawan lebih banyak berbisik dari biasanya.",
+	"dialogues": [
+	  { "speaker": "Raja Aldric", "text": "Keshar, ada yang aneh. Para bangsawan... mereka menatapku dengan cara yang berbeda." },
+	  { "speaker": "Keshar", "text": "Yang Mulia semakin diperhatikan. Itu tanda bahwa posisi Yang Mulia mulai dihitung orang." }
+	]
   },
   "visitors": [
-    {
-      "id": "v1_bandit_ashford",
-      "name": "Utusan Desa Ashford — Diserang Bandit",
-      "narrator": "Seorang utusan dari Desa Ashford tiba dengan luka di wajahnya, jubahnya robek.",
-      "dialogues": [
-        { "speaker": "Utusan Desa", "text": "Yang Mulia! Bandit menyerang desa kami malam tadi. Mereka membakar gudang, mencuri ternak. Kami butuh perlindungan!" },
-        { "speaker": "Raja Aldric", "text": "Ini serangan nyata. Keshar, kita harus merespons." }
-      ],
-      "choices": [
-        {
-          "id": "A",
-          "text": "Sarankan kirim patroli militer ke Ashford",
-          "effects": { "military": -3, "stability": 6 },
-          "king_follow_text": "Kirim patroli. Desa yang dilindungi kerajaan adalah desa yang setia.",
-          "king_refuse_text": "Berapa banyak tentara yang perlu kita kirim?",
-          "king_refuse_effect": { "military": -1, "stability": 3 },
-          "keshar_text": "Desa yang ditinggalkan oleh kerajaan adalah desa yang akan mencari pelindung lain, Yang Mulia."
-        },
-        {
-          "id": "B",
-          "text": "Sarankan abaikan — bandit akan pergi sendiri",
-          "effects": { "stability": -7 },
-          "king_follow_text": "Bandit kecil tidak sebanding dengan kekuatan militer kita.",
-          "king_refuse_text": "Tapi mereka membakar gudang pangan...",
-          "king_refuse_effect": { "stability": -3 },
-          "keshar_text": "Bandit datang dan pergi, Yang Mulia. Jangan habiskan kekuatan militer untuk ancaman kecil."
-        },
-        {
-          "id": "C",
-          "text": "Sarankan bayar bandit — beli perdamaian sementara",
-          "effects": { "treasury": -6, "stability": 2 },
-          "king_follow_text": "Terkadang lebih murah membayar daripada berperang. Untuk saat ini.",
-          "king_refuse_text": "Kita mau terlihat membayar bandit? Itu melemahkan wibawa kerajaan.",
-          "king_refuse_effect": { "military": -1, "stability": 2 },
-          "keshar_text": "Ini strategi jangka pendek, Yang Mulia. Kita selesaikan masalah yang lebih besar dulu."
-        }
-      ]
-    },
-    {
-      "id": "v2_fitnah_bangsawan",
-      "name": "Lord Erwin & Lady Sora — Saling Memfitnah",
-      "narrator": "Lord Erwin dan Lady Sora masuk bersamaan — keduanya bicara keras bahkan sebelum memberi hormat.",
-      "dialogues": [
-        { "speaker": "Lord Erwin", "text": "Yang Mulia! Lady Sora telah mencuri dokumen tanah milik keluargaku!" },
-        { "speaker": "Lady Sora", "text": "Bohong! Dialah yang memalsukan batas tanah sejak dulu!" },
-        { "speaker": "Raja Aldric", "text": "Keshar... siapa yang benar?" }
-      ],
-      "choices": [
-        {
-          "id": "A",
-          "text": "Sarankan dukung Lord Erwin — terlihat lebih kredibel",
-          "effects": { "influence": 3, "stability": -2 },
-          "king_follow_text": "Lord Erwin memiliki bukti lebih kuat. Aku memutuskan mendukung klaimnya.",
-          "king_refuse_text": "Tapi aku tidak yakin siapa yang benar, Keshar...",
-          "king_refuse_effect": { "stability": 1 },
-          "keshar_text": "Lord Erwin lebih berpengaruh di wilayah utara, Yang Mulia. Ini investasi politik."
-        },
-        {
-          "id": "B",
-          "text": "Sarankan dukung Lady Sora — bangun aliansi dengannya",
-          "effects": { "influence": 3, "stability": -2 },
-          "king_follow_text": "Lady Sora memiliki klaim yang lebih kuat secara historis.",
-          "king_refuse_text": "Apakah ini keputusan yang adil atau hanya politis?",
-          "king_refuse_effect": { "stability": 1 },
-          "keshar_text": "Lady Sora lebih berpengaruh di selatan, Yang Mulia. Aliansi lebih berharga dari kebenaran saat ini."
-        },
-        {
-          "id": "C",
-          "text": "Sarankan hukum keduanya — mereka membuang waktu kerajaan",
-          "effects": { "influence": 4, "trust_king": -2 },
-          "king_follow_text": "Keduanya membawa urusan pribadi ke hadapan raja. Denda keduanya, investigasi independen.",
-          "king_refuse_text": "Itu mungkin terlalu keras... mereka adalah bangsawan.",
-          "king_refuse_effect": { "influence": 2, "treasury": 3 },
-          "keshar_text": "Waktu raja adalah sumber daya paling berharga di kerajaan ini. Jangan habiskan untuk pertengkaran tanah."
-        }
-      ]
-    },
-    {
-      "id": "v3_jenderal_marah",
-      "name": "Jenderal Voss — Kritik Terbuka",
-      "narrator": "Jenderal Voss masuk tanpa melepas sarung tangan — tanda ketidakhormatan yang tidak bisa diabaikan.",
-      "dialogues": [
-        { "speaker": "Jenderal Voss", "text": "Yang Mulia, dengan segala hormat — keputusan militer belakangan ini terlalu ragu-ragu." },
-        { "speaker": "Raja Aldric", "text": "(tegang) Keshar... dia... apakah ini penghinaan?" }
-      ],
-      "choices": [
-        {
-          "id": "A",
-          "text": "Sarankan bela raja — tegur Jenderal Voss",
-          "effects": { "trust_king": 6, "military": -2 },
-          "king_follow_text": "Jenderal Voss, ucapanmu berbatasan dengan penghinaan kepada mahkota. Minta maaf.",
-          "king_refuse_text": "Apakah itu tidak terlalu keras? Dia jenderal penting.",
-          "king_refuse_effect": { "trust_king": 3, "military": -1 },
-          "keshar_text": "Kata-katamu berbatasan dengan penghinaan kepada mahkota, Jenderal."
-        },
-        {
-          "id": "B",
-          "text": "Sarankan akui kebenaran Jenderal — raja memang perlu lebih tegas",
-          "effects": { "military": 5, "trust_king": -6 },
-          "king_follow_text": "Jenderal Voss hanya menyampaikan kekhawatiran militer yang valid.",
-          "king_refuse_text": "Kamu... mendukung dia daripada aku?",
-          "king_refuse_effect": { "trust_king": -3 },
-          "keshar_text": "Jenderal Voss menunjukkan dedikasi sejatinya, Yang Mulia. Ada baiknya kita dengarkan."
-        },
-        {
-          "id": "C",
-          "text": "Manipulasi — puji keduanya, jadikan Keshar penengah",
-          "effects": { "influence": 6 },
-          "king_follow_text": "(Raja mengangguk, merasa dihargai. Voss juga merasa dimenangkan.)",
-          "king_refuse_text": "(Raja dan Voss sama-sama mengangguk, meski canggung.)",
-          "king_refuse_effect": { "influence": 3 },
-          "keshar_text": "Jenderal Voss menunjukkan dedikasi sejatinya, dan Yang Mulia juga sedang berkembang. Keduanya adalah aset kerajaan yang tak ternilai."
-        }
-      ]
-    }
+	{
+	  "id": "v1_bandit_ashford",
+	  "name": "Utusan Desa Ashford — Diserang Bandit",
+	  "narrator": "Seorang utusan dari Desa Ashford tiba dengan luka di wajahnya, jubahnya robek.",
+	  "dialogues": [
+		{ "speaker": "Utusan Desa", "text": "Yang Mulia! Bandit menyerang desa kami malam tadi. Mereka membakar gudang, mencuri ternak. Kami butuh perlindungan!" },
+		{ "speaker": "Raja Aldric", "text": "Ini serangan nyata. Keshar, kita harus merespons." }
+	  ],
+	  "choices": [
+		{
+		  "id": "A",
+		  "text": "Sarankan kirim patroli militer ke Ashford",
+		  "effects": { "military": -3, "stability": 6 },
+		  "king_follow_text": "Kirim patroli. Desa yang dilindungi kerajaan adalah desa yang setia.",
+		  "king_refuse_text": "Berapa banyak tentara yang perlu kita kirim?",
+		  "king_refuse_effect": { "military": -1, "stability": 3 },
+		  "keshar_text": "Desa yang ditinggalkan oleh kerajaan adalah desa yang akan mencari pelindung lain, Yang Mulia."
+		},
+		{
+		  "id": "B",
+		  "text": "Sarankan abaikan — bandit akan pergi sendiri",
+		  "effects": { "stability": -7 },
+		  "king_follow_text": "Bandit kecil tidak sebanding dengan kekuatan militer kita.",
+		  "king_refuse_text": "Tapi mereka membakar gudang pangan...",
+		  "king_refuse_effect": { "stability": -3 },
+		  "keshar_text": "Bandit datang dan pergi, Yang Mulia. Jangan habiskan kekuatan militer untuk ancaman kecil."
+		},
+		{
+		  "id": "C",
+		  "text": "Sarankan bayar bandit — beli perdamaian sementara",
+		  "effects": { "treasury": -6, "stability": 2 },
+		  "king_follow_text": "Terkadang lebih murah membayar daripada berperang. Untuk saat ini.",
+		  "king_refuse_text": "Kita mau terlihat membayar bandit? Itu melemahkan wibawa kerajaan.",
+		  "king_refuse_effect": { "military": -1, "stability": 2 },
+		  "keshar_text": "Ini strategi jangka pendek, Yang Mulia. Kita selesaikan masalah yang lebih besar dulu."
+		}
+	  ]
+	},
+	{
+	  "id": "v2_fitnah_bangsawan",
+	  "name": "Lord Erwin & Lady Sora — Saling Memfitnah",
+	  "narrator": "Lord Erwin dan Lady Sora masuk bersamaan — keduanya bicara keras bahkan sebelum memberi hormat.",
+	  "dialogues": [
+		{ "speaker": "Lord Erwin", "text": "Yang Mulia! Lady Sora telah mencuri dokumen tanah milik keluargaku!" },
+		{ "speaker": "Lady Sora", "text": "Bohong! Dialah yang memalsukan batas tanah sejak dulu!" },
+		{ "speaker": "Raja Aldric", "text": "Keshar... siapa yang benar?" }
+	  ],
+	  "choices": [
+		{
+		  "id": "A",
+		  "text": "Sarankan dukung Lord Erwin — terlihat lebih kredibel",
+		  "effects": { "influence": 3, "stability": -2 },
+		  "king_follow_text": "Lord Erwin memiliki bukti lebih kuat. Aku memutuskan mendukung klaimnya.",
+		  "king_refuse_text": "Tapi aku tidak yakin siapa yang benar, Keshar...",
+		  "king_refuse_effect": { "stability": 1 },
+		  "keshar_text": "Lord Erwin lebih berpengaruh di wilayah utara, Yang Mulia. Ini investasi politik."
+		},
+		{
+		  "id": "B",
+		  "text": "Sarankan dukung Lady Sora — bangun aliansi dengannya",
+		  "effects": { "influence": 3, "stability": -2 },
+		  "king_follow_text": "Lady Sora memiliki klaim yang lebih kuat secara historis.",
+		  "king_refuse_text": "Apakah ini keputusan yang adil atau hanya politis?",
+		  "king_refuse_effect": { "stability": 1 },
+		  "keshar_text": "Lady Sora lebih berpengaruh di selatan, Yang Mulia. Aliansi lebih berharga dari kebenaran saat ini."
+		},
+		{
+		  "id": "C",
+		  "text": "Sarankan hukum keduanya — mereka membuang waktu kerajaan",
+		  "effects": { "influence": 4, "trust_king": -2 },
+		  "king_follow_text": "Keduanya membawa urusan pribadi ke hadapan raja. Denda keduanya, investigasi independen.",
+		  "king_refuse_text": "Itu mungkin terlalu keras... mereka adalah bangsawan.",
+		  "king_refuse_effect": { "influence": 2, "treasury": 3 },
+		  "keshar_text": "Waktu raja adalah sumber daya paling berharga di kerajaan ini. Jangan habiskan untuk pertengkaran tanah."
+		}
+	  ]
+	},
+	{
+	  "id": "v3_jenderal_marah",
+	  "name": "Jenderal Voss — Kritik Terbuka",
+	  "narrator": "Jenderal Voss masuk tanpa melepas sarung tangan — tanda ketidakhormatan yang tidak bisa diabaikan.",
+	  "dialogues": [
+		{ "speaker": "Jenderal Voss", "text": "Yang Mulia, dengan segala hormat — keputusan militer belakangan ini terlalu ragu-ragu." },
+		{ "speaker": "Raja Aldric", "text": "(tegang) Keshar... dia... apakah ini penghinaan?" }
+	  ],
+	  "choices": [
+		{
+		  "id": "A",
+		  "text": "Sarankan bela raja — tegur Jenderal Voss",
+		  "effects": { "trust_king": 6, "military": -2 },
+		  "king_follow_text": "Jenderal Voss, ucapanmu berbatasan dengan penghinaan kepada mahkota. Minta maaf.",
+		  "king_refuse_text": "Apakah itu tidak terlalu keras? Dia jenderal penting.",
+		  "king_refuse_effect": { "trust_king": 3, "military": -1 },
+		  "keshar_text": "Kata-katamu berbatasan dengan penghinaan kepada mahkota, Jenderal."
+		},
+		{
+		  "id": "B",
+		  "text": "Sarankan akui kebenaran Jenderal — raja memang perlu lebih tegas",
+		  "effects": { "military": 5, "trust_king": -6 },
+		  "king_follow_text": "Jenderal Voss hanya menyampaikan kekhawatiran militer yang valid.",
+		  "king_refuse_text": "Kamu... mendukung dia daripada aku?",
+		  "king_refuse_effect": { "trust_king": -3 },
+		  "keshar_text": "Jenderal Voss menunjukkan dedikasi sejatinya, Yang Mulia. Ada baiknya kita dengarkan."
+		},
+		{
+		  "id": "C",
+		  "text": "Manipulasi — puji keduanya, jadikan Keshar penengah",
+		  "effects": { "influence": 6 },
+		  "king_follow_text": "(Raja mengangguk, merasa dihargai. Voss juga merasa dimenangkan.)",
+		  "king_refuse_text": "(Raja dan Voss sama-sama mengangguk, meski canggung.)",
+		  "king_refuse_effect": { "influence": 3 },
+		  "keshar_text": "Jenderal Voss menunjukkan dedikasi sejatinya, dan Yang Mulia juga sedang berkembang. Keduanya adalah aset kerajaan yang tak ternilai."
+		}
+	  ]
+	}
   ],
   "night_event": {
-    "narrator": "Malam larut. Selim, kepala jaringan mata-mata kerajaan, masuk melalui pintu samping.",
-    "dialogues": [
-      { "speaker": "Selim", "text": "Tuan Keshar... beberapa bangsawan mulai berbicara. Tentang... raja baru." },
-      { "speaker": "Keshar", "text": "(diam sejenak) Siapa saja mereka?" },
-      { "speaker": "Selim", "text": "Belum bisa saya sebutkan. Tapi mereka serius." }
-    ],
-    "special_flag": "coup_route_checkpoint",
-    "choices": [
-      {
-        "id": "A",
-        "text": "Laporkan ke raja sekarang",
-        "effects": { "trust_king": 10 },
-        "king_response": "...Ini mengkhawatirkan. Tapi aku senang kamu melapor, Keshar. Aku akan menyelidiki.",
-        "keshar_text": "Yang Mulia harus tahu ini malam ini juga.",
-        "coup_effect": "none"
-      },
-      {
-        "id": "B",
-        "text": "Simpan informasi — ini kartu truf yang berguna nanti",
-        "effects": { "influence": 10 },
-        "king_response": null,
-        "keshar_text": null,
-        "narrator_result": "Keshar memerintahkan Selim diam. Informasi ini terlalu berharga untuk diserahkan begitu saja.",
-        "coup_effect": "none"
-      },
-      {
-        "id": "C",
-        "text": "Minta Selim atur pertemuan rahasia dengan para konspirator",
-        "effects": { "influence": 5 },
-        "king_response": null,
-        "keshar_text": "...Atur pertemuan. Diam-diam. Aku ingin mendengar langsung.",
-        "coup_effect": "unlock",
-        "checkpoint_message": "🔓 COUP ROUTE TERBUKA — Konspirator mulai terbentuk"
-      }
-    ]
+	"narrator": "Malam larut. Selim, kepala jaringan mata-mata kerajaan, masuk melalui pintu samping.",
+	"dialogues": [
+	  { "speaker": "Selim", "text": "Tuan Keshar... beberapa bangsawan mulai berbicara. Tentang... raja baru." },
+	  { "speaker": "Keshar", "text": "(diam sejenak) Siapa saja mereka?" },
+	  { "speaker": "Selim", "text": "Belum bisa saya sebutkan. Tapi mereka serius." }
+	],
+	"special_flag": "coup_route_checkpoint",
+	"choices": [
+	  {
+		"id": "A",
+		"text": "Laporkan ke raja sekarang",
+		"effects": { "trust_king": 10 },
+		"king_response": "...Ini mengkhawatirkan. Tapi aku senang kamu melapor, Keshar. Aku akan menyelidiki.",
+		"keshar_text": "Yang Mulia harus tahu ini malam ini juga.",
+		"coup_effect": "none"
+	  },
+	  {
+		"id": "B",
+		"text": "Simpan informasi — ini kartu truf yang berguna nanti",
+		"effects": { "influence": 10 },
+		"king_response": null,
+		"keshar_text": null,
+		"narrator_result": "Keshar memerintahkan Selim diam. Informasi ini terlalu berharga untuk diserahkan begitu saja.",
+		"coup_effect": "none"
+	  },
+	  {
+		"id": "C",
+		"text": "Minta Selim atur pertemuan rahasia dengan para konspirator",
+		"effects": { "influence": 5 },
+		"king_response": null,
+		"keshar_text": "...Atur pertemuan. Diam-diam. Aku ingin mendengar langsung.",
+		"coup_effect": "unlock",
+		"checkpoint_message": "🔓 COUP ROUTE TERBUKA — Konspirator mulai terbentuk"
+	  }
+	]
   }
 }

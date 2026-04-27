@@ -1,10 +1,5 @@
 extends Control
 
-# =============================================
-# EndingScene.gd
-# Menampilkan salah satu dari 4 ending
-# =============================================
-
 var ending_id: String = "ending_3_raja_berkembang"
 
 @onready var title_label: Label = $VBoxContainer/TitleLabel
@@ -20,28 +15,28 @@ const ENDINGS = {
 		"subtitle": "Keshar Menjadi Raja",
 		"color": Color(0.8, 0.2, 0.2),
 		"description": "Keshar duduk di singgasana. Tenang. Ini bukan kemenangan yang terasa manis.\n\nDi sudut matanya, terbayang wajah raja muda yang pernah berkata 'aku tidak bisa membayangkan memimpin tanpamu, Keshar'.\n\nTapi kerajaan ini kini stabil. Utang darah ada. Tapi stabilitas juga ada.\n\n[i]Pertanyaannya bukan apakah kamu menang — tapi apakah kemenangan ini layak kamu sebut kemenangan.[/i]",
-		"requirements": "Pengaruh > 70 | Kepercayaan Raja < 30 | Dukungan Militer > 50"
+		"requirements": "Pengaruh Keshar > 70 | Kepercayaan Raja < 30 | Militer Negara > 50"
 	},
 	"ending_2_coup_gagal": {
 		"title": "ENDING 2",
 		"subtitle": "Kudeta Gagal",
 		"color": Color(0.6, 0.1, 0.1),
 		"description": "Keshar berdiri di hadapan raja yang kini tidak lagi remaja. Tidak ada belas kasihan di matanya.\n\nIni konsekuensi dari setiap pilihan yang salah. Keshar dituntun ke luar ruang tahta untuk terakhir kalinya.\n\n[i]Ambisi tanpa kebijaksanaan hanya meninggalkan rantai.[/i]",
-		"requirements": "Coup Route Aktif | Pengaruh Rendah atau Raja Berhasil Menghentikan Kudeta"
+		"requirements": "Coup Route Aktif | Pengaruh Keshar Rendah atau Raja Berhasil Menghentikan Kudeta"
 	},
 	"ending_3_raja_berkembang": {
 		"title": "ENDING 3",
 		"subtitle": "Raja Berkembang",
 		"color": Color(0.2, 0.7, 0.3),
 		"description": "Setahun kemudian. Raja Aldric berdiri di depan rakyatnya, berbicara dengan keyakinan yang tidak ada sebulan lalu.\n\nDi sampingnya, Keshar — bukan sebagai arsitek bayangan, tapi sebagai penasihat yang benar-benar melayani.\n\nMungkin ini cara terbaik cerita ini berakhir.\n\n[i]Mungkin.[/i]",
-		"requirements": "Kepercayaan Raja Tinggi | Stabilitas > 70 | Keshar Memilih Loyalitas di Akhir"
+		"requirements": "Kepercayaan Raja Tinggi | Stabilitas Negara > 70 | Keshar Memilih Loyalitas di Akhir"
 	},
 	"ending_4_collapse": {
 		"title": "ENDING 4",
 		"subtitle": "Kerajaan Runtuh",
 		"color": Color(0.4, 0.4, 0.4),
 		"description": "Istana terbakar. Rakyat mengungsi. Kerajaan yang pernah berdiri megah kini menjadi abu.\n\nTidak ada pemenang. Hanya pelajaran yang terlambat dipetik — dan dua orang yang sama-sama gagal menjaga apa yang seharusnya mereka jaga bersama.\n\n[i]Beberapa kisah tidak berakhir dengan kemenangan — hanya penyesalan.[/i]",
-		"requirements": "Stabilitas < 20 di Akhir Krisis"
+		"requirements": "Stabilitas Negara < 20 di Akhir Krisis"
 	}
 }
 
@@ -67,12 +62,11 @@ func _display_ending() -> void:
 	# Tampilkan statistik akhir
 	var stats_text = """[b]Statistik Akhir:[/b]
 	
-Stabilitas: %d
+Stabilitas Negara: %d
 Kepercayaan Raja: %d
-Pengaruh: %d
+Pengaruh Keshar: %d
 Kas Kerajaan: %d
-Militer: %d
-Rasa Takut Rakyat: %d
+Militer Negara: %d
 Hari Berhasil Dilalui: %d
 
 Kepribadian Raja: %s

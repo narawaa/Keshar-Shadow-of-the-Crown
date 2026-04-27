@@ -2,164 +2,164 @@
   "day": 5,
   "title": "Malam yang Menentukan",
   "morning_briefing": {
-    "narrator": "Tekanan semakin terasa. Raja mulai menunjukkan tanda-tanda kelelahan mental. Di balik layar, rencana-rencana besar mulai bergerak.",
-    "dialogues": [
-      { "speaker": "Raja Aldric", "text": "Aku merasa seperti ada yang mengawasiku terus-menerus, Keshar." },
-      { "speaker": "Keshar", "text": "Itu bukan perasaan, Yang Mulia. Memang ada. Tapi selama Yang Mulia bertindak benar, pengawasan itu tidak berbahaya." }
-    ]
+	"narrator": "Tekanan semakin terasa. Raja mulai menunjukkan tanda-tanda kelelahan mental. Di balik layar, rencana-rencana besar mulai bergerak.",
+	"dialogues": [
+	  { "speaker": "Raja Aldric", "text": "Aku merasa seperti ada yang mengawasiku terus-menerus, Keshar." },
+	  { "speaker": "Keshar", "text": "Itu bukan perasaan, Yang Mulia. Memang ada. Tapi selama Yang Mulia bertindak benar, pengawasan itu tidak berbahaya." }
+	]
   },
   "visitors": [
-    {
-      "id": "v1_serangan_perbatasan",
-      "name": "Utusan Perbatasan — Serangan Tentara Bayaran",
-      "narrator": "Utusan dari perbatasan barat tiba dengan raut muka kelelahan.",
-      "dialogues": [
-        { "speaker": "Utusan Perbatasan", "text": "Yang Mulia, pos perbatasan barat diserang. Bukan monster — ini manusia. Tentara bayaran dari arah barat." },
-        { "speaker": "Raja Aldric", "text": "Ini serangan bersenjata, Keshar. Ini serius!" }
-      ],
-      "choices": [
-        {
-          "id": "A",
-          "text": "Sarankan kirim pasukan penuh ke perbatasan",
-          "effects": { "military": -8, "stability": 10 },
-          "king_follow_text": "Kirim kekuatan penuh. Kelemahan sekarang akan mengundang invasi besar nanti.",
-          "king_refuse_text": "Itu akan menguras pasukan ibukota...",
-          "king_refuse_effect": { "military": -4, "stability": 5 },
-          "keshar_text": "Ini ancaman nyata, Yang Mulia. Setengah respons hanya mengundang setengah kekalahan."
-        },
-        {
-          "id": "B",
-          "text": "Sarankan selidiki dulu siapa yang menyewa tentara bayaran ini",
-          "effects": { "stability": 4, "treasury": -5 },
-          "king_follow_text": "Investigasi dulu sebelum bertindak militer.",
-          "king_refuse_text": "Tapi kalau kita tunggu, mereka bisa maju lebih jauh.",
-          "king_refuse_effect": { "military": -2, "stability": 2 },
-          "keshar_text": "Siapa yang menyewa mereka lebih penting dari mengalahkan mereka, Yang Mulia."
-        },
-        {
-          "id": "C",
-          "text": "Serahkan ke Kapten Garen dengan kekuatan lokal",
-          "effects": { "military": 3, "stability": -4 },
-          "king_follow_text": "Percayakan pada Kapten Garen. Kehadiran raja tidak selalu dibutuhkan di setiap konflik.",
-          "king_refuse_text": "Apakah Garen punya cukup kekuatan di sana?",
-          "king_refuse_effect": { "military": 1, "stability": -2 },
-          "keshar_text": "Kapten Garen dipercaya dengan alasan, Yang Mulia. Beri dia ruang untuk membuktikannya."
-        }
-      ]
-    },
-    {
-      "id": "v2_pemimpin_gereja",
-      "name": "Imam Besar Aldous — Gereja Minta Otonomi",
-      "narrator": "Imam Besar Aldous datang dengan jubah putih megahnya.",
-      "dialogues": [
-        { "speaker": "Imam Besar Aldous", "text": "Yang Mulia, Dewan Gereja siap memberikan dukungan penuh... dengan imbalan sedikit lebih banyak otonomi gereja." },
-        { "speaker": "Raja Aldric", "text": "Gereja yang independen atau gereja yang mendukung mahkota. Ini pilihan penting. Keshar?" }
-      ],
-      "choices": [
-        {
-          "id": "A",
-          "text": "Sarankan terima — dukungan gereja sangat berharga",
-          "effects": { "stability": 8, "influence": -3 },
-          "king_follow_text": "Gereja mempengaruhi rakyat lebih dari hukum. Sekutu rohani adalah sekutu yang kuat.",
-          "king_refuse_text": "Tapi otonomi gereja bisa menjadi masalah jangka panjang...",
-          "king_refuse_effect": { "stability": 4, "influence": -1 },
-          "keshar_text": "Gereja berbicara kepada hati rakyat, Yang Mulia. Itu lebih kuat dari pedang manapun."
-        },
-        {
-          "id": "B",
-          "text": "Sarankan tolak — gereja harus tunduk pada mahkota",
-          "effects": { "stability": -4, "influence": 5 },
-          "king_follow_text": "Gereja punya tempatnya. Tapi kekuasaan temporal adalah milik mahkota.",
-          "king_refuse_text": "Itu berani — Aldous punya pengaruh besar di masyarakat.",
-          "king_refuse_effect": { "stability": -1 },
-          "keshar_text": "Kekuasaan yang tidak terkontrol selalu menjadi ancaman, Yang Mulia — bahkan dari gereja."
-        },
-        {
-          "id": "C",
-          "text": "Sarankan negosiasi — beri otonomi terbatas sebagai pertukaran dukungan penuh",
-          "effects": { "stability": 5, "influence": 3 },
-          "king_follow_text": "Berikan setengah dari apa yang mereka minta. Cukup untuk mereka senang, tidak cukup untuk menjadi ancaman.",
-          "king_refuse_text": "Bagaimana cara kita memastikan mereka tidak meminta lebih nanti?",
-          "king_refuse_effect": { "stability": 4, "influence": 2 },
-          "keshar_text": "Ini seni negosiasi, Yang Mulia — beri mereka rasa menang, tapi kita yang memegang kendali."
-        }
-      ]
-    },
-    {
-      "id": "v3_selim_depan_raja",
-      "name": "Selim — Laporan di Depan Raja",
-      "narrator": "Selim datang lebih awal dari biasanya — dan raja kebetulan ada di ruangan.",
-      "dialogues": [
-        { "speaker": "Selim", "text": "Tuan Keshar, ada perkembangan baru. Beberapa bangsawan besar ingin bertemu. Mereka punya proposal." },
-        { "speaker": "Raja Aldric", "text": "(mengerutkan dahi) Selim? Kenapa dia melapor ke Keshar, bukan padaku?" }
-      ],
-      "choices": [
-        {
-          "id": "A",
-          "text": "Alihkan dengan tenang — 'Urusan mata-mata rutin, Yang Mulia.'",
-          "effects": { "influence": 5, "trust_king": -3 },
-          "king_follow_text": "(Raja mengangguk meski ekspresinya menunjukkan ia tidak sepenuhnya percaya.)",
-          "king_refuse_text": "(Raja menatap Keshar dengan curiga.)",
-          "king_refuse_effect": { "trust_king": -5 },
-          "keshar_text": "Hanya urusan intelijen rutin, Yang Mulia. Saya tidak ingin membebani Yang Mulia dengan detail teknis."
-        },
-        {
-          "id": "B",
-          "text": "Jujur — 'Saya membangun jaringan informasi untuk melindungi Yang Mulia.'",
-          "effects": { "trust_king": 8, "influence": -5 },
-          "king_follow_text": "...Aku senang mendengar ini, Keshar. Tapi lain kali, aku ingin tahu.",
-          "king_refuse_text": "(Raja mengangguk, terlihat sedikit lebih lega.)",
-          "king_refuse_effect": { "trust_king": 4 },
-          "keshar_text": "Saya membangun jaringan informasi untuk melindungi Yang Mulia dari ancaman yang belum terlihat. Semua laporannya untuk kerajaan."
-        },
-        {
-          "id": "C",
-          "text": "Minta Selim diam dan ubah topik dengan cepat",
-          "effects": { "influence": 3, "trust_king": -5 },
-          "king_follow_text": "(Raja terlihat tidak puas tapi membiarkan Keshar mengubah topik.)",
-          "king_refuse_text": "Keshar... ada yang kamu sembunyikan dariku?",
-          "king_refuse_effect": { "trust_king": -7 },
-          "keshar_text": "(Keshar mengisyaratkan Selim untuk diam dan segera beralih topik.)"
-        }
-      ]
-    }
+	{
+	  "id": "v1_serangan_perbatasan",
+	  "name": "Utusan Perbatasan — Serangan Tentara Bayaran",
+	  "narrator": "Utusan dari perbatasan barat tiba dengan raut muka kelelahan.",
+	  "dialogues": [
+		{ "speaker": "Utusan Perbatasan", "text": "Yang Mulia, pos perbatasan barat diserang. Bukan monster — ini manusia. Tentara bayaran dari arah barat." },
+		{ "speaker": "Raja Aldric", "text": "Ini serangan bersenjata, Keshar. Ini serius!" }
+	  ],
+	  "choices": [
+		{
+		  "id": "A",
+		  "text": "Sarankan kirim pasukan penuh ke perbatasan",
+		  "effects": { "military": -8, "stability": 10 },
+		  "king_follow_text": "Kirim kekuatan penuh. Kelemahan sekarang akan mengundang invasi besar nanti.",
+		  "king_refuse_text": "Itu akan menguras pasukan ibukota...",
+		  "king_refuse_effect": { "military": -4, "stability": 5 },
+		  "keshar_text": "Ini ancaman nyata, Yang Mulia. Setengah respons hanya mengundang setengah kekalahan."
+		},
+		{
+		  "id": "B",
+		  "text": "Sarankan selidiki dulu siapa yang menyewa tentara bayaran ini",
+		  "effects": { "stability": 4, "treasury": -5 },
+		  "king_follow_text": "Investigasi dulu sebelum bertindak militer.",
+		  "king_refuse_text": "Tapi kalau kita tunggu, mereka bisa maju lebih jauh.",
+		  "king_refuse_effect": { "military": -2, "stability": 2 },
+		  "keshar_text": "Siapa yang menyewa mereka lebih penting dari mengalahkan mereka, Yang Mulia."
+		},
+		{
+		  "id": "C",
+		  "text": "Serahkan ke Kapten Garen dengan kekuatan lokal",
+		  "effects": { "military": 3, "stability": -4 },
+		  "king_follow_text": "Percayakan pada Kapten Garen. Kehadiran raja tidak selalu dibutuhkan di setiap konflik.",
+		  "king_refuse_text": "Apakah Garen punya cukup kekuatan di sana?",
+		  "king_refuse_effect": { "military": 1, "stability": -2 },
+		  "keshar_text": "Kapten Garen dipercaya dengan alasan, Yang Mulia. Beri dia ruang untuk membuktikannya."
+		}
+	  ]
+	},
+	{
+	  "id": "v2_pemimpin_gereja",
+	  "name": "Imam Besar Aldous — Gereja Minta Otonomi",
+	  "narrator": "Imam Besar Aldous datang dengan jubah putih megahnya.",
+	  "dialogues": [
+		{ "speaker": "Imam Besar Aldous", "text": "Yang Mulia, Dewan Gereja siap memberikan dukungan penuh... dengan imbalan sedikit lebih banyak otonomi gereja." },
+		{ "speaker": "Raja Aldric", "text": "Gereja yang independen atau gereja yang mendukung mahkota. Ini pilihan penting. Keshar?" }
+	  ],
+	  "choices": [
+		{
+		  "id": "A",
+		  "text": "Sarankan terima — dukungan gereja sangat berharga",
+		  "effects": { "stability": 8, "influence": -3 },
+		  "king_follow_text": "Gereja mempengaruhi rakyat lebih dari hukum. Sekutu rohani adalah sekutu yang kuat.",
+		  "king_refuse_text": "Tapi otonomi gereja bisa menjadi masalah jangka panjang...",
+		  "king_refuse_effect": { "stability": 4, "influence": -1 },
+		  "keshar_text": "Gereja berbicara kepada hati rakyat, Yang Mulia. Itu lebih kuat dari pedang manapun."
+		},
+		{
+		  "id": "B",
+		  "text": "Sarankan tolak — gereja harus tunduk pada mahkota",
+		  "effects": { "stability": -4, "influence": 5 },
+		  "king_follow_text": "Gereja punya tempatnya. Tapi kekuasaan temporal adalah milik mahkota.",
+		  "king_refuse_text": "Itu berani — Aldous punya pengaruh besar di masyarakat.",
+		  "king_refuse_effect": { "stability": -1 },
+		  "keshar_text": "Kekuasaan yang tidak terkontrol selalu menjadi ancaman, Yang Mulia — bahkan dari gereja."
+		},
+		{
+		  "id": "C",
+		  "text": "Sarankan negosiasi — beri otonomi terbatas sebagai pertukaran dukungan penuh",
+		  "effects": { "stability": 5, "influence": 3 },
+		  "king_follow_text": "Berikan setengah dari apa yang mereka minta. Cukup untuk mereka senang, tidak cukup untuk menjadi ancaman.",
+		  "king_refuse_text": "Bagaimana cara kita memastikan mereka tidak meminta lebih nanti?",
+		  "king_refuse_effect": { "stability": 4, "influence": 2 },
+		  "keshar_text": "Ini seni negosiasi, Yang Mulia — beri mereka rasa menang, tapi kita yang memegang kendali."
+		}
+	  ]
+	},
+	{
+	  "id": "v3_selim_depan_raja",
+	  "name": "Selim — Laporan di Depan Raja",
+	  "narrator": "Selim datang lebih awal dari biasanya — dan raja kebetulan ada di ruangan.",
+	  "dialogues": [
+		{ "speaker": "Selim", "text": "Tuan Keshar, ada perkembangan baru. Beberapa bangsawan besar ingin bertemu. Mereka punya proposal." },
+		{ "speaker": "Raja Aldric", "text": "(mengerutkan dahi) Selim? Kenapa dia melapor ke Keshar, bukan padaku?" }
+	  ],
+	  "choices": [
+		{
+		  "id": "A",
+		  "text": "Alihkan dengan tenang — 'Urusan mata-mata rutin, Yang Mulia.'",
+		  "effects": { "influence": 5, "trust_king": -3 },
+		  "king_follow_text": "(Raja mengangguk meski ekspresinya menunjukkan ia tidak sepenuhnya percaya.)",
+		  "king_refuse_text": "(Raja menatap Keshar dengan curiga.)",
+		  "king_refuse_effect": { "trust_king": -5 },
+		  "keshar_text": "Hanya urusan intelijen rutin, Yang Mulia. Saya tidak ingin membebani Yang Mulia dengan detail teknis."
+		},
+		{
+		  "id": "B",
+		  "text": "Jujur — 'Saya membangun jaringan informasi untuk melindungi Yang Mulia.'",
+		  "effects": { "trust_king": 8, "influence": -5 },
+		  "king_follow_text": "...Aku senang mendengar ini, Keshar. Tapi lain kali, aku ingin tahu.",
+		  "king_refuse_text": "(Raja mengangguk, terlihat sedikit lebih lega.)",
+		  "king_refuse_effect": { "trust_king": 4 },
+		  "keshar_text": "Saya membangun jaringan informasi untuk melindungi Yang Mulia dari ancaman yang belum terlihat. Semua laporannya untuk kerajaan."
+		},
+		{
+		  "id": "C",
+		  "text": "Minta Selim diam dan ubah topik dengan cepat",
+		  "effects": { "influence": 3, "trust_king": -5 },
+		  "king_follow_text": "(Raja terlihat tidak puas tapi membiarkan Keshar mengubah topik.)",
+		  "king_refuse_text": "Keshar... ada yang kamu sembunyikan dariku?",
+		  "king_refuse_effect": { "trust_king": -7 },
+		  "keshar_text": "(Keshar mengisyaratkan Selim untuk diam dan segera beralih topik.)"
+		}
+	  ]
+	}
   ],
   "night_event": {
-    "narrator": "Ini malam yang berbeda. Bukan di ruang biasa — ini di ruang bawah tanah, satu lilin, tiga orang berpakaian gelap. Duke Arvel — bangsawan paling berpengaruh di kerajaan — duduk di hadapan Keshar.",
-    "dialogues": [
-      { "speaker": "Duke Arvel", "text": "Keshar... kita sudah cukup basa-basi. Kerajaan ini butuh raja yang kuat. Kita berdua tahu siapa itu." }
-    ],
-    "special_flag": "duke_arvel_checkpoint",
-    "choices": [
-      {
-        "id": "A",
-        "text": "Tolak tawaran Duke Arvel",
-        "effects": { "trust_king": 10 },
-        "king_response": null,
-        "keshar_text": "Duke Arvel, saya adalah penasihat raja yang sah. Saya tidak tertarik pada skenario lain.",
-        "extra_dialogue": [{ "speaker": "Duke Arvel", "text": "...Sayang. Semoga Yang Mulia menghargai kesetiaan semacam itu." }],
-        "coup_effect": "block",
-        "checkpoint_message": "🔒 COUP ROUTE DIBLOKIR"
-      },
-      {
-        "id": "B",
-        "text": "Dengarkan tapi tidak berkomitmen",
-        "effects": { "influence": 10 },
-        "king_response": null,
-        "keshar_text": "...Saya mendengarkan, Duke. Tapi saya tidak berjanji apa-apa malam ini.",
-        "extra_dialogue": [{ "speaker": "Duke Arvel", "text": "Bijaksana. Pintu ini tetap terbuka." }],
-        "coup_effect": "none"
-      },
-      {
-        "id": "C",
-        "text": "Setuju diam-diam — rencana kudeta dimulai",
-        "effects": { "influence": 20 },
-        "king_response": null,
-        "keshar_text": "(dengan suara rendah) ...Kapan kita mulai?",
-        "extra_dialogue": [{ "speaker": "Duke Arvel", "text": "(tersenyum lebar) Saya sudah menunggu kata-kata itu, Keshar." }],
-        "coup_effect": "full_unlock",
-        "checkpoint_message": "⚠ COUP ROUTE FULLY UNLOCKED — Point of no return!"
-      }
-    ]
+	"narrator": "Ini malam yang berbeda. Bukan di ruang biasa — ini di ruang bawah tanah, satu lilin, tiga orang berpakaian gelap. Duke Arvel — bangsawan paling berpengaruh di kerajaan — duduk di hadapan Keshar.",
+	"dialogues": [
+	  { "speaker": "Duke Arvel", "text": "Keshar... kita sudah cukup basa-basi. Kerajaan ini butuh raja yang kuat. Kita berdua tahu siapa itu." }
+	],
+	"special_flag": "duke_arvel_checkpoint",
+	"choices": [
+	  {
+		"id": "A",
+		"text": "Tolak tawaran Duke Arvel",
+		"effects": { "trust_king": 10 },
+		"king_response": null,
+		"keshar_text": "Duke Arvel, saya adalah penasihat raja yang sah. Saya tidak tertarik pada skenario lain.",
+		"extra_dialogue": [{ "speaker": "Duke Arvel", "text": "...Sayang. Semoga Yang Mulia menghargai kesetiaan semacam itu." }],
+		"coup_effect": "block",
+		"checkpoint_message": "🔒 COUP ROUTE DIBLOKIR"
+	  },
+	  {
+		"id": "B",
+		"text": "Dengarkan tapi tidak berkomitmen",
+		"effects": { "influence": 10 },
+		"king_response": null,
+		"keshar_text": "...Saya mendengarkan, Duke. Tapi saya tidak berjanji apa-apa malam ini.",
+		"extra_dialogue": [{ "speaker": "Duke Arvel", "text": "Bijaksana. Pintu ini tetap terbuka." }],
+		"coup_effect": "none"
+	  },
+	  {
+		"id": "C",
+		"text": "Setuju diam-diam — rencana kudeta dimulai",
+		"effects": { "influence": 20 },
+		"king_response": null,
+		"keshar_text": "(dengan suara rendah) ...Kapan kita mulai?",
+		"extra_dialogue": [{ "speaker": "Duke Arvel", "text": "(tersenyum lebar) Saya sudah menunggu kata-kata itu, Keshar." }],
+		"coup_effect": "full_unlock",
+		"checkpoint_message": "⚠ COUP ROUTE FULLY UNLOCKED — Point of no return!"
+	  }
+	]
   }
 }

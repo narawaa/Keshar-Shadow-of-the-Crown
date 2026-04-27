@@ -21,6 +21,12 @@ GameState="*uid://bvstoind706o0"
 SaveManager="*uid://d1i1w80sqma6j"
 StoryLoader="*uid://dem7g8mowuq1b"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="canvas_items"
+
 [input]
 
 ui_accept={

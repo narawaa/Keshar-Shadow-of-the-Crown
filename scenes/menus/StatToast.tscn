@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bf5o3mvuk5fp7"]
+
+[ext_resource type="Script" uid="uid://6wjrfl3fy6y5" path="res://scripts/systems/StatToast.gd" id="1_46tvf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_og17h"]
+content_margin_left = 12.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0.101960786, 0.078431375, 0.050980393, 0.92156863)
+border_width_left = 2
+border_width_top = 2
+border_width_bottom = 2
+border_color = Color(0.4, 0.3019608, 0.101960786, 0.8)
+corner_radius_top_left = 16
+corner_radius_bottom_left = 16
+corner_detail = 16
+
+[node name="StatToast" type="PanelContainer" unique_id=66964404]
+custom_minimum_size = Vector2(240, 0)
+offset_right = 240.0
+offset_bottom = 60.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_og17h")
+script = ExtResource("1_46tvf")
+
+[node name="HBoxContainer" type="MarginContainer" parent="." unique_id=1188403635]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 8
+
+[node name="Val" type="Label" parent="HBoxContainer" unique_id=651550848]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16

@@ -1,20 +1,17 @@
 extends Node
 
-# =============================================
-# SaveManager.gd — Autoload
-# Mengelola simpan dan muat game
-# =============================================
-
 const SAVE_PATH = "user://solo_save.json"
 
 func save_game() -> void:
 	var data = GameState.get_save_data()
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	if file == null:
-		push_error("SaveManager: Tidak bisa membuka file untuk save")
+		push_error("SaveManager: Gagal save ke " + SAVE_PATH)
 		return
-	file.store_string(JSON.stringify(data, "\t"))
+		
+	file.store_string(JSON.stringify(data))
 	file.close()
+	
 	print("Game disimpan: Hari ", data.get("current_day", 0))
 
 func load_game() -> bool:
@@ -29,11 +26,12 @@ func load_game() -> bool:
 	file.close()
 	
 	var json = JSON.new()
-	if json.parse(json_string) != OK:
-		push_error("SaveManager: Error parsing save file")
+	if json.parse(json_string) != OK or typeof(json.get_data()) != TYPE_DICTIONARY:
+		push_error("SaveManager: Gagal menyimpan file")
 		return false
 	
 	GameState.load_save_data(json.get_data())
+	
 	print("Game dimuat: Hari ", GameState.current_day)
 	return true
 
@@ -42,4 +40,4 @@ func has_save() -> bool:
 
 func delete_save() -> void:
 	if FileAccess.file_exists(SAVE_PATH):
-		DirAccess.remove_absolute(SAVE_PATH)
+		DirAccess.remove_absolute(ProjectSettings.globalize_path(SAVE_PATH))
