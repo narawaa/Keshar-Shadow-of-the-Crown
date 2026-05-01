@@ -2,27 +2,37 @@
 
 [ext_resource type="Script" uid="uid://doallv1nly2qn" path="res://scripts/scenes/GameScene.gd" id="1_h1nqe"]
 [ext_resource type="Texture2D" uid="uid://oklejj83rki4" path="res://assets/sprites/background/park.png" id="2_iijc2"]
+[ext_resource type="Texture2D" uid="uid://co5ryeljayfd" path="res://assets/button.png" id="3_nge41"]
 [ext_resource type="Texture2D" uid="uid://7wkuqqcdmemc" path="res://assets/ui/icon/balance.png" id="3_oxcdb"]
+[ext_resource type="PackedScene" uid="uid://clltet0u4fhmd" path="res://scenes/menus/PauseMenu.tscn" id="3_tnsnf"]
 [ext_resource type="Texture2D" uid="uid://du1nqyueun3hv" path="res://assets/ui/icon/coin.png" id="4_57n3y"]
 [ext_resource type="Texture2D" uid="uid://dol63ghgede8i" path="res://assets/ui/icon/handshake.png" id="5_tnsnf"]
 [ext_resource type="Texture2D" uid="uid://c0r531ubo2c5y" path="res://assets/ui/icon/strategy.png" id="6_nge41"]
 [ext_resource type="Texture2D" uid="uid://4ql3punp85t4" path="res://assets/ui/icon/shield.png" id="7_y6m5y"]
+[ext_resource type="Texture2D" uid="uid://cvnqdjvv6jdj1" path="res://assets/sprites/character/keshar/flat.png" id="8_57n3y"]
+[ext_resource type="Texture2D" uid="uid://dracac0dq2ewa" path="res://assets/sprites/character/king/flat.png" id="9_y6m5y"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oxcdb"]
 bg_color = Color(0.15686275, 0.105882354, 0.050980393, 1)
 corner_radius_bottom_right = 16
 corner_detail = 16
 
-[sub_resource type="Gradient" id="Gradient_oxcdb"]
-offsets = PackedFloat32Array(0, 0.19895288, 0.4973822, 0.986911)
-colors = PackedColorArray(0.4, 0.3118, 0.148, 1, 0.48278868, 0.30958608, 0.11764705, 1, 0.62, 0.40010667, 0.1488, 1, 0.76862746, 0.59607846, 0.28627452, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_57n3y"]
-gradient = SubResource("Gradient_oxcdb")
-fill_to = Vector2(0, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tnsnf"]
+content_margin_left = 36.0
+content_margin_right = 36.0
+bg_color = Color(0.83137256, 0.78431374, 0.7372549, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.54509807, 0.36862746, 0.20392157, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tnsnf"]
-texture = SubResource("GradientTexture2D_57n3y")
+texture = ExtResource("3_nge41")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h1nqe"]
 bg_color = Color(0.15686275, 0.105882354, 0.050980393, 1)
@@ -52,16 +62,27 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_oxcdb")
 layout_mode = 2
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 32
+theme_override_constants/margin_right = 64
 theme_override_constants/margin_bottom = 8
 
-[node name="DayLabel" type="Label" parent="TopBar/MarginContainer" unique_id=917002315]
+[node name="HBoxContainer" type="HBoxContainer" parent="TopBar/MarginContainer" unique_id=975166503]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="PauseButton" type="Button" parent="TopBar/MarginContainer/HBoxContainer" unique_id=1368180376]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.15686275, 0.105882354, 0.050980393, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_tnsnf")
+text = "Menu"
+
+[node name="DayLabel" type="Label" parent="TopBar/MarginContainer/HBoxContainer" unique_id=917002315]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 24
 text = "Hari 1"
 
 [node name="StatPanel" type="PanelContainer" parent="." unique_id=626631453]
+z_index = 5
 layout_mode = 0
 offset_top = 1000.0
 offset_right = 1920.0
@@ -174,10 +195,10 @@ layout_mode = 2
 [node name="ChoicePanel" type="Control" parent="." unique_id=1195329303]
 z_index = 10
 anchors_preset = 0
-offset_left = 1280.0
-offset_top = 500.0
-offset_right = 1880.0
-offset_bottom = 560.0
+offset_left = 88.0
+offset_top = 404.0
+offset_right = 688.0
+offset_bottom = 464.0
 
 [node name="ChoiceContainer" type="VBoxContainer" parent="ChoicePanel" unique_id=1546422051]
 z_index = 11
@@ -189,21 +210,24 @@ alignment = 1
 [node name="CharacterLayer" type="Control" parent="." unique_id=1673044929]
 anchors_preset = 0
 offset_left = -1.0
-offset_top = 116.0
+offset_top = 50.0
 offset_right = 1919.0
-offset_bottom = 843.0
+offset_bottom = 1000.0
 
 [node name="King" type="Node2D" parent="CharacterLayer" unique_id=1724101468]
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterLayer/King" unique_id=699344808]
+position = Vector2(963.0001, 611.0001)
+scale = Vector2(1.5541668, 1.5541668)
+texture = ExtResource("9_y6m5y")
 
 [node name="DialogBubble" type="Control" parent="CharacterLayer/King" unique_id=150287340]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 807.0
-offset_top = 129.0
-offset_right = 1207.0
-offset_bottom = 193.0
+offset_left = 767.0
+offset_top = 120.0
+offset_right = 1167.0
+offset_bottom = 184.0
 
 [node name="Panel" type="PanelContainer" parent="CharacterLayer/King/DialogBubble" unique_id=152767919]
 custom_minimum_size = Vector2(400, 0)
@@ -221,14 +245,17 @@ autowrap_mode = 2
 [node name="Visitor" type="Node2D" parent="CharacterLayer" unique_id=1145926443]
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterLayer/Visitor" unique_id=69837576]
+position = Vector2(373.99997, 603.0001)
+scale = Vector2(1.3555555, 1.3555555)
 
 [node name="DialogBubble" type="Control" parent="CharacterLayer/Visitor" unique_id=553345982]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 249.0
-offset_top = 263.0
-offset_right = 489.0
-offset_bottom = 327.0
+offset_left = 137.0
+offset_top = 180.0
+offset_right = 377.0
+offset_bottom = 244.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="PanelContainer" parent="CharacterLayer/Visitor/DialogBubble" unique_id=1984428188]
 custom_minimum_size = Vector2(400, 0)
@@ -246,14 +273,17 @@ autowrap_mode = 2
 [node name="Keshar" type="Node2D" parent="CharacterLayer" unique_id=522255773]
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterLayer/Keshar" unique_id=1548357130]
+position = Vector2(1559.0001, 681.99994)
+scale = Vector2(1.2592592, 1.2592592)
+texture = ExtResource("8_57n3y")
 
 [node name="DialogBubble" type="Control" parent="CharacterLayer/Keshar" unique_id=2018432781]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 1421.0
-offset_top = 213.0
-offset_right = 1661.0
-offset_bottom = 277.0
+offset_left = 1390.0
+offset_top = 160.0
+offset_right = 1630.0
+offset_bottom = 224.0
 
 [node name="Panel" type="PanelContainer" parent="CharacterLayer/Keshar/DialogBubble" unique_id=638281772]
 custom_minimum_size = Vector2(400, 0)
@@ -292,3 +322,21 @@ layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
+
+[node name="PauseOverlay" type="ColorRect" parent="." unique_id=316001058]
+visible = false
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.6666667)
+
+[node name="PauseMenu" parent="." unique_id=1822742222 instance=ExtResource("3_tnsnf")]
+visible = false
+z_index = 50
+layout_mode = 0
+offset_left = 505.0
+offset_top = 250.0
+offset_right = 505.0
+offset_bottom = 250.0
+
+[connection signal="pressed" from="TopBar/MarginContainer/HBoxContainer/PauseButton" to="." method="toggle_pause"]

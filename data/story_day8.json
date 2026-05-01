@@ -2,158 +2,154 @@
   "day": 8,
   "title": "Kepercayaan atau Kekuasaan",
   "morning_briefing": {
-	"narrator": "Pilihan-pilihan sebelumnya mulai menunjukkan konsekuensinya. Raja sudah berubah — lebih kuat atau lebih lemah, tergantung perjalanan.",
-	"dialogues": [
-	  { "speaker": "Raja Aldric", "text": "Keshar, aku mulai merasa bahwa setiap keputusan memiliki harga yang tidak langsung terlihat." },
-	  { "speaker": "Keshar", "text": "Itulah yang membedakan pemimpin dari rakyat biasa, Yang Mulia. Pemimpin menanggung beban keputusan orang banyak." }
-	]
+    "narrator": "Pilihan-pilihan sebelumnya mulai menunjukkan konsekuensinya. Raja sudah berubah, lebih kuat atau lebih lemah, tergantung jalan yang sudah dilalui.",
+    "dialogues": [
+      { "speaker": "Raja Aldric", "text": "Keshar, aku mulai merasakan bahwa setiap keputusan memiliki harga yang tidak langsung terlihat." },
+      { "speaker": "Keshar", "text": "Itulah yang membedakan pemimpin dari yang bukan, Yang Mulia. Pemimpin menanggung beban keputusan untuk semua orang lain." }
+    ]
   },
   "visitors": [
-	{
-	  "id": "v1_petisi_besar",
-	  "name": "Perwakilan Ribuan Rakyat — Petisi Besar",
-	  "narrator": "Lebih dari seratus orang berdiri di luar pintu kerajaan, memegang gulungan petisi.",
-	  "dialogues": [
-		{ "speaker": "Juru Bicara Rakyat", "text": "Yang Mulia, kami membawa suara ribuan rakyat kerajaan ini. Kami mohon audiensi." },
-		{ "speaker": "Raja Aldric", "text": "Ribuan suara... ini tidak bisa diabaikan. Keshar?" }
-	  ],
-	  "choices": [
-		{
-		  "id": "A",
-		  "text": "Sarankan terima petisi secara terbuka — turun menemui rakyat langsung",
-		  "effects": { "stability": 8, "trust_king": 3 },
-		  "king_follow_text": "(Raja turun dari tahta dan menerima petisi secara langsung di depan semua orang — momen bersejarah.)",
-		  "king_refuse_text": "(Raja ragu di tangga, lalu akhirnya melangkah turun dengan canggung.)",
-		  "king_refuse_effect": { "stability": 5 },
-		  "keshar_text": "Ini momen untuk menunjukkan bahwa raja adalah milik rakyat, Yang Mulia. Turunlah."
-		},
-		{
-		  "id": "B",
-		  "text": "Sarankan terima petisi melalui perwakilan saja",
-		  "effects": { "stability": 4 },
-		  "king_follow_text": "Kirimkan perwakilan untuk menerima petisi. Aku akan baca sendiri nanti.",
-		  "king_refuse_text": "(Raja setuju tapi terlihat sedikit kecewa pada dirinya sendiri.)",
-		  "king_refuse_effect": { "stability": 3 },
-		  "keshar_text": "Preseden pertemuan langsung bisa dieksploitasi. Lebih aman melalui jalur resmi."
-		},
-		{
-		  "id": "C",
-		  "text": "Sarankan tolak — ini preseden berbahaya",
-		  "always_refuse": true,
-		  "effects": { "fear": 6, "stability": -8 },
-		  "king_follow_text": "",
-		  "king_refuse_text": "Mereka datang dengan damai, Keshar. Aku tidak bisa menolak ribuan rakyatku begitu saja.",
-		  "king_refuse_effect": { "stability": 2 },
-		  "keshar_text": "Jika raja bisa dituntut oleh massa, raja kehilangan otoritasnya."
-		}
-	  ]
-	},
-	{
-	  "id": "v2_matamata_duren",
-	  "name": "Kapten Garen — Mata-Mata Duren Tertangkap",
-	  "narrator": "Seorang pria tertangkap di koridor istana dengan dokumen terenkripsi.",
-	  "dialogues": [
-		{ "speaker": "Kapten Garen", "text": "Yang Mulia, mata-mata dari Duren. Dokumen ini menunjukkan Duren merencanakan sesuatu yang lebih besar dari sekadar klaim wilayah." },
-		{ "speaker": "Raja Aldric", "text": "Ini... seberapa serius? Apa yang harus kita lakukan dengan dia, Keshar?" }
-	  ],
-	  "choices": [
-		{
-		  "id": "A",
-		  "text": "Sarankan eksekusi — pesan tegas untuk Duren",
-		  "effects": { "military": 3, "stability": -3 },
-		  "king_follow_text": "Laksanakan hukuman. Mata-mata yang masuk istana tidak boleh kembali.",
-		  "king_refuse_text": "Itu bisa memancing eskalasi dari Duren...",
-		  "king_refuse_effect": { "military": 1 },
-		  "keshar_text": "Ini pesan yang jelas, Yang Mulia. Kerajaan yang tidak tegas adalah kerajaan yang diremehkan."
-		},
-		{
-		  "id": "B",
-		  "text": "Sarankan interogasi penuh untuk informasi lebih lanjut",
-		  "effects": { "stability": 2, "intel": 10 },
-		  "king_follow_text": "Tahan dan interogasi. Informasi dari dia bernilai lebih dari eksekusinya.",
-		  "king_refuse_text": "(Raja setuju sepenuhnya — ini terasa seperti keputusan yang strategis.)",
-		  "king_refuse_effect": { "intel": 7 },
-		  "keshar_text": "Informasi adalah senjata yang lebih kuat dari pedang, Yang Mulia."
-		},
-		{
-		  "id": "C",
-		  "text": "Sarankan tukar dengan tahanan kerajaan di Duren",
-		  "effects": { "treasury": 3, "stability": 3 },
-		  "king_follow_text": "Kita punya beberapa orang yang ditahan Duren. Tukar dia — ini membuktikan kita pemain yang rasional.",
-		  "king_refuse_text": "(Raja terlihat lega dengan opsi yang tidak memperkeruh situasi.)",
-		  "king_refuse_effect": { "stability": 2 },
-		  "keshar_text": "Pertukaran tahanan mengirim pesan bahwa kita tidak perlu perang untuk mendapatkan apa yang kita mau."
-		}
-	  ]
-	},
-	{
-	  "id": "v3_voss_individu",
-	  "name": "Jenderal Voss — Pertemuan Pribadi",
-	  "narrator": "Jenderal Voss datang bukan sebagai pejabat militer, tapi sebagai individu — tanpa seragam.",
-	  "dialogues": [
-		{ "speaker": "Jenderal Voss", "text": "Keshar, aku ingin bicara denganmu. Bukan sebagai jenderal. Sebagai orang yang peduli pada kerajaan ini. Raja berkembang... atau tidak. Aku butuh tahu kau ada di sisi yang benar." }
-	  ],
-	  "choices": [
-		{
-		  "id": "A",
-		  "text": "Tolak aliansi — pertegas loyalitas pada raja",
-		  "effects": { "trust_king": 5, "military": -3 },
-		  "king_response": null,
-		  "keshar_text": "Voss, saya tidak berbicara atas nama fraksi apapun selain kerajaan yang sah.",
-		  "extra_dialogue": [{ "speaker": "Jenderal Voss", "text": "(mengangguk pelan) ...Bagus. Itu yang ingin aku dengar." }]
-		},
-		{
-		  "id": "B",
-		  "text": "Rekrut Voss untuk rencana kudeta",
-		  "effects": { "military_support": 35 },
-		  "king_response": null,
-		  "keshar_text": "(dengan suara rendah) Voss... kalau kamu benar-benar peduli pada kerajaan ini, dengarkan apa yang sedang aku rencanakan.",
-		  "extra_dialogue": [{ "speaker": "Jenderal Voss", "text": "(tatapannya berubah serius) ...Aku mendengarkan." }],
-		  "special_flag": "voss_recruited",
-		  "coup_effect": "strengthen"
-		},
-		{
-		  "id": "C",
-		  "text": "Gunakan pertemuan untuk memata-matai fraksi Voss",
-		  "effects": { "influence": 7, "intel": 8 },
-		  "king_response": null,
-		  "keshar_text": "Voss, ceritakan padaku tentang kondisi moral pasukan saat ini. Apa yang benar-benar mereka pikirkan?"
-		}
-	  ]
-	}
+    {
+      "id": "v1_petisi_besar",
+      "name": "Perwakilan Ribuan Rakyat",
+      "narrator": "Lebih dari seratus orang berdiri di luar gerbang istana, memegang gulungan petisi yang ditandatangani ribuan nama.",
+      "dialogues": [
+        { "speaker": "Juru Bicara Rakyat", "text": "Yang Mulia, kami membawa suara ribuan warga kerajaan ini. Kami mohon Yang Mulia berkenan mendengar kami secara langsung." },
+        { "speaker": "Raja Aldric", "text": "Ribuan suara... ini tidak bisa diabaikan. Keshar?" }
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Sarankan turun sendiri menemui rakyat secara langsung",
+          "keshar_text": "Ini momen bersejarah, Yang Mulia. Raja yang turun ke rakyatnya bukan kelemahan — itu kekuasaan yang percaya diri.",
+          "effects": { "stability": 9, "trust_king": 5 },
+          "king_follow_text": "(Raja turun dari tahta dan menerima petisi secara langsung. Kerumunan terdiam, lalu bertepuk tangan.)",
+          "king_refuse_text": "(Raja ragu di anak tangga, mengambil napas panjang, lalu melangkah turun dengan canggung.)",
+          "king_refuse_effect": { "stability": 5 }
+        },
+        {
+          "id": "B",
+          "text": "Sarankan terima petisi melalui perwakilan resmi",
+          "keshar_text": "Preseden pertemuan langsung bisa dieksploitasi, Yang Mulia. Lebih aman melalui jalur yang terkontrol.",
+          "effects": { "stability": 4, "trust_king": 1 },
+          "king_follow_text": "Kirimkan perwakilan untuk menerima petisi. Saya akan membacanya sendiri dan merespons secara resmi.",
+          "king_refuse_text": "(Raja setuju, tapi ada sekilas ekspresi menyesal di wajahnya.)",
+          "king_refuse_effect": { "stability": 3 }
+        },
+        {
+          "id": "C",
+          "text": "Sarankan tolak — massa yang menuntut adalah preseden berbahaya",
+          "keshar_text": "Jika raja bisa ditekan oleh massa, Yang Mulia, raja kehilangan otoritasnya.",
+          "always_refuse": true,
+          "effects": { "stability": -10, "trust_king": -5 },
+          "king_refuse_text": "Mereka datang dengan damai, Keshar. Menolak ribuan rakyat yang ingin didengar bukan ketegasan — itu kelengahan.",
+          "king_refuse_effect": { "stability": 3, "trust_king": 3 }
+        }
+      ]
+    },
+    {
+      "id": "v2_matamata_duren",
+      "name": "Kapten Garen",
+      "narrator": "Seorang pria tertangkap di koridor istana dengan dokumen terenkripsi yang tersembunyi di lapisan jaket dalam.",
+      "dialogues": [
+        { "speaker": "Kapten Garen", "text": "Yang Mulia, mata-mata dari Duren. Dokumen ini menunjukkan bahwa Duren merencanakan sesuatu jauh lebih besar dari sekadar klaim wilayah." },
+        { "speaker": "Raja Aldric", "text": "Seberapa serius ini? Apa yang kita lakukan dengannya, Keshar?" }
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Sarankan eksekusi sebagai pesan tegas untuk Duren",
+          "keshar_text": "Mata-mata yang masuk istana dan tertangkap tidak boleh kembali untuk melapor, Yang Mulia. Ini pesan yang jelas.",
+          "effects": { "military": 4, "stability": -3, "trust_king": -1 },
+          "king_follow_text": "Laksanakan hukumannya. Kerajaan yang tidak tegas pada mata-mata adalah kerajaan yang diremehkan.",
+          "king_refuse_text": "Itu bisa memprovokasi eskalasi dari Duren, Keshar. Apakah kita siap untuk itu?",
+          "king_refuse_effect": { "military": 1 }
+        },
+        {
+          "id": "B",
+          "text": "Sarankan interogasi penuh untuk mengumpulkan informasi",
+          "keshar_text": "Informasi yang dia bawa jauh lebih berharga dari eksekusinya, Yang Mulia.",
+          "effects": { "stability": 3, "intel_level": 10 },
+          "king_follow_text": "Tahan dan interogasi. Kita butuh tahu persis apa yang Duren rencanakan.",
+          "king_refuse_text": "(Raja setuju — ini keputusan strategis yang terasa tepat.)",
+          "king_refuse_effect": { "intel_level": 6 }
+        },
+        {
+          "id": "C",
+          "text": "Sarankan tukar dengan tahanan kerajaan yang ada di Duren",
+          "keshar_text": "Pertukaran tahanan membuktikan kita pemain yang rasional, bukan reaktif, Yang Mulia.",
+          "effects": { "treasury": 3, "stability": 4 },
+          "king_follow_text": "Kita punya beberapa warga yang ditahan Duren. Tukar dia — ini bukan kelemahan, ini diplomasi.",
+          "king_refuse_text": "(Raja terlihat lega dengan opsi yang tidak langsung memperkeruh situasi.)",
+          "king_refuse_effect": { "stability": 2 }
+        }
+      ]
+    },
+    {
+      "id": "v3_voss_individu",
+      "name": "Jenderal Voss",
+      "narrator": "Jenderal Voss datang bukan sebagai pejabat militer, tapi sebagai individu. Tanpa seragam. Tanpa pengawal.",
+      "dialogues": [
+        { "speaker": "Jenderal Voss", "text": "Keshar. Aku ingin berbicara denganmu. Bukan sebagai jenderal — sebagai orang yang benar-benar peduli pada masa depan kerajaan ini. Raja berkembang ke arah yang tepat, atau tidak. Aku perlu tahu kau ada di sisi yang benar." }
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Tolak dan tegaskan loyalitas penuh pada raja",
+          "keshar_text": "Voss, saya tidak berbicara atas nama fraksi apapun selain kerajaan yang sah.",
+          "effects": { "trust_king": 6, "military": -2 },
+          "extra_dialogue": [{ "speaker": "Jenderal Voss", "text": "(mengangguk pelan) ...Itu yang ingin aku dengar, Keshar." }]
+        },
+        {
+          "id": "B",
+          "text": "Rekrut Voss ke dalam rencana kudeta",
+          "keshar_text": "(dengan suara rendah) Voss... jika kamu benar-benar peduli pada kerajaan ini, dengarkan apa yang sedang aku rencanakan.",
+          "effects": { "influence": 5, "military": 12 },
+          "extra_dialogue": [{ "speaker": "Jenderal Voss", "text": "(tatapannya berubah — antara kagum dan waspada) ...Aku mendengarkan." }],
+          "special_flag": "voss_recruited",
+          "coup_effect": "strengthen"
+        },
+        {
+          "id": "C",
+          "text": "Gunakan momen ini untuk memata-matai fraksi Voss",
+          "keshar_text": "Voss, ceritakan padaku tentang kondisi moral pasukan saat ini. Apa yang sebenarnya mereka pikirkan?",
+          "effects": { "influence": 6, "intel_level": 8 }
+        }
+      ]
+    }
   ],
   "night_event": {
-	"narrator": "Malam ini berbeda. Raja datang sendiri ke ruang kerja Keshar, duduk tanpa formalitas, tanpa penjaga.",
-	"dialogues": [
-	  { "speaker": "Raja Aldric", "text": "Keshar... aku ingin bertanya sesuatu yang jujur. Apakah aku raja yang buruk?" }
-	],
-	"special_flag": "point_of_no_return",
-	"choices": [
-	  {
-		"id": "A",
-		"text": "'Tidak. Tapi kamu harus terus belajar dan tidak berhenti bertanya seperti ini.'",
-		"effects": { "trust_king": 5, "king_personality": 3 },
-		"king_response": "...Terima kasih, Keshar. Ini yang ingin aku dengar — bukan pujian kosong.",
-		"keshar_text": "Tidak, Yang Mulia. Raja yang buruk tidak akan bertanya seperti ini. Tapi kerajaan ini masih butuh banyak hal dari Yang Mulia.",
-		"personality_shift": "strong"
-	  },
-	  {
-		"id": "B",
-		"text": "'Rakyat mulai meragukanmu. Tapi masih ada waktu untuk membuktikan mereka salah.'",
-		"effects": { "trust_king": -3, "king_personality": -5 },
-		"king_response": "(Tatapan raja berubah gelap.) ...Siapa yang berani meragukan aku?",
-		"keshar_text": "Ada bisikan di antara rakyat, Yang Mulia. Mereka belum yakin. Tapi itu bisa diubah.",
-		"personality_shift": "paranoid"
-	  },
-	  {
-		"id": "C",
-		"text": "'Mereka butuh simbol yang kuat. Biarkan aku menjadi kekuatan yang tak terlihat di balikmu.'",
-		"effects": { "influence": 10 },
-		"king_response": "Ya... aku percaya padamu, Keshar. Lebih dari siapapun. Lebih dari diriku sendiri kadang.",
-		"keshar_text": "Yang penting, Yang Mulia terlihat kuat di depan publik. Serahkan sisanya pada saya.",
-		"personality_shift": "dependent",
-		"checkpoint_message": "⚠ Raja semakin bergantung — Point of No Return mendekati"
-	  }
-	]
+    "narrator": "Raja datang sendiri ke ruang kerja Keshar, duduk tanpa formalitas, tanpa penjaga. Ini momen yang tidak biasa.",
+    "dialogues": [
+      { "speaker": "Raja Aldric", "text": "Keshar... aku ingin bertanya sesuatu dengan jujur. Apakah aku raja yang buruk?" }
+    ],
+    "special_flag": "point_of_no_return",
+    "choices": [
+      {
+        "id": "A",
+        "text": "'Tidak. Tapi yang membuat raja baik adalah tidak pernah berhenti bertanya seperti ini.'",
+        "keshar_text": "Raja yang buruk tidak pernah bertanya seperti ini, Yang Mulia. Tapi kerajaan masih butuh banyak hal dari Yang Mulia ke depannya.",
+        "effects": { "trust_king": 6, "king_personality": 4 },
+        "king_response": "...Terima kasih, Keshar. Ini yang ingin aku dengar — bukan pujian kosong.",
+        "personality_shift": "strong"
+      },
+      {
+        "id": "B",
+        "text": "'Ada yang mulai meragukanmu. Tapi masih ada waktu untuk membuktikan mereka salah.'",
+        "keshar_text": "Ada bisikan di antara rakyat dan bangsawan, Yang Mulia. Mereka belum sepenuhnya yakin. Tapi itu bisa diubah — jika Yang Mulia bertindak.",
+        "effects": { "trust_king": -3, "king_personality": -5 },
+        "king_response": "(Tatapan raja berubah gelap.) Siapa yang berani meragukan aku?",
+        "personality_shift": "paranoid"
+      },
+      {
+        "id": "C",
+        "text": "'Rakyat butuh simbol yang kuat. Biarkan aku menjadi kekuatan tak terlihat di balikmu.'",
+        "keshar_text": "Yang penting, Yang Mulia terlihat kuat di depan publik. Serahkan sisanya kepada saya.",
+        "effects": { "influence": 10, "trust_king": -2 },
+        "king_response": "Ya... aku percaya padamu, Keshar. Lebih dari siapapun. Lebih dari diriku sendiri, kadang.",
+        "personality_shift": "dependent",
+        "checkpoint_message": "Raja semakin bergantung — ini bisa menjadi keuntungan atau bebanmu"
+      }
+    ]
   }
 }

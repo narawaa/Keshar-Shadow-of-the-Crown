@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://clltet0u4fhmd"]
+
+[ext_resource type="Script" uid="uid://bcnvjqokvcbqm" path="res://scripts/scenes/PauseMenu.gd" id="1_5c87e"]
+[ext_resource type="Texture2D" uid="uid://dfrumywxhjsln" path="res://assets/pause.png" id="1_i7533"]
+[ext_resource type="Texture2D" uid="uid://co5ryeljayfd" path="res://assets/button.png" id="3_5c87e"]
+[ext_resource type="Texture2D" uid="uid://cke54kw487fv2" path="res://assets/button-hover.png" id="4_mayd4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wgnbc"]
+bg_color = Color(0.18431373, 0.12941177, 0.08235294, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.3529412, 0.24313726, 0.14117648, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i7533"]
+bg_color = Color(0.54509807, 0.36862746, 0.20392157, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.83137256, 0.6392157, 0.4509804, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5c87e"]
+bg_color = Color(0.54509807, 0.36862746, 0.20392157, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.83137256, 0.6392157, 0.4509804, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="PauseMenu" type="Control" unique_id=1822742222]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_5c87e")
+
+[node name="Panel" type="Panel" parent="." unique_id=133105291]
+layout_mode = 0
+offset_right = 920.0
+offset_bottom = 560.0
+
+[node name="TextureRect" type="TextureRect" parent="Panel" unique_id=2092699706]
+layout_mode = 0
+offset_right = 920.0
+offset_bottom = 560.0
+texture = ExtResource("1_i7533")
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1386219463]
+layout_mode = 0
+offset_right = 920.0
+offset_bottom = 560.0
+theme_override_constants/margin_left = 240
+theme_override_constants/margin_right = 240
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=1297205408]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=1158842960]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "Pause Menu"
+horizontal_alignment = 1
+
+[node name="Separation" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=1186612917]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+
+[node name="SaveExitButton" type="Button" parent="Panel/MarginContainer/VBoxContainer" unique_id=415007957]
+visible = false
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_wgnbc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i7533")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5c87e")
+text = "Simpan & Keluar"
+
+[node name="ExitButton" type="TextureButton" parent="Panel/MarginContainer/VBoxContainer" unique_id=164546855]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("3_5c87e")
+texture_pressed = ExtResource("4_mayd4")
+texture_hover = ExtResource("4_mayd4")
+texture_focused = ExtResource("4_mayd4")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/ExitButton" unique_id=691918799]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "Keluar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackButton" type="TextureButton" parent="Panel/MarginContainer/VBoxContainer" unique_id=2078946463]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+texture_normal = ExtResource("3_5c87e")
+texture_pressed = ExtResource("4_mayd4")
+texture_hover = ExtResource("4_mayd4")
+texture_focused = ExtResource("4_mayd4")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/BackButton" unique_id=127609587]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "Kembali"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/BackButton" to="." method="_on_resume_button_pressed"]

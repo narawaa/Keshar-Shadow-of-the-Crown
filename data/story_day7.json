@@ -1,138 +1,134 @@
 {
   "day": 7,
-  "title": "Ancaman dari Luar",
+  "title": "Masa Lalu yang Mengetuk",
   "morning_briefing": {
-	"narrator": "Ancaman dari Kerajaan Duren mulai terasa nyata. Dan hari ini, masa lalu Keshar sendiri datang mengetuk pintu.",
+	"narrator": "Ancaman dari Kerajaan Duren mulai terasa nyata hari ini. Dan masa lalu Keshar sendiri datang mengetuk pintu.",
 	"dialogues": [
-	  { "speaker": "Raja Aldric", "text": "Keshar, apakah kamu pernah merasa bahwa kamu sudah terlalu jauh untuk kembali?" },
-	  { "speaker": "Keshar", "text": "(diam sejenak) ...Pertanyaan yang menarik, Yang Mulia. Kenapa bertanya?" },
-	  { "speaker": "Raja Aldric", "text": "Hanya... perasaan." }
+	  { "speaker": "Raja Aldric", "text": "Keshar, pernahkah kamu merasa sudah terlalu jauh untuk bisa kembali?" },
+	  { "speaker": "Keshar", "text": "(diam sejenak) Pertanyaan yang menarik, Yang Mulia. Kenapa bertanya?" },
+	  { "speaker": "Raja Aldric", "text": "Hanya... perasaan saja." }
 	]
   },
   "visitors": [
 	{
 	  "id": "v1_duren_ultimatum",
-	  "name": "Ambassador Kael — Ultimatum Duren",
-	  "narrator": "Ambassador Kael kembali, tapi kali ini tanpa hadiah. Hanya satu gulungan surat.",
+	  "name": "Ambassador Kael",
+	  "narrator": "Ambassador Kael kembali, tapi kali ini tanpa hadiah diplomatik. Hanya satu gulungan surat disegel dengan lilin merah.",
 	  "dialogues": [
-		{ "speaker": "Ambassador Kael", "text": "Yang Mulia, Raja Duren meminta keputusan final. Wilayah perbatasan Renhold — kami klaim itu secara historis milik Duren. Serahkan atau..." },
-		{ "speaker": "Raja Aldric", "text": "Ini ultimatum, Keshar. Mereka serius?" }
+		{ "speaker": "Ambassador Kael", "text": "Yang Mulia, Raja Duren meminta keputusan final dalam tiga hari. Wilayah perbatasan Renhold — kami mengklaimnya secara historis. Serahkan, atau kami akan mengambilnya dengan cara lain." },
+		{ "speaker": "Raja Aldric", "text": "Ini ultimatum, Keshar. Apakah mereka sungguh-sungguh?" }
 	  ],
 	  "choices": [
 		{
 		  "id": "A",
-		  "text": "Sarankan jalur diplomasi — negosiasi batas wilayah",
-		  "effects": { "stability": 3, "treasury": -5 },
-		  "king_follow_text": "Berikan sedikit tapi tidak semuanya. Diplomasi adalah seni membuat lawan merasa menang padahal tidak.",
-		  "king_refuse_text": "Tapi ini wilayah kerajaan kita yang sah...",
-		  "king_refuse_effect": { "stability": 2 },
-		  "keshar_text": "Sedikit wilayah jauh lebih murah dari biaya perang, Yang Mulia."
+		  "text": "Sarankan negosiasi diplomatik — berikan sedikit, pertahankan yang utama",
+		  "keshar_text": "Sedikit konsesi wilayah jauh lebih murah dari biaya perang, Yang Mulia. Duren ingin tampak menang — berikan itu tanpa kehilangan yang penting.",
+		  "effects": { "stability": 4, "treasury": -4 },
+		  "king_follow_text": "Kita buka jalur negosiasi. Beri mereka sesuatu — tapi bukan segalanya.",
+		  "king_refuse_text": "Tapi itu adalah wilayah kerajaan yang sah... apakah ini tidak menjadi preseden berbahaya?",
+		  "king_refuse_effect": { "stability": 2 }
 		},
 		{
 		  "id": "B",
-		  "text": "Sarankan ancam balik — tunjukkan kita tidak takut perang",
-		  "effects": { "military": 5, "stability": -4 },
-		  "king_follow_text": "Gambit keberanian sering berhasil. Kelemahan mengundang perang lebih cepat dari ketegasan.",
-		  "king_refuse_text": "Itu berisiko... kalau mereka sungguh-sungguh?",
-		  "king_refuse_effect": { "military": 2, "stability": -1 },
-		  "keshar_text": "Duren menguji kita, Yang Mulia. Jika kita berkedip duluan, mereka tahu kita lemah."
+		  "text": "Sarankan ancam balik — tunjukkan kita tidak takut konflik",
+		  "keshar_text": "Duren sedang menguji kita, Yang Mulia. Jika kita berkedip duluan, mereka akan tahu kita bisa ditekan.",
+		  "effects": { "military": 6, "stability": -4 },
+		  "king_follow_text": "Sampaikan kepada Raja Duren bahwa kerajaan ini bukan yang pertama atau terakhir yang pernah menerima ultimatum semacam ini.",
+		  "king_refuse_text": "Kalau mereka sungguh-sungguh, kita bisa memancing konflik yang belum kita siapkan, Keshar.",
+		  "king_refuse_effect": { "military": 2, "stability": -1 }
 		},
 		{
 		  "id": "C",
-		  "text": "Sarankan suap diplomatik — bayar dengan diam-diam",
-		  "effects": { "treasury": -10 },
-		  "king_follow_text": "Perang biayanya jauh lebih mahal dari suap. Ini investasi, bukan kelemahan.",
-		  "king_refuse_text": "Kita mau membayar mereka diam-diam? Itu mempermalukan kerajaan...",
-		  "king_refuse_effect": { "stability": 2, "treasury": -3 },
-		  "keshar_text": "Tidak ada yang perlu tahu, Yang Mulia. Hasilnya adalah kedamaian — itu yang penting."
+		  "text": "Sarankan bayar secara diam-diam untuk menghindari konflik terbuka",
+		  "keshar_text": "Tidak ada yang perlu tahu, Yang Mulia. Hasilnya adalah kedamaian — dan itu yang paling penting.",
+		  "effects": { "treasury": -10, "stability": 3 },
+		  "king_follow_text": "Ini bukan tentang siapa yang menang. Ini tentang menjaga kerajaan tetap utuh.",
+		  "king_refuse_text": "Kita akan membayar mereka secara diam-diam? Jika ini bocor ke rakyat...",
+		  "king_refuse_effect": { "stability": 2, "treasury": -4 }
 		}
 	  ]
 	},
 	{
 	  "id": "v2_petisi_rakyat",
-	  "name": "Perwakilan Rakyat — Petisi Keadilan",
-	  "narrator": "Perwakilan rakyat — petani, pedagang, dan pengrajin — datang membawa petisi.",
+	  "name": "Perwakilan Rakyat",
+	  "narrator": "Perwakilan rakyat dari berbagai lapisan — petani, pedagang, dan pengrajin — datang bersama membawa gulungan petisi.",
 	  "dialogues": [
-		{ "speaker": "Juru Bicara Rakyat", "text": "Yang Mulia, kami tidak mengeluh. Kami meminta keadilan. Tiga bulan terakhir, pajak tidak transparan dan penguasa lokal bertindak sewenang-wenang." },
-		{ "speaker": "Raja Aldric", "text": "Ini... ini serius. Keshar?" }
+		{ "speaker": "Juru Bicara Rakyat", "text": "Yang Mulia, kami tidak mengeluh. Kami meminta keadilan. Tiga bulan terakhir, penguasa lokal bertindak sewenang-wenang dan tidak ada yang menghentikan mereka." },
+		{ "speaker": "Raja Aldric", "text": "Ini... ini serius. Apa yang bisa kita lakukan, Keshar?" }
 	  ],
 	  "choices": [
 		{
 		  "id": "A",
 		  "text": "Sarankan bentuk komite investigasi independen",
-		  "effects": { "stability": 7, "influence": -3 },
-		  "king_follow_text": "Bentuk komite investigasi. Rakyat yang merasa didengar adalah rakyat yang tidak memberontak.",
-		  "king_refuse_text": "(Raja setuju sepenuhnya — ini terasa seperti tindakan yang benar.)",
-		  "king_refuse_effect": { "stability": 5 },
-		  "keshar_text": "Investigasi transparan lebih kuat dari hukum apapun untuk memenangkan hati rakyat."
+		  "keshar_text": "Investigasi yang transparan lebih kuat dari hukum apapun untuk memenangkan hati rakyat, Yang Mulia.",
+		  "effects": { "stability": 8, "trust_king": 4, "influence": -2 },
+		  "king_follow_text": "Dibentuk komite investigasi hari ini. Rakyat yang merasa didengar adalah rakyat yang tidak memberontak.",
+		  "king_refuse_text": "(Raja setuju sepenuhnya — ini keputusan yang terasa benar dan jelas.)",
+		  "king_refuse_effect": { "stability": 5 }
 		},
 		{
 		  "id": "B",
-		  "text": "Sarankan berjanji akan meninjau tapi tidak berkomitmen pada timeline",
+		  "text": "Sarankan berikan janji peninjauan tanpa komitmen waktu",
+		  "keshar_text": "Janji yang tidak mengikat masih lebih baik dari penolakan, Yang Mulia. Beri mereka harapan.",
 		  "effects": { "trust_king": 2, "stability": 2 },
-		  "king_follow_text": "Aku akan meninjau semua keluhan ini secara pribadi.",
-		  "king_refuse_text": "(Raja menerima ini sebagai kompromi yang masuk akal.)",
-		  "king_refuse_effect": { "stability": 2 },
-		  "keshar_text": "Janji yang tidak mengikat masih lebih baik dari penolakan, Yang Mulia."
+		  "king_follow_text": "Aku akan meninjau semua keluhan ini secara pribadi. Berikan saya waktu.",
+		  "king_refuse_text": "(Raja menerima ini sebagai kompromi yang bisa dijalankan untuk sekarang.)",
+		  "king_refuse_effect": { "stability": 1 }
 		},
 		{
 		  "id": "C",
-		  "text": "Sarankan tangkap juru bicara — ini gerakan berbahaya",
+		  "text": "Sarankan tangkap juru bicara — gerakan ini berbahaya jika dibiarkan",
+		  "keshar_text": "Gerakan rakyat yang tidak dihentikan bisa menjadi pemberontakan, Yang Mulia. Hentikan sebelum membesar.",
 		  "always_refuse": true,
-		  "effects": { "fear": 8, "stability": -7 },
-		  "king_follow_text": "",
-		  "king_refuse_text": "Keshar, mereka datang dengan damai. Aku tidak bisa menangkap orang yang hanya berbicara.",
-		  "king_refuse_effect": { "stability": 3 },
-		  "keshar_text": "Gerakan rakyat yang dibiarkan bisa menjadi pemberontakan, Yang Mulia. Hentikan sebelum besar."
+		  "effects": { "stability": -8, "trust_king": -5 },
+		  "king_refuse_text": "Mereka datang dengan damai, Keshar. Aku tidak bisa menangkap orang yang hanya berbicara.",
+		  "king_refuse_effect": { "stability": 4, "trust_king": 3 }
 		}
 	  ]
 	},
 	{
 	  "id": "v3_lord_edric_checkpoint",
-	  "name": "Lord Edric — Penasihat Lama",
-	  "narrator": "Lord Edric — penasihat mendiang raja, mentor Keshar dulu — meminta audiensi.",
+	  "name": "Lord Edric",
+	  "narrator": "Lord Edric — penasihat mendiang raja dan mentor Keshar dulu — meminta audiensi secara tak terduga.",
 	  "conditional_dialogues": [
 		{
 		  "condition": "coup_route_inactive",
 		  "dialogues": [
-			{ "speaker": "Lord Edric", "text": "Keshar, lama tidak bertemu. (tersenyum) Kau berkembang menjadi penasihat yang luar biasa. Raja beruntung memilikimu." },
+			{ "speaker": "Lord Edric", "text": "Keshar, lama tidak bertemu. Kau berkembang menjadi penasihat yang luar biasa. Raja beruntung memilikimu." },
 			{ "speaker": "Keshar", "text": "Edric... terima kasih. Ada yang bisa saya bantu?" },
-			{ "speaker": "Lord Edric", "text": "Tidak. Hanya ingin melihat muridku dengan mata kepala sendiri. Lanjutkan apa yang kamu lakukan, Keshar. Jangan biarkan kekuasaan mengubahmu." }
+			{ "speaker": "Lord Edric", "text": "Tidak. Hanya ingin melihat muridku dengan mata kepala sendiri. Lanjutkan apa yang kamu lakukan, Keshar. Dan jangan biarkan kekuasaan mengubahmu." }
 		  ],
 		  "choices": []
 		},
 		{
 		  "condition": "coup_route_active",
 		  "dialogues": [
-			{ "speaker": "Lord Edric", "text": "Keshar... aku lihat kau sudah berkembang jauh. (berbisik) Terlalu jauh, mungkin." },
+			{ "speaker": "Lord Edric", "text": "Keshar... (berbisik) Aku tahu apa yang sedang kau rencanakan. Berhentilah sebelum terlambat." },
 			{ "speaker": "Keshar", "text": "Edric. Ada yang bisa saya bantu?" },
-			{ "speaker": "Lord Edric", "text": "Ada yang bisa aku bantu. Aku tahu apa yang sedang kau rencanakan. Berhentilah sebelum terlambat." }
+			{ "speaker": "Lord Edric", "text": "Justru ada yang bisa aku bantu. Kau masih bisa memilih jalan yang berbeda." }
 		  ],
 		  "choices": [
 			{
 			  "id": "A",
-			  "text": "Pura-pura tidak mengerti — 'Aku tidak tahu apa yang kamu bicarakan, Edric.'",
+			  "text": "Pura-pura tidak mengerti — 'Aku tidak tahu apa yang kamu bicarakan, Edric'",
+			  "keshar_text": "Edric, aku benar-benar tidak tahu apa yang kamu maksud.",
 			  "effects": { "influence": 3 },
-			  "king_response": null,
-			  "keshar_text": "Edric... aku tidak tahu apa yang kamu bicarakan.",
-			  "extra_dialogue": [{ "speaker": "Lord Edric", "text": "(dengan sedih) Kamu tidak berubah. Tapi kali ini taruhannya nyawa, bukan hanya reputasi." }]
+			  "extra_dialogue": [{ "speaker": "Lord Edric", "text": "(dengan sedih) Kamu tidak berubah, Keshar. Tapi kali ini taruhannya bukan sekadar reputasi." }]
 			},
 			{
 			  "id": "B",
-			  "text": "Akui — dan ajak Edric bergabung",
-			  "effects": { "military_support": 25 },
-			  "king_response": null,
+			  "text": "Akui dan ajak Edric bergabung",
 			  "keshar_text": "...Edric. Aku butuh seseorang yang bisa kupercaya. Bergabunglah.",
+			  "effects": { "influence": 5, "military": 10 },
 			  "extra_dialogue": [{ "speaker": "Lord Edric", "text": "(diam panjang) ...Kamu tahu ini salah. Tapi baiklah. Demi kerajaan ini — bukan untuk ambisimu." }],
 			  "special_flag": "edric_recruited"
 			},
 			{
 			  "id": "C",
-			  "text": "Ancam Edric secara halus",
-			  "effects": { "influence": 5, "trust_king": -8 },
-			  "king_response": null,
-			  "keshar_text": "Edric... kita sudah lama bersama. Aku harap kamu tahu bahwa informasi itu bisa berbahaya di tangan yang salah.",
-			  "extra_dialogue": [{ "speaker": "Lord Edric", "text": "(tatapannya berubah dingin) ...Aku mengerti, Keshar. Lebih dari yang kamu kira." }]
+			  "text": "Ancam Edric secara halus agar ia diam",
+			  "keshar_text": "Edric... kita sudah lama bersama. Aku harap kamu memahami bahwa informasi di tangan yang salah bisa sangat berbahaya.",
+			  "effects": { "influence": 6, "trust_king": -8 },
+			  "extra_dialogue": [{ "speaker": "Lord Edric", "text": "(tatapannya berubah dingin) ...Aku mengerti, Keshar. Lebih dari yang kamu perkirakan." }]
 			}
 		  ]
 		}
@@ -141,33 +137,33 @@
 	}
   ],
   "night_event": {
-	"narrator": "Raja menemui Keshar di taman, tanpa membawa penjaga.",
+	"narrator": "Raja menemui Keshar di taman, tanpa membawa penjaga. Ini pertama kalinya ia melakukan itu.",
 	"dialogues": [
-	  { "speaker": "Raja Aldric", "text": "Keshar... aku mendengar rumor. Orang-orang bilang ada yang ingin menggulingkan aku. Apakah kamu tahu sesuatu?" }
+	  { "speaker": "Raja Aldric", "text": "Keshar... aku mendengar rumor. Ada yang ingin menggulingkanku. Apakah kamu tahu sesuatu tentang ini?" }
 	],
 	"special_flag": "king_direct_question",
 	"choices": [
 	  {
 		"id": "A",
-		"text": "Beritahu raja semuanya — tidak ada yang tersembunyi",
-		"effects": { "trust_king": 15 },
-		"king_response": "(Raja terdiam lama. Ekspresinya campur aduk — lega sekaligus terluka.) ...Terima kasih sudah jujur, Keshar.",
-		"keshar_text": "Yang Mulia... ada yang ingin berbicara padaku tentang kemungkinan pergantian raja. Saya menolak mereka. Tapi Yang Mulia perlu tahu.",
+		"text": "Beritahu raja semuanya — tidak ada yang disembunyikan",
+		"keshar_text": "Yang Mulia... ada pihak yang pernah mendekati saya dengan proposal tentang pergantian kepemimpinan. Saya menolak mereka. Tapi Yang Mulia berhak tahu.",
+		"effects": { "trust_king": 15, "influence": -5 },
+		"king_response": "(Raja terdiam lama. Ekspresinya campur aduk antara lega dan terluka.) ...Terima kasih, Keshar. Terima kasih sudah memilih untuk jujur.",
 		"coup_effect": "partial_block"
 	  },
 	  {
 		"id": "B",
-		"text": "Bohong dengan meyakinkan — 'Tidak ada yang perlu dikhawatirkan.'",
-		"effects": { "influence": 5, "trust_king": -5 },
-		"king_response": "(Raja mengangguk, tapi matanya tidak sepenuhnya yakin.)",
-		"keshar_text": "Rumor adalah senjata musuh. Jangan biarkan kata-kata kosong mengganggu Yang Mulia."
+		"text": "Bohong dengan meyakinkan — 'Tidak ada yang perlu dikhawatirkan'",
+		"keshar_text": "Rumor adalah senjata musuh, Yang Mulia. Jangan biarkan kata-kata kosong mengambil fokus Yang Mulia.",
+		"effects": { "influence": 6, "trust_king": -5 },
+		"king_response": "(Raja mengangguk, tapi matanya tidak sepenuhnya yakin.)"
 	  },
 	  {
 		"id": "C",
-		"text": "Akui ada ancaman tapi tidak sebutkan keterlibatan Keshar",
+		"text": "Akui ada ancaman tapi jangan sebut keterlibatan Keshar",
+		"keshar_text": "Ada bisikan di kalangan bangsawan, Yang Mulia. Tapi saya sudah mengidentifikasi mereka dan situasinya terkendali.",
 		"effects": { "trust_king": 5, "influence": 3 },
-		"king_response": "(Raja terlihat sedikit lebih tenang, meski belum sepenuhnya lega.)",
-		"keshar_text": "Ada bisikan di kalangan bangsawan, Yang Mulia. Tapi saya sudah mengidentifikasi mereka dan situasinya terkendali."
+		"king_response": "(Raja terlihat sedikit lebih tenang, meski masih ada kegelisahan di balik matanya.)"
 	  }
 	]
   }

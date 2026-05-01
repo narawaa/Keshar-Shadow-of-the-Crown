@@ -183,4 +183,6 @@ func reset() -> void:
 	coup_conspirators = [];     king_state = "neutral"
 	intel_level = 0;  queen_knows = false
 	edric_recruited = false;  voss_recruited = false
+	_staged_effects = {}
+	_staged_king_followed = false
 	emit_signal("stats_changed")

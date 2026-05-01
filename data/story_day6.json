@@ -1,57 +1,56 @@
 {
   "day": 6,
-  "title": "Serangan Monster",
+  "title": "Ketika Dunia Menyerang",
   "morning_briefing": {
-	"narrator": "Tidak ada waktu untuk politik hari ini. Ancaman nyata datang dari hutan utara.",
+	"narrator": "Tidak ada waktu untuk politik hari ini. Ancaman nyata datang langsung dari hutan utara.",
 	"dialogues": [
-	  { "speaker": "Raja Aldric", "text": "Keshar, aku tidak bisa tidur semalam. Ada sesuatu di hutan — aku bisa merasakannya." },
-	  { "speaker": "Keshar", "text": "Intuisi Yang Mulia tajam. Kita akan tahu sebentar lagi." }
+	  { "speaker": "Raja Aldric", "text": "Aku tidak bisa tidur semalam, Keshar. Ada sesuatu di hutan — aku bisa merasakannya." },
+	  { "speaker": "Keshar", "text": "Intuisi Yang Mulia tidak keliru. Kita akan tahu sebentar lagi." }
 	]
   },
   "visitors": [
 	{
 	  "id": "v1_mirefall_monster",
-	  "name": "Kapten Garen — Monster Menyerang Mirefall",
-	  "narrator": "Kapten Garen masuk dengan wajah pucat.",
+	  "name": "Kapten Garen",
+	  "narrator": "Kapten Garen masuk dengan wajah yang jarang terlihat pucat seperti ini.",
 	  "dialogues": [
-		{ "speaker": "Kapten Garen", "text": "Yang Mulia — Desa Mirefall diserang. Bukan laporan. Realita. Monster besar dari hutan utara. Ada korban jiwa." },
+		{ "speaker": "Kapten Garen", "text": "Yang Mulia. Desa Mirefall diserang. Bukan laporan kali ini — ini sudah terjadi. Monster besar dari hutan utara. Ada korban jiwa." },
 		{ "speaker": "Raja Aldric", "text": "Korban jiwa... Keshar, kita harus bertindak sekarang!" }
 	  ],
 	  "choices": [
 		{
 		  "id": "A",
-		  "text": "Sarankan kirim pasukan besar — habisi monster",
+		  "text": "Sarankan kerahkan pasukan besar untuk menghabisi ancaman",
+		  "keshar_text": "Ini bukan hanya soal monster, Yang Mulia. Ini soal apakah rakyat percaya bahwa kerajaan hadir saat mereka butuh.",
 		  "effects": { "military": -10, "stability": 12 },
-		  "king_follow_text": "Kirim kekuatan penuh. Rakyat butuh melihat bahwa kerajaan hadir di saat darurat.",
-		  "king_refuse_text": "Kita akan kekurangan pasukan ibukota untuk beberapa hari...",
-		  "king_refuse_effect": { "military": -6, "stability": 7 },
-		  "keshar_text": "Ini bukan hanya soal monster, Yang Mulia — ini soal kepercayaan rakyat bahwa kerajaan melindungi mereka."
+		  "king_follow_text": "Kerahkan kekuatan penuh. Rakyat harus melihat bahwa kerajaan tidak hanya hadir di waktu damai.",
+		  "king_refuse_text": "Kita akan kekurangan pasukan ibukota selama beberapa hari...",
+		  "king_refuse_effect": { "military": -5, "stability": 7 }
 		},
 		{
 		  "id": "B",
-		  "text": "Sarankan evakuasi rakyat ke kota yang lebih aman",
-		  "effects": { "stability": 6, "military": 2 },
-		  "king_follow_text": "Prioritaskan nyawa rakyat. Evakuasi dulu. Monster bisa kita tangani setelah warga aman.",
-		  "king_refuse_text": "Tapi mereka tidak ingin meninggalkan rumah mereka...",
-		  "king_refuse_effect": { "stability": 4 },
-		  "keshar_text": "Nyawa tidak bisa diganti, Yang Mulia. Desa bisa dibangun ulang."
+		  "text": "Sarankan evakuasi warga ke kota yang lebih aman terlebih dulu",
+		  "keshar_text": "Nyawa tidak bisa diganti, Yang Mulia. Desa bisa dibangun ulang, tapi orang yang mati tidak bisa dihidupkan kembali.",
+		  "effects": { "stability": 7, "military": 3 },
+		  "king_follow_text": "Prioritaskan nyawa. Evakuasi semua warga dahulu, baru kita tangani ancamannya.",
+		  "king_refuse_text": "Tapi mereka tidak mau meninggalkan rumah mereka, Keshar...",
+		  "king_refuse_effect": { "stability": 4 }
 		},
 		{
 		  "id": "C",
-		  "text": "Biarkan monster — ambil kesempatan untuk restrukturisasi wilayah",
+		  "text": "Biarkan monster — gunakan ini sebagai alasan restrukturisasi wilayah",
+		  "keshar_text": "Yang Mulia, ini mungkin terdengar dingin — tapi Desa Mirefall sudah lama jadi sumber gesekan. Jika dibiarkan...",
 		  "always_refuse": true,
-		  "effects": { "military": 6, "stability": -12, "influence": 5, "trust_king": -8 },
-		  "king_follow_text": "",
-		  "king_refuse_text": "TIDAK — Desa Mirefall itu rakyatku! Aku tidak akan membiarkan mereka mati!",
-		  "king_refuse_effect": { "trust_king": -8 },
-		  "keshar_text": "...Yang Mulia, ini mungkin terdengar dingin, tapi desa Mirefall sudah lama menjadi sumber masalah. Jika monster menyelesaikan masalah itu..."
+		  "effects": { "military": 5, "stability": -14, "trust_king": -10 },
+		  "king_refuse_text": "TIDAK, Keshar. Desa Mirefall adalah rakyatku. Aku tidak akan membiarkan siapapun mati demi kalkulasi politikmu.",
+		  "king_refuse_effect": { "trust_king": -10 }
 		}
 	  ]
 	},
 	{
 	  "id": "v2_penyihir_checkpoint",
-	  "name": "Penyihir Miriel — Peringatan Misterius",
-	  "narrator": "Seorang wanita tua dengan jubah abu-abu memaksa masuk, dikawal penjaga yang ketakutan.",
+	  "name": "Penyihir Miriel",
+	  "narrator": "Seorang wanita tua dengan jubah abu-abu memaksa masuk, dikawal dua penjaga yang tampak lebih bingung dari takut.",
 	  "dialogues": [
 		{ "speaker": "Penjaga", "text": "Yang Mulia, dia memaksa masuk. Kami tidak bisa—" }
 	  ],
@@ -60,116 +59,116 @@
 		  "condition": "trust_king_low",
 		  "threshold": 40,
 		  "dialogues": [
-			{ "speaker": "Penyihir Miriel", "text": "Raja muda, aku melihat hal-hal yang tidak bisa dilihat orang lain. Ada yang berdiri di sisimu sekarang yang sedang menghitung tahta, bukan menyelamatkannya." },
-			{ "speaker": "Raja Aldric", "text": "(melirik Keshar dengan ekspresi yang sulit dibaca) ...Apa maksudmu?" }
+			{ "speaker": "Penyihir Miriel", "text": "Raja muda. Ada yang berdiri di sisimu sekarang yang sedang menghitung tahta, bukan mempertahankannya." },
+			{ "speaker": "Raja Aldric", "text": "(melirik Keshar, perlahan) ...Maksudmu siapa?" }
 		  ]
 		},
 		{
 		  "condition": "trust_king_high",
 		  "threshold": 40,
 		  "dialogues": [
-			{ "speaker": "Penyihir Miriel", "text": "Raja muda, aku melihat seseorang yang berdiri di sisimu dengan tangan yang belum memilih jalannya. Dia bisa menjadi penyelamatmu — atau kehancuranmu." },
-			{ "speaker": "Raja Aldric", "text": "Keshar... siapa kamu sebenarnya?" }
+			{ "speaker": "Penyihir Miriel", "text": "Raja muda. Orang yang berdiri di sisimu belum memilih jalannya. Dia bisa menjadi penyelamatmu — atau kejatuhan terbesarmu." },
+			{ "speaker": "Raja Aldric", "text": "Keshar... siapa sebenarnya dirimu?" }
 		  ]
 		}
 	  ],
 	  "choices": [
 		{
 		  "id": "A",
-		  "text": "Usir penyihir — ini provokasi",
-		  "effects": { "influence": -3, "trust_king": 3 },
-		  "king_follow_text": "Usirlah dia. Kata-kata tanpa bukti adalah angin.",
-		  "king_refuse_text": "(Raja ragu sebentar, lalu mengangguk.)",
-		  "king_refuse_effect": { "trust_king": 1 },
-		  "keshar_text": "Yang Mulia, ini manipulasi. Jangan biarkan kata-kata orang gila mengganggu ketenangan kerajaan."
+		  "text": "Usir penyihir — ini provokasi yang tidak berdasar",
+		  "keshar_text": "Ini manipulasi, Yang Mulia. Jangan biarkan kata-kata orang asing mengguncang ketenangan kerajaan.",
+		  "effects": { "influence": -2, "trust_king": 3 },
+		  "king_follow_text": "Usirlah dia. Kata-kata tanpa bukti tidak layak mendapat tempat di sini.",
+		  "king_refuse_text": "(Raja ragu sebentar, menatap penyihir, lalu mengangguk setuju.)",
+		  "king_refuse_effect": { "trust_king": 1 }
 		},
 		{
 		  "id": "B",
-		  "text": "Diam — biarkan raja merespons sendiri",
+		  "text": "Diam — biarkan raja merespons dengan caranya sendiri",
+		  "keshar_text": "...",
 		  "effects": { "trust_king": 5 },
-		  "king_follow_text": "(Raja menatap penyihir, lalu menatap Keshar. Akhirnya mengusir penyihir sendiri, tapi ekspresinya penuh pertanyaan.)",
-		  "king_refuse_text": "(Raja diam lama, lalu menggeleng pelan.)",
-		  "king_refuse_effect": { "trust_king": 2 },
-		  "keshar_text": null
+		  "king_follow_text": "(Raja menatap penyihir lama, lalu menatap Keshar. Ia mengusir penyihir sendiri, tapi pertanyaan di matanya tidak ikut pergi.)",
+		  "king_refuse_text": "(Raja diam cukup lama, lalu menggeleng pelan.)",
+		  "king_refuse_effect": { "trust_king": 2 }
 		},
 		{
 		  "id": "C",
-		  "text": "Bela diri dengan elegan",
+		  "text": "Bela diri dengan tenang dan elegan",
+		  "keshar_text": "Jika saya berniat buruk, apakah saya akan ada di sini — bertahun-tahun melayani mahkota? Kata-kata tanpa bukti adalah angin yang tidak kemana-mana.",
 		  "effects": { "influence": 5, "trust_king": -3 },
-		  "king_follow_text": "(Raja mengangguk, tampak teyakinkan. Penyihir diusir.)",
-		  "king_refuse_text": "(Raja tidak sepenuhnya yakin, meski tidak berkata demikian.)",
-		  "king_refuse_effect": { "trust_king": -1 },
-		  "keshar_text": "Jika saya berniat buruk, apakah saya akan ada di sini bertahun-tahun melayani mahkota? Kata-kata tanpa bukti adalah angin."
+		  "king_follow_text": "(Raja mengangguk, tampak sedikit teyakinkan. Penyihir diusir.)",
+		  "king_refuse_text": "(Raja tidak sepenuhnya yakin, meski tidak mengatakannya.)",
+		  "king_refuse_effect": { "trust_king": -1 }
 		}
 	  ]
 	},
 	{
 	  "id": "v3_voss_komando",
-	  "name": "Jenderal Voss — Struktur Komando Darurat",
-	  "narrator": "Jenderal Voss kembali, sikapnya lebih terkontrol tapi tatapannya lebih tajam.",
+	  "name": "Jenderal Voss",
+	  "narrator": "Jenderal Voss kembali, sikapnya lebih terkontrol kali ini, tapi tatapannya justru lebih tajam.",
 	  "dialogues": [
-		{ "speaker": "Jenderal Voss", "text": "Yang Mulia, dalam situasi darurat seperti ini, militer perlu komando yang jelas. Rantai perintah tidak boleh diinterupsi oleh... pihak ketiga." },
-		{ "speaker": "Raja Aldric", "text": "Keshar... apa menurutmu?" }
+		{ "speaker": "Jenderal Voss", "text": "Yang Mulia, dalam situasi darurat, rantai komando militer harus jelas dan tidak boleh diinterupsi oleh pihak yang tidak memiliki otoritas militer resmi." },
+		{ "speaker": "Raja Aldric", "text": "Keshar... pendapatmu?" }
 	  ],
 	  "choices": [
 		{
 		  "id": "A",
-		  "text": "Sarankan tegaskan otoritas Keshar sebagai koordinator darurat",
-		  "effects": { "influence": 6, "military": -4 },
-		  "king_follow_text": "Keshar akan berkoordinasi langsung dengan Kapten Garen untuk situasi darurat ini.",
-		  "king_refuse_text": "Tapi Voss adalah jenderal berpengalaman...",
-		  "king_refuse_effect": { "military": -1, "influence": 2 },
-		  "keshar_text": "Koordinasi terpusat lebih efektif dari komando yang terfragmentasi, Yang Mulia."
+		  "text": "Sarankan tetapkan Keshar sebagai koordinator darurat di atas Voss",
+		  "keshar_text": "Koordinasi terpusat lebih efektif dari komando yang terfragmentasi, Yang Mulia.",
+		  "effects": { "influence": 7, "military": -4 },
+		  "king_follow_text": "Keshar akan berkoordinasi langsung dengan Kapten Garen untuk situasi darurat ini. Voss tetap memegang komando lapangan.",
+		  "king_refuse_text": "Tapi Voss adalah jenderal berpengalaman dengan rekam jejak yang terbukti...",
+		  "king_refuse_effect": { "military": -1, "influence": 3 }
 		},
 		{
 		  "id": "B",
-		  "text": "Sarankan beri Voss komando penuh untuk situasi darurat",
-		  "effects": { "military": 8, "influence": -5 },
-		  "king_follow_text": "Jenderal Voss punya pengalaman lapangan. Dalam situasi ini, berikan dia komando penuh.",
-		  "king_refuse_text": "(Raja setuju tanpa keberatan — ini keputusan yang terasa logis.)",
-		  "king_refuse_effect": { "military": 5 },
-		  "keshar_text": "Voss adalah komandan terbaik yang kita punya untuk situasi ini. Beri dia ruang bergerak."
+		  "text": "Sarankan beri Voss komando penuh untuk situasi ini",
+		  "keshar_text": "Voss adalah komandan terbaik yang kita punya untuk situasi seperti ini. Beri dia ruang untuk bergerak.",
+		  "effects": { "military": 8, "influence": -5, "trust_king": 2 },
+		  "king_follow_text": "Jenderal Voss, komando darurat ada padamu. Laporkan langsung kepadaku.",
+		  "king_refuse_text": "(Raja setuju tanpa keberatan — ini keputusan yang terasa logis dan langsung.)",
+		  "king_refuse_effect": { "military": 5 }
 		},
 		{
 		  "id": "C",
-		  "text": "Sarankan buat komite darurat gabungan",
-		  "effects": { "military": 3, "influence": 3 },
-		  "king_follow_text": "Komite darurat gabungan — Voss pegang komando lapangan, Keshar koordinasi informasi intelijen.",
-		  "king_refuse_text": "(Raja tampak lega — solusi yang tidak mengharuskan dia memilih salah satu.)",
-		  "king_refuse_effect": { "military": 2, "influence": 1 },
-		  "keshar_text": "Dua keahlian berbeda, Yang Mulia. Gabungkan keduanya — bukan pertentangkan."
+		  "text": "Sarankan komite darurat gabungan — keduanya punya peran",
+		  "keshar_text": "Dua keahlian yang berbeda, Yang Mulia. Gabungkan keduanya, bukan pertentangkan.",
+		  "effects": { "military": 4, "influence": 4 },
+		  "king_follow_text": "Voss pegang komando lapangan, Keshar koordinasi intelijen dan logistik. Kalian bekerja bersama.",
+		  "king_refuse_text": "(Raja terlihat lega — solusi yang tidak mengharuskannya memilih salah satu.)",
+		  "king_refuse_effect": { "military": 2, "influence": 2 }
 		}
 	  ]
 	}
   ],
   "night_event": {
-	"narrator": "Monster sudah diusir. Raja duduk kelelahan di balkon.",
+	"narrator": "Monster sudah diusir. Raja duduk kelelahan di balkon, memandang kota yang akhirnya kembali tenang.",
 	"dialogues": [
-	  { "speaker": "Raja Aldric", "text": "Keshar... hari ini aku sadar bahwa ada hal yang bisa kulakukan sendiri. Tapi aku juga sadar betapa banyak yang masih tidak aku mengerti." }
+	  { "speaker": "Raja Aldric", "text": "Keshar... hari ini aku sadar ada hal yang bisa kulakukan sendiri. Tapi aku juga sadar betapa banyak yang masih belum kupahami." }
 	],
 	"choices": [
 	  {
 		"id": "A",
-		"text": "'Yang Mulia berkembang dengan pesat. Ini bukan raja yang kutemui dua minggu lalu.'",
-		"effects": { "trust_king": 5, "king_personality": 5 },
+		"text": "'Yang Mulia berkembang. Ini bukan raja yang sama yang kutemui di hari pertama.'",
+		"keshar_text": "Dua minggu lalu, Yang Mulia ragu bahkan untuk menjawab petani. Hari ini, Yang Mulia memimpin respons darurat dengan kepala tegak.",
+		"effects": { "trust_king": 6, "king_personality": 5 },
 		"king_response": "...Terima kasih, Keshar. Kalimat itu berarti lebih dari yang kamu kira.",
-		"keshar_text": "Dua minggu lalu, Yang Mulia ragu bahkan untuk menjawab petani. Hari ini, Yang Mulia memimpin evakuasi sendiri.",
 		"personality_shift": "strong"
 	  },
 	  {
 		"id": "B",
-		"text": "'Itulah mengapa Yang Mulia butuh saya — untuk mengisi celah yang belum terisi itu.'",
-		"effects": { "influence": 5 },
-		"king_response": "Ya... aku tidak bisa membayangkan memimpin tanpa kamu, Keshar.",
-		"keshar_text": "Itu bukan kelemahan, Yang Mulia. Itu kebijaksanaan — mengetahui apa yang belum kamu kuasai.",
+		"text": "'Itulah mengapa Yang Mulia membutuhkan saya — untuk mengisi celah yang belum terisi.'",
+		"keshar_text": "Mengetahui apa yang belum kamu kuasai bukan kelemahan, Yang Mulia. Itu kebijaksanaan.",
+		"effects": { "influence": 6, "trust_king": -1 },
+		"king_response": "Ya... aku tidak bisa membayangkan memimpin tanpamu, Keshar.",
 		"personality_shift": "dependent"
 	  },
 	  {
 		"id": "C",
-		"text": "'Raja yang tahu batasnya adalah raja yang bijaksana.'",
-		"effects": { "trust_king": 8, "king_personality": 5 },
-		"king_response": "Batas... dan kekuatan. Aku harus tahu keduanya. (tersenyum) Terima kasih, Keshar.",
-		"keshar_text": "Keberanian bukan berarti tidak takut — tapi bertindak meski takut. Yang Mulia melakukan itu hari ini.",
+		"text": "'Raja yang mengetahui batas kemampuannya adalah raja yang bijaksana.'",
+		"keshar_text": "Keberanian bukan berarti tidak takut, Yang Mulia. Tapi bertindak meski takut. Yang Mulia melakukan itu hari ini.",
+		"effects": { "trust_king": 7, "king_personality": 5 },
+		"king_response": "Batas dan kekuatan. Aku harus tahu keduanya. (tersenyum) Terima kasih, Keshar.",
 		"personality_shift": "strong"
 	  }
 	]

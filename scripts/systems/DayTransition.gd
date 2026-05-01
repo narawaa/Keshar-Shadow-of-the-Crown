@@ -19,7 +19,6 @@ const DAY_NAMES = {
 func _ready() -> void:
 	visible = false
 	next_btn.visible = false
-	next_btn.pressed.connect(_on_next_button_pressed)
 
 func play(day: int, day_title: String = "") -> void:
 	var day_name = DAY_NAMES.get(day, "KE-%d" % day)

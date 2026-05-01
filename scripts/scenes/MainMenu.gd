@@ -1,9 +1,9 @@
 extends Control
 
 @onready var title_label: Label = $VBoxContainer/TitleLabel
-@onready var start_btn: Button = $VBoxContainer/ButtonContainer/StartButton
-@onready var continue_btn: Button = $VBoxContainer/ButtonContainer/ContinueButton
-@onready var quit_btn: Button = $VBoxContainer/ButtonContainer/QuitButton
+@onready var start_btn: TextureButton = $VBoxContainer/ButtonContainer/StartButton
+@onready var continue_btn: TextureButton = $VBoxContainer/ButtonContainer/ContinueButton
+@onready var quit_btn: TextureButton = $VBoxContainer/ButtonContainer/QuitButton
 @onready var version_label: Label = $VersionLabel
 
 func _ready() -> void:

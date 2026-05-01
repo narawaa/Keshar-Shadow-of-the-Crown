@@ -16,6 +16,8 @@ color = Color(0, 0, 0, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBox" type="VBoxContainer" parent="CenterContainer" unique_id=610292216]
 layout_mode = 2
@@ -37,6 +39,7 @@ horizontal_alignment = 1
 
 [node name="NextButton" type="Button" parent="CenterContainer/VBox" unique_id=1614065311]
 layout_mode = 2
-text = "Lanjutkan ke hari berikutnya ▶"
+theme_override_font_sizes/font_size = 24
+text = "Hari Berikutnya ▶"
 
 [connection signal="pressed" from="CenterContainer/VBox/NextButton" to="." method="_on_next_button_pressed"]

@@ -2,134 +2,190 @@
   "day": 10,
   "title": "Hari Penentuan",
   "morning_briefing": {
-	"narrator": "Tidak ada waktu untuk pengunjung biasa hari ini. Krisis besar melanda. Semua keputusan sebelumnya bermuara pada momen ini.",
-	"dialogues": [
-	  { "speaker": "Kapten Garen", "text": "Yang Mulia — situasi darurat. Butuh keputusan segera." }
-	]
+    "narrator": "Tidak ada audiensi biasa hari ini. Semua keputusan yang pernah dibuat — besar atau kecil, bijak atau ceroboh — bermuara pada satu titik ini.",
+    "dialogues": [
+      { "speaker": "Kapten Garen", "text": "Yang Mulia. Situasi darurat. Butuh keputusan segera." },
+      { "speaker": "Raja Aldric", "text": "(melirik Keshar) Keshar... apa yang terjadi?" }
+    ]
   },
   "crisis_scenarios": {
-	"pemberontakan": {
-	  "condition": "stability < 30",
-	  "narrator": "Massa berkumpul di depan gerbang istana dengan obor. Suara teriakan terdengar bahkan dari ruang tahta.",
-	  "dialogues": [
-		{ "speaker": "Pemimpin Massa", "text": "Kami tidak butuh raja yang lemah dan penasihat yang licik! Kami butuh keadilan!" },
-		{ "speaker": "Raja Aldric", "text": "Keshar... apa yang harus kita lakukan?" }
-	  ],
-	  "choices": [
-		{
-		  "id": "A",
-		  "text": "Turun sendiri menemui massa — bela raja di depan semua orang",
-		  "effects": { "stability": 20, "trust_king": 10 },
-		  "king_follow_text": "(Raja mengikuti. Keduanya berjalan keluar bersama. Massa terdiam.)",
-		  "king_refuse_text": "(Raja ragu, tapi Keshar sudah melangkah ke depan.)",
-		  "king_refuse_effect": { "stability": 12 },
-		  "keshar_text": "(kepada massa) Yang Mulia mendengar kalian. Dan saya, Keshar, penasihatnya — berdiri di sini sebagai jaminan bahwa keadilan akan ditegakkan.",
-		  "ending_push": "ending_3_raja_berkembang"
-		},
-		{
-		  "id": "B",
-		  "text": "Diam — biarkan raja menghadapi massa sendiri",
-		  "effects": { "trust_king": -5 },
-		  "king_follow_text": "(Raja berjalan sendiri ke depan massa, gemetar tapi menguatkan diri.)",
-		  "king_refuse_text": "(Raja tidak bergerak. Situasi memburuk.)",
-		  "king_refuse_effect": { "stability": -10 },
-		  "keshar_text": null
-		},
-		{
-		  "id": "C",
-		  "text": "Negosiasi rahasia dengan pemimpin massa",
-		  "effects": { "influence": 5 },
-		  "king_follow_text": "(Massa perlahan bubar setelah Keshar berbicara dengan pemimpinnya.)",
-		  "king_refuse_text": "(Negosiasi gagal — massa semakin berani.)",
-		  "king_refuse_effect": { "stability": -8, "fear": 10 },
-		  "keshar_text": "(menyelinap keluar dan menemui pemimpin massa) Dengarkan saya. Apa yang kalian minta, bisa kita bicarakan. Tapi bukan dengan cara ini."
-		}
-	  ]
-	},
-	"invasi": {
-	  "condition": "military < 30",
-	  "narrator": "Pasukan Duren sudah melewati perbatasan. Kabar buruk datang setiap jam.",
-	  "dialogues": [
-		{ "speaker": "Kapten Garen", "text": "Yang Mulia... mereka sudah di sini. Pasukan Duren melewati perbatasan barat." },
-		{ "speaker": "Raja Aldric", "text": "Berapa banyak? Bisa kita pertahankan?" }
-	  ],
-	  "choices": [
-		{
-		  "id": "A",
-		  "text": "Koordinasi pertahanan militer total bersama Voss",
-		  "effects": { "military": 15, "stability": 5 },
-		  "king_follow_text": "Koordinasikan semua kekuatan yang tersisa. Kita tidak akan menyerah tanpa perlawanan.",
-		  "king_refuse_text": "(Raja mengangguk dengan tekad.)",
-		  "king_refuse_effect": { "military": 8 },
-		  "keshar_text": "Jenderal Voss, ini saatnya. Semua yang kita miliki — sekarang."
-		},
-		{
-		  "id": "B",
-		  "text": "Negosiasi menyerahkan sebagian wilayah — damai pahit",
-		  "effects": { "treasury": 5, "stability": -5 },
-		  "king_follow_text": "...Kita tidak punya pilihan. Kirim duta ke pasukan Duren.",
-		  "king_refuse_text": "(Raja terlihat hancur, tapi mengangguk.)",
-		  "king_refuse_effect": { "stability": -3 },
-		  "keshar_text": "Kalah satu wilayah lebih baik dari kalah seluruh kerajaan, Yang Mulia."
-		},
-		{
-		  "id": "C",
-		  "text": "Gunakan jaringan Keshar untuk sabotase dari dalam Duren",
-		  "effects": { "influence": -5 },
-		  "king_follow_text": "(Raja tidak sepenuhnya mengerti rencana Keshar, tapi memberikan izin.)",
-		  "king_refuse_text": "(Raja ragu — ini terlalu berisiko.)",
-		  "king_refuse_effect": { "stability": -5 },
-		  "keshar_text": "Saya punya kontak di dalam Duren. Beri saya satu malam — dan kita bisa membalikkan keadaan ini dari dalam."
-		}
-	  ]
-	},
-	"kudeta": {
-	  "condition": "coup_route_active and influence > 70",
-	  "narrator": "Duke Arvel muncul di ruang tahta dengan dua puluh penjaga bersenjata. Raja Aldric berdiri sendirian.",
-	  "dialogues": [
-		{ "speaker": "Duke Arvel", "text": "Kerajaan ini butuh pemimpin baru. Raja Aldric — turun dengan damai, atau kami akan memaksamu." },
-		{ "speaker": "Raja Aldric", "text": "(melirik ke arah Keshar) ...Keshar?" }
-	  ],
-	  "choices": [
-		{
-		  "id": "A",
-		  "text": "Selesaikan kudeta — ambil tahta",
-		  "effects": { "influence": 20 },
-		  "king_follow_text": "(Raja Aldric menatap Keshar dengan tidak percaya, lalu menunduk.)",
-		  "king_refuse_text": "(Tidak ada pilihan lain.)",
-		  "king_refuse_effect": {},
-		  "keshar_text": "(kepada Arvel) Lakukan dengan terhormat.",
-		  "ending_trigger": "ending_1_keshar_raja",
-		  "checkpoint_message": "👑 ENDING 1 — Keshar menjadi Raja"
-		},
-		{
-		  "id": "B",
-		  "text": "Berbalik — lindungi raja dengan taruhan nyawa sendiri",
-		  "effects": { "trust_king": 15, "military_support": -20 },
-		  "king_follow_text": "(Raja terpana. Arvel mundur perlahan.)",
-		  "king_refuse_text": "(Raja menatap Keshar dengan air mata yang tertahan.)",
-		  "king_refuse_effect": { "trust_king": 10 },
-		  "keshar_text": "(berdiri di depan raja, menghadap Arvel) Kalian harus melalui saya dulu.",
-		  "ending_trigger": "ending_3_raja_berkembang"
-		},
-		{
-		  "id": "C",
-		  "text": "Lari — tinggalkan segalanya",
-		  "effects": { "stability": -30 },
-		  "king_follow_text": "(Raja ditinggal sendirian. Kudeta berlangsung tanpa hambatan.)",
-		  "king_refuse_text": "(Keshar lari. Raja Aldric menghadapi segalanya sendiri.)",
-		  "king_refuse_effect": { "stability": -30 },
-		  "keshar_text": null,
-		  "ending_trigger": "ending_4_collapse"
-		}
-	  ]
-	}
+    "pemberontakan": {
+      "condition": "stability < 30",
+      "narrator": "Massa berkumpul di depan gerbang istana dengan obor dan teriakan yang terdengar bahkan dari dalam ruang tahta. Ini bukan demonstrasi. Ini pemberontakan.",
+      "dialogues": [
+        { "speaker": "Pemimpin Massa", "text": "Kami tidak butuh raja yang tak berdaya dan penasihat yang mengatur segalanya dari balik tirai! Kami butuh keadilan!" },
+        { "speaker": "Raja Aldric", "text": "Keshar... apa yang harus kita lakukan?" }
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Turun bersama raja menemui massa — bela mahkota di depan semua orang",
+          "keshar_text": "(kepada massa) Yang Mulia mendengar kalian. Dan saya, Keshar, penasihatnya, berdiri di sini sebagai jaminan bahwa keadilan akan ditegakkan.",
+          "effects": { "stability": 20, "trust_king": 10 },
+          "king_follow_text": "(Raja mengikuti. Keduanya berjalan keluar bersama. Massa perlahan terdiam.)",
+          "king_refuse_text": "(Raja ragu, tapi Keshar sudah melangkah maju. Raja akhirnya menyusul.)",
+          "king_refuse_effect": { "stability": 12 },
+          "ending_push": "ending_3_raja_berkembang"
+        },
+        {
+          "id": "B",
+          "text": "Diam — biarkan raja menghadapi ini sendiri",
+          "keshar_text": null,
+          "effects": { "trust_king": -6 },
+          "king_follow_text": "(Raja berjalan sendiri ke depan massa, gemetar tapi memaksakan diri untuk berdiri tegak.)",
+          "king_refuse_text": "(Raja tidak bergerak. Massa semakin berani. Situasi memburuk dengan cepat.)",
+          "king_refuse_effect": { "stability": -12 }
+        },
+        {
+          "id": "C",
+          "text": "Temui pemimpin massa secara rahasia untuk negosiasi",
+          "keshar_text": "(menyelinap keluar lewat pintu samping) Dengarkan saya. Apa yang kalian minta bisa kita bicarakan — tapi tidak dengan cara ini.",
+          "effects": { "influence": 6, "stability": 5 },
+          "king_follow_text": "(Massa perlahan bubar setelah Keshar berbicara dengan pemimpinnya di balik layar.)",
+          "king_refuse_text": "(Negosiasi gagal. Massa semakin berani tanpa ada wajah yang bisa mereka hadapi.)",
+          "king_refuse_effect": { "stability": -8 }
+        }
+      ]
+    },
+    "invasi": {
+      "condition": "military < 30",
+      "narrator": "Pasukan Duren sudah melewati perbatasan. Kabar buruk datang setiap jam. Kota perbatasan pertama sudah jatuh.",
+      "dialogues": [
+        { "speaker": "Kapten Garen", "text": "Yang Mulia... mereka sudah masuk. Pasukan Duren melewati perbatasan barat dengan kekuatan penuh." },
+        { "speaker": "Raja Aldric", "text": "Berapa banyak? Bisakah kita bertahan?" }
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Koordinasi pertahanan total — kerahkan semua kekuatan yang tersisa",
+          "keshar_text": "Jenderal Voss, ini saatnya. Semua yang kita miliki — sekarang.",
+          "effects": { "military": 15, "stability": 6 },
+          "king_follow_text": "Kita tidak menyerah. Koordinasikan semua kekuatan. Beri tahu rakyat bahwa kerajaan masih berdiri.",
+          "king_refuse_text": "(Raja mengangguk dengan tekad yang belum pernah terlihat sebelumnya.)",
+          "king_refuse_effect": { "military": 8 }
+        },
+        {
+          "id": "B",
+          "text": "Negosiasi menyerahkan sebagian wilayah demi perdamaian",
+          "keshar_text": "Kalah satu wilayah lebih baik dari kehilangan seluruh kerajaan, Yang Mulia. Ini bukan kekalahan — ini bertahan hidup.",
+          "effects": { "treasury": 5, "stability": -4 },
+          "king_follow_text": "...Kirim duta ke pasukan Duren. Kita tidak punya banyak pilihan.",
+          "king_refuse_text": "(Raja terlihat hancur, tapi mengangguk. Ini keputusan paling berat yang pernah ia buat.)",
+          "king_refuse_effect": { "stability": -3 }
+        },
+        {
+          "id": "C",
+          "text": "Gunakan jaringan Keshar untuk sabotase dari dalam Duren",
+          "keshar_text": "Saya punya kontak di dalam Duren, Yang Mulia. Beri saya satu malam — dan kita bisa membalikkan keadaan ini dari dalam.",
+          "effects": { "influence": -4, "stability": 4 },
+          "king_follow_text": "(Raja tidak sepenuhnya memahami rencana Keshar, tapi memberikan izin dengan harapan terakhir.)",
+          "king_refuse_text": "(Raja ragu — ini terasa terlalu berisiko untuk dipertaruhkan sebagai rencana tunggal.)",
+          "king_refuse_effect": { "stability": -4 }
+        }
+      ]
+    },
+    "kudeta": {
+      "condition": "coup_route_active",
+      "narrator": "Duke Arvel muncul di ruang tahta dengan dua puluh penjaga bersenjata. Raja Aldric berdiri sendirian di hadapan mereka. Dan Keshar ada di ruangan itu.",
+      "dialogues": [
+        { "speaker": "Duke Arvel", "text": "Kerajaan ini butuh pemimpin baru. Raja Aldric, turun dari tahtamu dengan damai, atau kami yang akan memaksamu." },
+        { "speaker": "Raja Aldric", "text": "(melirik ke arah Keshar) ...Keshar?" }
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Selesaikan kudeta — ambil tahta yang sudah lama direncanakan",
+          "keshar_text": "(kepada Arvel, dengan suara rendah) Lakukan dengan terhormat.",
+          "effects": { "influence": 20, "trust_king": -30 },
+          "king_follow_text": "(Raja Aldric menatap Keshar lama. Lalu menundukkan kepala.)",
+          "king_refuse_text": "(Tidak ada jalan lain untuk Arvel. Kudeta berlangsung tanpa hambatan.)",
+          "king_refuse_effect": {},
+          "ending_trigger": "ending_1_keshar_raja",
+          "checkpoint_message": "ENDING 1 — Keshar menjadi Raja"
+        },
+        {
+          "id": "B",
+          "text": "Berbalik — lindungi raja dengan taruhan nyawa sendiri",
+          "keshar_text": "(berdiri di antara raja dan Arvel) Kalian harus melalui saya dulu.",
+          "effects": { "trust_king": 18, "influence": -15 },
+          "king_follow_text": "(Raja terpana. Arvel mundur perlahan, menghitung ulang pasukannya.)",
+          "king_refuse_text": "(Raja menatap Keshar dengan sesuatu yang belum pernah ia rasakan sebelumnya — rasa terima kasih yang tak terbendung.)",
+          "king_refuse_effect": { "trust_king": 12 },
+          "ending_trigger": "ending_3_raja_berkembang"
+        },
+        {
+          "id": "C",
+          "text": "Pergi — tinggalkan segalanya dan selamatkan diri sendiri",
+          "keshar_text": null,
+          "effects": { "stability": -30 },
+          "king_follow_text": "(Raja Aldric ditinggal sendirian. Kudeta berlangsung tanpa hambatan. Kerajaan runtuh.)",
+          "king_refuse_text": "(Keshar pergi. Tidak ada yang menghalangi Arvel. Aldric menghadapi segalanya sendiri.)",
+          "king_refuse_effect": { "stability": -30 },
+          "ending_trigger": "ending_4_collapse"
+        }
+      ]
+    },
+    "kejatuhan_ekonomi": {
+      "condition": "treasury <= 0",
+      "narrator": "Tidak ada invasi. Tidak ada monster. Hanya kenyataan yang paling membosankan sekaligus paling menghancurkan: kerajaan kehabisan uang. Gaji militer tidak dibayar. Para pedagang menutup toko. Rakyat mulai mengantri di depan gudang yang sudah kosong.",
+      "dialogues": [
+        { "speaker": "Menteri Keuangan", "text": "Yang Mulia... kas kerajaan kosong. Tidak ada lagi yang bisa kita bayar. Tidak militer. Tidak pegawai. Tidak siapapun." },
+        { "speaker": "Raja Aldric", "text": "Keshar... apa yang kita lakukan sekarang?" }
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Minta bantuan darurat dari Kerajaan Duren sebagai pinjaman",
+          "keshar_text": "Kita perlu menanggalkan gengsi, Yang Mulia. Bertahan hidup lebih penting dari harga diri yang bisa dibangun kembali nanti.",
+          "effects": { "treasury": 20, "stability": -5, "influence": -8 },
+          "king_follow_text": "...Kirimkan utusan ke Duren. Aku tidak suka ini, tapi kita tidak punya pilihan lain.",
+          "king_refuse_text": "(Raja menunduk. Ini kekalahan yang tidak ada di medan perang.)",
+          "king_refuse_effect": { "treasury": 10, "stability": -8 }
+        },
+        {
+          "id": "B",
+          "text": "Jual aset kerajaan untuk menutupi krisis segera",
+          "keshar_text": "Istana bisa dibangun kembali, Yang Mulia. Kerajaan yang masih berdiri adalah yang terpenting.",
+          "effects": { "treasury": 15, "stability": -4, "influence": -5 },
+          "king_follow_text": "Jual apa yang perlu dijual. Kita pertahankan rakyatnya — asetnya bisa dicari lagi.",
+          "king_refuse_text": "(Raja mengangguk dengan wajah yang lelah, tapi menerima kenyataan ini.)",
+          "king_refuse_effect": { "treasury": 10, "stability": -2 }
+        },
+        {
+          "id": "C",
+          "text": "Akui kegagalan secara terbuka di hadapan rakyat dan minta waktu",
+          "keshar_text": "Kejujuran yang menyakitkan masih lebih baik dari kebohongan yang nyaman, Yang Mulia. Rakyat bisa memaafkan kegagalan. Mereka tidak bisa memaafkan kebohongan.",
+          "effects": { "trust_king": 8, "stability": 5, "treasury": -5 },
+          "king_follow_text": "(Raja berdiri di depan rakyatnya dan berbicara dengan jujur tentang kondisi kerajaan. Ini momen yang tidak biasa — dan rakyat, meski kecewa, menghormatinya.)",
+          "king_refuse_text": "(Raja ragu, lalu mengangguk. Kebenaran yang menyakitkan lebih baik dari keheningan yang berbahaya.)",
+          "king_refuse_effect": { "stability": 3, "trust_king": 4 }
+        }
+      ]
+    }
   },
   "visitors": [],
   "night_event": {
-	"narrator": "Debu perang atau debu keruntuhan — atau cahaya fajar baru. Cerita ini berakhir di sini.",
-	"dialogues": [],
-	"choices": [],
-	"is_ending": true
+    "narrator": "Apapun yang terjadi hari ini, cerita ini berakhir di sini. Debu perang, debu keruntuhan, atau cahaya fajar yang mungkin tidak seperti yang pernah dibayangkan.",
+    "dialogues": [],
+    "choices": [],
+    "is_ending": true,
+    "ending_resolution": {
+      "ending_1_keshar_raja": {
+        "narrator": "Keshar duduk di singgasana. Tenang. Tapi ini bukan kemenangan yang terasa manis. Di sudut matanya, terbayang wajah raja muda yang pernah berkata bahwa ia tidak bisa membayangkan memimpin tanpa Keshar. Kerajaan kini stabil. Utang darah ada. Tapi kerajaan juga ada.",
+        "final_line": "Pertanyaannya bukan apakah kamu menang. Tapi apakah kemenangan ini layak kamu sebut kemenangan."
+      },
+      "ending_2_coup_gagal": {
+        "narrator": "Keshar berdiri di hadapan raja yang tidak lagi sama. Tidak ada belas kasihan di matanya. Rencana yang tidak selesai, kepercayaan yang dikhianati, dan pengaruh yang dibangun bertahun-tahun — semuanya berakhir di ruangan ini.",
+        "final_line": "Ambisi tanpa kebijaksanaan hanya meninggalkan rantai."
+      },
+      "ending_3_raja_berkembang": {
+        "narrator": "Setahun kemudian. Raja Aldric berdiri di depan rakyatnya, berbicara dengan keyakinan yang tidak ada dua minggu lalu. Di sampingnya, Keshar, bukan sebagai arsitek bayangan, tapi sebagai penasihat yang benar-benar melayani.",
+        "final_line": "Mungkin ini cara terbaik cerita ini berakhir. Mungkin."
+      },
+      "ending_4_collapse": {
+        "narrator": "Istana terbakar. Rakyat mengungsi. Tidak ada pemenang. Hanya pelajaran yang terlambat dipetik oleh dua orang yang sama-sama gagal menjaga apa yang seharusnya mereka jaga bersama.",
+        "final_line": "Beberapa kisah tidak berakhir dengan kemenangan. Hanya penyesalan."
+      }
+    }
   }
 }

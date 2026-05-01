@@ -1,30 +1,44 @@
 [gd_scene format=3 uid="uid://ba7b2hdk8aw70"]
 
 [ext_resource type="Script" uid="uid://csyrxyoofna74" path="res://scripts/scenes/MainMenu.gd" id="1_wlpbi"]
+[ext_resource type="Texture2D" uid="uid://co5ryeljayfd" path="res://assets/button.png" id="2_ldf1p"]
+[ext_resource type="Texture2D" uid="uid://becq2ox3idu5i" path="res://assets/sprites/background/home-background.png" id="2_p0il0"]
+[ext_resource type="FontFile" uid="uid://dyeawb6rbrp3d" path="res://assets/fonts/Cinzel/static/Cinzel-Bold.ttf" id="3_cty7a"]
+[ext_resource type="Texture2D" uid="uid://cke54kw487fv2" path="res://assets/button-hover.png" id="3_tyyoy"]
+
+[sub_resource type="Theme" id="Theme_147xw"]
 
 [node name="MainMenu" type="Control" unique_id=2004956904]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_wlpbi")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=3267001]
+[node name="ColorRect" type="TextureRect" parent="." unique_id=2012852927]
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
-color = Color(0.050980393, 0.050980393, 0.078431375, 1)
+theme = SubResource("Theme_147xw")
+texture = ExtResource("2_p0il0")
+
+[node name="Overlay" type="ColorRect" parent="." unique_id=528302018]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.18, 0.1272, 0.081, 0.47058824)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1329675500]
 layout_mode = 0
-offset_left = 821.0
-offset_top = 700.0
-offset_right = 1162.0
-offset_bottom = 876.0
+offset_left = 431.0
+offset_top = 438.5
+offset_right = 1489.0
+offset_bottom = 661.5
 alignment = 1
 
 [node name="TitleLabel" type="Label" parent="VBoxContainer" unique_id=111788877]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.9019608, 0.8509804, 0.6, 1)
-theme_override_font_sizes/font_size = 24
+theme_override_colors/font_color = Color(0.9, 0.879, 0.774, 1)
+theme_override_fonts/font = ExtResource("3_cty7a")
+theme_override_font_sizes/font_size = 64
 text = "Keshar: Shadow of the Crown"
 horizontal_alignment = 1
 
@@ -34,17 +48,75 @@ layout_mode = 2
 [node name="ButtonContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=1487500364]
 layout_mode = 2
 
-[node name="StartButton" type="Button" parent="VBoxContainer/ButtonContainer" unique_id=949118788]
+[node name="StartButton" type="TextureButton" parent="VBoxContainer/ButtonContainer" unique_id=1728170901]
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("2_ldf1p")
+texture_pressed = ExtResource("3_tyyoy")
+texture_hover = ExtResource("3_tyyoy")
+texture_focused = ExtResource("3_tyyoy")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/ButtonContainer/StartButton" unique_id=291315312]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
 text = "Mulai Permainan Baru"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="ContinueButton" type="Button" parent="VBoxContainer/ButtonContainer" unique_id=377997064]
+[node name="ContinueButton" type="TextureButton" parent="VBoxContainer/ButtonContainer" unique_id=657783908]
+visible = false
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("2_ldf1p")
+texture_pressed = ExtResource("3_tyyoy")
+texture_hover = ExtResource("3_tyyoy")
+texture_focused = ExtResource("3_tyyoy")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/ButtonContainer/ContinueButton" unique_id=1183505460]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
 text = "Lanjutkan"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="QuitButton" type="Button" parent="VBoxContainer/ButtonContainer" unique_id=531971252]
+[node name="QuitButton" type="TextureButton" parent="VBoxContainer/ButtonContainer" unique_id=1609292241]
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("2_ldf1p")
+texture_pressed = ExtResource("3_tyyoy")
+texture_hover = ExtResource("3_tyyoy")
+texture_focused = ExtResource("3_tyyoy")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/ButtonContainer/QuitButton" unique_id=370355170]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
 text = "Keluar"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="VersionLabel" type="Label" parent="." unique_id=712253291]
 layout_mode = 0

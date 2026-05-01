@@ -2,178 +2,175 @@
   "day": 9,
   "title": "Di Ambang Keputusan",
   "morning_briefing": {
-	"narrator": "Statistik berbicara keras. Setiap keputusan hari ini bisa menjadi yang terakhir sebelum dunia berubah.",
-	"dialogues": [
-	  { "speaker": "Raja Aldric", "text": "Aku bermimpi tentang ayahku semalam, Keshar. Dia hanya menatapku. Tidak berkata apa-apa." },
-	  { "speaker": "Keshar", "text": "(dalam hati: Hari ini akan menentukan segalanya.)" }
-	]
+    "narrator": "Statistik berbicara keras. Setiap keputusan hari ini bisa menjadi yang terakhir sebelum dunia berubah sepenuhnya.",
+    "dialogues": [
+      { "speaker": "Raja Aldric", "text": "Aku bermimpi tentang ayahku semalam, Keshar. Dia hanya menatapku. Tidak berkata apa-apa." },
+      { "speaker": "Keshar", "text": "(dalam hati: Hari ini akan menentukan segalanya.)" }
+    ]
   },
   "visitors": [
-	{
-	  "id": "v1_laporan_ekonomi",
-	  "name": "Menteri Keuangan — Laporan Ekonomi Kritis",
-	  "narrator": "Menteri keuangan datang dengan laporan yang tidak menyenangkan.",
-	  "dialogues": [
-		{ "speaker": "Menteri Keuangan", "text": "Yang Mulia, kas kerajaan dalam kondisi berbahaya. Jika tidak ada perubahan dalam dua bulan, kerajaan tidak bisa membayar gaji militer." },
-		{ "speaker": "Raja Aldric", "text": "Seberapa parah? Apa pilihannya, Keshar?" }
-	  ],
-	  "choices": [
-		{
-		  "id": "A",
-		  "text": "Sarankan potong pengeluaran istana secara signifikan",
-		  "effects": { "treasury": 8, "stability": -3 },
-		  "king_follow_text": "Mulai dari istana sendiri. Rakyat menghormati raja yang berkorban.",
-		  "king_refuse_text": "(Raja setuju meski terlihat sedikit tidak nyaman.)",
-		  "king_refuse_effect": { "treasury": 5 },
-		  "keshar_text": "Pemimpin yang memotong pengeluaran sendiri sebelum memotong rakyat adalah pemimpin yang dihormati."
-		},
-		{
-		  "id": "B",
-		  "text": "Sarankan naikkan pajak darurat sementara",
-		  "effects": { "treasury": 12, "stability": -8 },
-		  "king_follow_text": "Pajak darurat sementara — tiga bulan. Jelaskan alasannya kepada rakyat.",
-		  "king_refuse_text": "Ini berisiko... tapi kita perlu dana.",
-		  "king_refuse_effect": { "treasury": 8, "stability": -4 },
-		  "keshar_text": "Pajak darurat yang dijelaskan dengan jujur lebih diterima dari kebijakan yang sembunyi-sembunyi."
-		},
-		{
-		  "id": "C",
-		  "text": "Sarankan pinjam dari bangsawan kaya",
-		  "effects": { "treasury": 10, "influence": -5 },
-		  "king_follow_text": "Pinjam dari Duke Arvel dan beberapa bangsawan kaya. Tawarkan konsesi kecil sebagai imbalan.",
-		  "king_refuse_text": "Berhutang pada bangsawan berarti kita berutang budi pada mereka...",
-		  "king_refuse_effect": { "treasury": 6, "influence": -2 },
-		  "keshar_text": "Uang bangsawan lebih murah dari pajak rakyat, Yang Mulia. Dalam jangka pendek."
-		}
-	  ]
-	},
-	{
-	  "id": "v2_permaisuri_memohon",
-	  "name": "Permaisuri Elara — Memohon untuk Raja",
-	  "narrator": "Permaisuri Elara datang secara resmi ke ruang sidang — pertama kalinya.",
-	  "dialogues": [
-		{ "speaker": "Permaisuri Elara", "text": "Yang Mulia, sebagai istri yang mencintai suaminya... aku mohon. Istirahat sebentar. Kau kelelahan, dan kelelahan membuat keputusan buruk." },
-		{ "speaker": "Raja Aldric", "text": "Elara... Keshar, apa pendapatmu?" }
-	  ],
-	  "choices": [
-		{
-		  "id": "A",
-		  "text": "Sarankan beri raja istirahat satu hari penuh besok",
-		  "effects": { "trust_king": 5, "king_personality": 3 },
-		  "king_follow_text": "(Raja tersenyum lega.) Terima kasih, Elara. Dan terima kasih, Keshar — aku akan istirahat besok.",
-		  "king_refuse_text": "(Raja memandang Keshar dengan terima kasih yang tulus.)",
-		  "king_refuse_effect": { "trust_king": 3 },
-		  "keshar_text": "Permaisuri benar, Yang Mulia. Keputusan yang baik datang dari pikiran yang segar.",
-		  "personality_shift": "strong"
-		},
-		{
-		  "id": "B",
-		  "text": "Sarankan raja tidak bisa istirahat di masa krisis",
-		  "effects": { "trust_king": -2, "military": 3 },
-		  "king_follow_text": "Kamu benar, Keshar. Kerajaan tidak menunggu.",
-		  "king_refuse_text": "(Permaisuri menatap Keshar dengan ekspresi campuran kecewa dan khawatir.)",
-		  "king_refuse_effect": { "trust_king": -3 },
-		  "keshar_text": "Dengan hormat kepada Permaisuri — masa krisis adalah masa dimana raja paling dibutuhkan."
-		},
-		{
-		  "id": "C",
-		  "text": "Gunakan momen ini untuk berbicara pribadi dengan Permaisuri",
-		  "effects": { "influence": 5, "intel": 8 },
-		  "king_follow_text": "(Raja pergi. Keshar dan Permaisuri bertatapan dalam keheningan.)",
-		  "king_refuse_text": "(Raja ragu tapi akhirnya meninggalkan ruangan.)",
-		  "king_refuse_effect": { "influence": 3 },
-		  "keshar_text": "(kepada raja) Yang Mulia, biarkanlah saya berbicara sebentar dengan Permaisuri. Ada beberapa hal yang perlu dikoordinasikan.",
-		  "extra_dialogue": [
-			{ "speaker": "Keshar", "text": "(kepada Elara) Yang Mulia Ratu... saya ingin jujur padamu tentang kondisi kerajaan yang sebenarnya." },
-			{ "speaker": "Permaisuri Elara", "text": "(dengan dingin) Dan aku ingin jujur padamu tentang apa yang sudah aku tahu, Keshar." }
-		  ]
-		}
-	  ]
-	},
-	{
-	  "id": "v3_kebakaran_sabotase",
-	  "name": "Kapten Garen — Kebakaran Sabotase",
-	  "narrator": "Tiba-tiba alarm berbunyi. Kobaran api terlihat di distrik bangsawan.",
-	  "dialogues": [
-		{ "speaker": "Kapten Garen", "text": "Yang Mulia! Kebakaran di distrik bangsawan. Beberapa gudang senjata dibakar. Ini sabotase." },
-		{ "speaker": "Raja Aldric", "text": "Sabotase? Oleh siapa? Keshar — kamu tahu sesuatu?" }
-	  ],
-	  "choices": [
-		{
-		  "id": "A",
-		  "text": "Kerahkan semua penjaga ke lokasi — prioritaskan pemadaman",
-		  "effects": { "stability": 5, "military": -5 },
-		  "king_follow_text": "Kerahkan semua penjaga. Padamkan api, selamatkan warga, selidiki nanti.",
-		  "king_refuse_text": "(Raja setuju — ini respons yang logis dan aman.)",
-		  "king_refuse_effect": { "stability": 4 },
-		  "keshar_text": "Padamkan dulu, Yang Mulia. Api yang menyebar lebih berbahaya dari pelakunya malam ini."
-		},
-		{
-		  "id": "B",
-		  "text": "Curigai fraksi internal — lakukan penggeledahan sekarang",
-		  "effects": { "fear": 8, "influence": 5 },
-		  "king_follow_text": "Ini bukan kecelakaan. Aku mau penggeledahan semua kediaman bangsawan malam ini.",
-		  "king_refuse_text": "(Raja setuju meski ekspresinya menunjukkan ia tidak nyaman dengan eskalasi ini.)",
-		  "king_refuse_effect": { "fear": 5 },
-		  "keshar_text": "Kebakaran ini adalah pesan, Yang Mulia. Seseorang ingin kita tahu bahwa mereka bisa masuk."
-		},
-		{
-		  "id": "C",
-		  "text": "Selidiki secara diam-diam apakah ini terkait rencana kudeta",
-		  "effects": { "influence": 8, "intel": 10 },
-		  "king_follow_text": "(Keshar mengirim pesan kepada Selim. Raja tidak sepenuhnya mengerti apa yang terjadi.)",
-		  "king_refuse_text": "(Raja terlihat bingung dengan gerakan cepat Keshar.)",
-		  "king_refuse_effect": { "intel": 5 },
-		  "keshar_text": "(kepada Kapten Garen, berbisik) Garen, selidiki area sekitar gudang Duke Arvel. Jangan buat laporan resmi dulu. Lapor langsung padaku.",
-		  "special_flag": "arvel_evidence"
-		}
-	  ]
-	}
+    {
+      "id": "v1_laporan_ekonomi",
+      "name": "Menteri Keuangan",
+      "narrator": "Menteri keuangan datang dengan laporan yang kertasnya sudah lecek karena digenggam terlalu keras.",
+      "dialogues": [
+        { "speaker": "Menteri Keuangan", "text": "Yang Mulia, kondisi kas kerajaan sudah memasuki zona berbahaya. Jika tidak ada perubahan kebijakan dalam waktu dekat, kerajaan tidak akan bisa membayar gaji militer bulan depan." },
+        { "speaker": "Raja Aldric", "text": "Seberapa parah? Apa pilihannya, Keshar?" }
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Sarankan potong pengeluaran istana secara signifikan",
+          "keshar_text": "Pemimpin yang memotong pengeluaran sendiri sebelum memotong rakyat adalah pemimpin yang mendapat hormat, Yang Mulia.",
+          "effects": { "treasury": 8, "stability": -2, "trust_king": 3 },
+          "king_follow_text": "Mulai dari istana sendiri. Rakyat menghormati raja yang berkorban bersama mereka.",
+          "king_refuse_text": "(Raja setuju meski ada ketidaknyamanan terlihat di wajahnya.)",
+          "king_refuse_effect": { "treasury": 5 }
+        },
+        {
+          "id": "B",
+          "text": "Sarankan pajak darurat sementara selama tiga bulan",
+          "keshar_text": "Pajak darurat yang dijelaskan dengan jujur jauh lebih diterima rakyat dari kebijakan yang disembunyikan, Yang Mulia.",
+          "effects": { "treasury": 12, "stability": -7 },
+          "king_follow_text": "Tiga bulan pajak darurat — tapi rakyat harus tahu alasannya. Tidak ada yang disembunyikan.",
+          "king_refuse_text": "Ini berisiko... tapi kita memang butuh dana.",
+          "king_refuse_effect": { "treasury": 7, "stability": -3 }
+        },
+        {
+          "id": "C",
+          "text": "Sarankan pinjam dari bangsawan kaya dengan imbalan konsesi kecil",
+          "keshar_text": "Uang bangsawan lebih murah dari pajak rakyat, Yang Mulia. Dalam jangka pendek setidaknya.",
+          "effects": { "treasury": 10, "influence": -4 },
+          "king_follow_text": "Hubungi Duke Arvel dan beberapa bangsawan terkaya. Tawarkan konsesi kecil — sementara.",
+          "king_refuse_text": "Berhutang pada bangsawan berarti kita berutang budi pada mereka, Keshar. Itu bisa berbalik.",
+          "king_refuse_effect": { "treasury": 6, "influence": -2 }
+        }
+      ]
+    },
+    {
+      "id": "v2_permaisuri_memohon",
+      "name": "Permaisuri Elara",
+      "narrator": "Permaisuri Elara datang secara resmi ke ruang sidang untuk pertama kalinya. Wajahnya menunjukkan sesuatu yang jarang terlihat darinya: kekhawatiran yang nyata.",
+      "dialogues": [
+        { "speaker": "Permaisuri Elara", "text": "Yang Mulia... aku memohon satu hari istirahat untukmu. Kelelahan membuat keputusan yang buruk, dan keputusan yang buruk membuat masalah yang jauh lebih besar." },
+        { "speaker": "Raja Aldric", "text": "Elara... Keshar, apa pendapatmu?" }
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Sarankan beri raja satu hari istirahat penuh besok",
+          "keshar_text": "Permaisuri benar, Yang Mulia. Pikiran yang segar membuat keputusan yang lebih baik. Besok kerajaan akan berjalan sendiri untuk satu hari.",
+          "effects": { "trust_king": 6, "king_personality": 3 },
+          "king_follow_text": "(Raja tersenyum lega.) Terima kasih, Elara. Dan terima kasih, Keshar.",
+          "king_refuse_text": "(Raja memandang Keshar dengan terima kasih yang tidak terucap.)",
+          "king_refuse_effect": { "trust_king": 3 },
+          "personality_shift": "strong"
+        },
+        {
+          "id": "B",
+          "text": "Sarankan raja tidak bisa beristirahat di masa krisis seperti ini",
+          "keshar_text": "Dengan segala hormat kepada Permaisuri — masa krisis adalah saat kerajaan paling membutuhkan raja untuk hadir.",
+          "effects": { "trust_king": -3, "military": 3 },
+          "king_follow_text": "Kamu benar, Keshar. Kerajaan tidak menunggu.",
+          "king_refuse_text": "(Permaisuri menatap Keshar dengan ekspresi campuran kecewa dan khawatir yang dalam.)",
+          "king_refuse_effect": { "trust_king": -4 }
+        },
+        {
+          "id": "C",
+          "text": "Gunakan momen ini untuk berbicara pribadi dengan Permaisuri",
+          "keshar_text": "(kepada raja) Yang Mulia, biarkanlah saya mengkoordinasikan beberapa hal dengan Permaisuri. Tidak perlu lama.",
+          "effects": { "influence": 5, "intel_level": 8 },
+          "king_follow_text": "(Raja pergi. Keshar dan Permaisuri bertatapan dalam keheningan yang panjang.)",
+          "king_refuse_text": "(Raja ragu, namun akhirnya meninggalkan ruangan.)",
+          "king_refuse_effect": { "influence": 3 },
+          "extra_dialogue": [
+            { "speaker": "Keshar", "text": "(kepada Elara) Yang Mulia Ratu... saya ingin jujur padamu tentang kondisi kerajaan yang sebenarnya." },
+            { "speaker": "Permaisuri Elara", "text": "(dengan dingin) Dan aku ingin jujur padamu tentang apa yang sudah aku ketahui, Keshar." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v3_kebakaran_sabotase",
+      "name": "Kapten Garen",
+      "narrator": "Tiba-tiba alarm berbunyi. Kobaran api terlihat dari jendela ruang sidang — di distrik bangsawan.",
+      "dialogues": [
+        { "speaker": "Kapten Garen", "text": "Yang Mulia! Kebakaran di distrik bangsawan. Beberapa gudang senjata dibakar. Ini bukan kecelakaan — ini sabotase." },
+        { "speaker": "Raja Aldric", "text": "Sabotase? Oleh siapa? Keshar, kamu tahu sesuatu?" }
+      ],
+      "choices": [
+        {
+          "id": "A",
+          "text": "Kerahkan semua penjaga ke lokasi, prioritaskan pemadaman",
+          "keshar_text": "Padamkan dulu, Yang Mulia. Api yang menyebar lebih berbahaya dari pelakunya malam ini.",
+          "effects": { "stability": 6, "military": -4 },
+          "king_follow_text": "Kerahkan semua penjaga. Padamkan api, selamatkan warga, selidiki pelakunya setelah keadaan terkendali.",
+          "king_refuse_text": "(Raja setuju — ini respons yang logis dan tidak terburu-buru.)",
+          "king_refuse_effect": { "stability": 4 }
+        },
+        {
+          "id": "B",
+          "text": "Curigai fraksi internal — lakukan penggeledahan semua kediaman bangsawan malam ini",
+          "keshar_text": "Kebakaran ini adalah pesan, Yang Mulia. Seseorang ingin kita tahu bahwa mereka bisa masuk kapan saja.",
+          "effects": { "stability": -3, "influence": 5 },
+          "king_follow_text": "Ini bukan kecelakaan. Aku mau penggeledahan semua kediaman bangsawan malam ini — tanpa pengecualian.",
+          "king_refuse_text": "(Raja setuju meski terlihat tidak nyaman dengan eskalasi yang ditimbulkannya.)",
+          "king_refuse_effect": { "stability": -2, "influence": 2 }
+        },
+        {
+          "id": "C",
+          "text": "Selidiki secara diam-diam apakah ini terkait rencana kudeta",
+          "keshar_text": "(berbisik kepada Kapten Garen) Selidiki area sekitar gudang milik Duke Arvel. Jangan buat laporan resmi dulu — lapor langsung kepadaku.",
+          "effects": { "influence": 8, "intel_level": 10 },
+          "king_follow_text": "(Keshar mengirim pesan kepada Selim. Raja tidak sepenuhnya memahami apa yang terjadi.)",
+          "king_refuse_text": "(Raja terlihat bingung dengan gerakan cepat Keshar yang tidak ia mengerti.)",
+          "king_refuse_effect": { "intel_level": 5 },
+          "special_flag": "arvel_evidence"
+        }
+      ]
+    }
   ],
   "night_event": {
-	"narrator": "Tiga orang menunggu di ruangan gelap. Duke Arvel. Jenderal Voss — jika sudah direkrut. Dan satu bangsawan lagi. Keshar berdiri di ambang pintu.",
-	"dialogues": [
-	  { "speaker": "Duke Arvel", "text": "Semua sudah siap, Keshar. Malam ini kita bisa mengambil tahta." }
-	],
-	"conditional_dialogues": [
-	  {
-		"condition": "voss_recruited",
-		"dialogues": [
-		  { "speaker": "Jenderal Voss", "text": "Militer sudah berpihak. Raja tidak akan melawan." }
-		]
-	  }
-	],
-	"special_flag": "final_branching",
-	"choices": [
-	  {
-		"id": "A",
-		"text": "Laksanakan kudeta malam ini",
-		"effects": { "influence": 15 },
-		"king_response": null,
-		"keshar_text": "...Lakukan. Jangan ada yang terluka jika bisa dihindari.",
-		"coup_effect": "execute",
-		"ending_trigger": "ending_1_keshar_raja",
-		"checkpoint_message": "🔴 ENDING 1 TERPICU — Keshar memilih tahta"
-	  },
-	  {
-		"id": "B",
-		"text": "Mundur di saat terakhir — batalkan rencana",
-		"effects": { "trust_king": 5 },
-		"king_response": null,
-		"keshar_text": "...Aku tidak bisa melakukan ini.",
-		"extra_dialogue": [{ "speaker": "Duke Arvel", "text": "(dengan dingin) Ini bukan pilihan yang bisa dibatalkan begitu saja, Keshar." }],
-		"coup_effect": "abandon"
-	  },
-	  {
-		"id": "C",
-		"text": "Laporkan rencana ini ke raja sekarang juga — malam ini",
-		"effects": { "trust_king": 20 },
-		"king_response": null,
-		"keshar_text": "(berdiri) Maaf, Duke. Aku sudah memilih.",
-		"coup_effect": "report",
-		"ending_trigger": "ending_3_raja_berkembang",
-		"checkpoint_message": "✨ ENDING 3 TERPICU — Keshar memilih raja"
-	  }
-	]
+    "narrator": "Tiga orang menunggu di ruangan gelap. Duke Arvel. Jenderal Voss jika sudah direkrut. Dan satu bangsawan yang wajahnya selalu tersembunyi di balik tudung. Keshar berdiri di ambang pintu.",
+    "dialogues": [
+      { "speaker": "Duke Arvel", "text": "Semuanya sudah siap, Keshar. Malam ini bisa menjadi malam ketika sejarah berubah." }
+    ],
+    "conditional_dialogues": [
+      {
+        "condition": "voss_recruited",
+        "dialogues": [
+          { "speaker": "Jenderal Voss", "text": "Militer sudah berpihak. Raja tidak akan melawan jika kita bergerak malam ini." }
+        ]
+      }
+    ],
+    "special_flag": "final_branching",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Laksanakan kudeta malam ini",
+        "keshar_text": "...Lakukan. Tapi jangan ada darah yang tidak perlu.",
+        "effects": { "influence": 15, "trust_king": -20 },
+        "coup_effect": "execute",
+        "ending_trigger": "ending_1_keshar_raja",
+        "checkpoint_message": "ENDING 1 TERPICU — Keshar memilih tahta"
+      },
+      {
+        "id": "B",
+        "text": "Mundur di saat terakhir — batalkan segalanya malam ini",
+        "keshar_text": "...Aku tidak bisa melakukan ini.",
+        "effects": { "trust_king": 5, "influence": -5 },
+        "extra_dialogue": [{ "speaker": "Duke Arvel", "text": "(dengan dingin) Ini bukan jenis keputusan yang bisa dibatalkan, Keshar." }],
+        "coup_effect": "abandon"
+      },
+      {
+        "id": "C",
+        "text": "Laporkan rencana ini kepada raja sekarang juga",
+        "keshar_text": "(berdiri dan berbalik ke arah pintu) Maaf, Duke. Aku sudah memilih.",
+        "effects": { "trust_king": 20, "influence": -10 },
+        "coup_effect": "report",
+        "ending_trigger": "ending_3_raja_berkembang",
+        "checkpoint_message": "ENDING 3 TERPICU — Keshar memilih raja"
+      }
+    ]
   }
 }

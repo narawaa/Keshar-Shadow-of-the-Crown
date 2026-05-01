@@ -30,7 +30,7 @@ func setup(king: RichTextLabel, keshar: RichTextLabel, visitor: RichTextLabel) -
 	visitor_label = visitor
 
 func start_dialogues(dialogs: Array) -> void:
-	dialog_queue = dialogs
+	dialog_queue = dialogs.duplicate()  # ← duplicate() bukan assign langsung
 	index = 0
 	_show_next()
 
@@ -48,7 +48,7 @@ func next() -> void:
 # ======================================
 func _show_next() -> void:
 	if index >= dialog_queue.size():
-		emit_signal("dialogue_finished")
+		call_deferred("emit_signal", "dialogue_finished")
 		return
 
 	var entry   = dialog_queue[index]
@@ -76,7 +76,7 @@ func _start_typing(label: RichTextLabel, text: String) -> void:
 	label.get_parent().get_parent().visible = true
 
 	if text.is_empty():
-		emit_signal("dialogue_finished")
+		call_deferred("emit_signal", "dialogue_finished")
 		return
 
 	typing = true
@@ -115,6 +115,6 @@ func force_stop():
 		_timer.stop()
 	typing = false
 	_active_label = null
-	dialog_queue.clear()
+	dialog_queue = []   # ← bukan .clear(), assign array baru
 	index = 0
 	_clear_labels()

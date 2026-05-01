@@ -1,157 +1,154 @@
 {
   "day": 4,
-  "title": "Kekuasaan Mulai Terbentuk",
+  "title": "Kekuasaan Mulai Membentuk Dirinya",
   "morning_briefing": {
-	"narrator": "Wabah kecil di satu desa. Seorang bangsawan korup mulai memperlihatkan wajah aslinya. Dan diplomat dari timur tiba dengan senyum yang sulit dibaca.",
+	"narrator": "Tiga masalah besar menunggu hari ini: wabah di sebuah desa, bangsawan korup yang semakin berani, dan diplomat dari timur yang datang dengan senyum yang sulit dibaca.",
 	"dialogues": [
-	  { "speaker": "Raja Aldric", "text": "Ada banyak laporan masuk tadi malam. Aku tidak tidur nyenyak." },
-	  { "speaker": "Keshar", "text": "Kepemimpinan memang selalu datang dengan harga ketenangan tidur, Yang Mulia." }
+	  { "speaker": "Raja Aldric", "text": "Ada banyak laporan masuk tadi malam. Aku hampir tidak tidur." },
+	  { "speaker": "Keshar", "text": "Kepemimpinan selalu datang dengan harga ketenangan, Yang Mulia. Kita mulai dari yang paling mendesak." }
 	]
   },
   "visitors": [
 	{
 	  "id": "v1_wabah_renford",
-	  "name": "Tabib Mira — Wabah Desa Renford",
-	  "narrator": "Tabib kerajaan datang dengan laporan di tangannya.",
+	  "name": "Tabib Mira",
+	  "narrator": "Tabib kerajaan datang dengan laporan di tangannya dan lingkaran hitam di bawah matanya.",
 	  "dialogues": [
-		{ "speaker": "Tabib Mira", "text": "Yang Mulia, wabah demam hitam menyerang Desa Renford. Lima puluh jiwa sudah sakit. Jika tidak ditangani sekarang, akan menyebar." },
-		{ "speaker": "Raja Aldric", "text": "Ini serius. Keshar, apa yang harus kita lakukan?" }
+		{ "speaker": "Tabib Mira", "text": "Yang Mulia, wabah demam hitam menyerang Desa Renford. Lima puluh jiwa sudah sakit. Jika tidak ditangani segera, ini akan menyebar ke kota-kota sekitarnya." },
+		{ "speaker": "Raja Aldric", "text": "Ini serius sekali. Keshar, apa yang harus kita lakukan?" }
 	  ],
 	  "choices": [
 		{
 		  "id": "A",
-		  "text": "Sarankan kirim tabib dan obat-obatan ke Renford",
-		  "effects": { "stability": 7, "treasury": -8 },
-		  "king_follow_text": "Kirim bantuan medis segera. Wabah yang menyebar akan jauh lebih mahal ditangani nanti.",
-		  "king_refuse_text": "Dari mana kita mendapat dana untuk ini?",
-		  "king_refuse_effect": { "stability": 3, "treasury": -4 },
-		  "keshar_text": "Satu desa yang wabah dan tidak ditangani bisa menjadi sepuluh desa dalam sebulan."
+		  "text": "Sarankan kirim tabib dan obat-obatan ke Renford segera",
+		  "keshar_text": "Satu desa yang wabah dan tidak ditangani bisa menjadi sepuluh desa dalam satu bulan, Yang Mulia.",
+		  "effects": { "stability": 8, "treasury": -9, "trust_king": 3 },
+		  "king_follow_text": "Kirim bantuan medis sekarang. Wabah yang menyebar jauh lebih mahal ditangani dibanding yang dicegah.",
+		  "king_refuse_text": "Dari mana kita mendapat dana sebesar ini dalam waktu singkat, Keshar?",
+		  "king_refuse_effect": { "stability": 4, "treasury": -4 }
 		},
 		{
 		  "id": "B",
-		  "text": "Sarankan karantina ketat desa tersebut",
-		  "effects": { "stability": 3, "fear": 5 },
-		  "king_follow_text": "Segel desa. Wabah tidak boleh keluar. Korban di dalam adalah harga yang harus dibayar.",
-		  "king_refuse_text": "Itu berarti kita membiarkan mereka mati tanpa bantuan?",
-		  "king_refuse_effect": { "stability": 2, "treasury": -3 },
-		  "keshar_text": "Satu desa yang terisolasi lebih baik dari wabah yang menyebar ke seluruh kerajaan."
+		  "text": "Sarankan karantina ketat — segel desa dan cegah penyebaran",
+		  "keshar_text": "Satu desa yang tersegel lebih baik dari kerajaan yang terjangkit, Yang Mulia. Ini keputusan yang berat, tapi logis.",
+		  "effects": { "stability": 3, "military": -2 },
+		  "king_follow_text": "Segel desa. Tidak ada yang keluar atau masuk tanpa izin medis. Kirim suplai makanan dari jarak aman.",
+		  "king_refuse_text": "Itu berarti kita membiarkan mereka terisolasi tanpa pertolongan langsung...",
+		  "king_refuse_effect": { "stability": 2, "treasury": -3 }
 		},
 		{
 		  "id": "C",
-		  "text": "Sarankan abaikan — desa itu terlalu kecil untuk signifikan",
-		  "effects": { "stability": -8, "influence": 3 },
-		  "king_follow_text": "Kita punya prioritas yang lebih besar saat ini.",
-		  "king_refuse_text": "Keshar, aku tidak bisa mengabaikan rakyatku yang sakit.",
-		  "king_refuse_effect": { "stability": -2, "treasury": -3 },
-		  "keshar_text": "Yang Mulia punya urusan yang lebih besar. Desa kecil harus mengurus dirinya sendiri."
+		  "text": "Sarankan fokus ke desa-desa sekitar Renford agar wabah tidak menyebar lebih jauh",
+		  "keshar_text": "Kita tidak bisa menyelamatkan semua orang, Yang Mulia. Tapi kita bisa menyelamatkan lebih banyak dengan membentengi desa-desa sekitarnya.",
+		  "effects": { "stability": -5, "treasury": -4 },
+		  "king_follow_text": "Amankan desa-desa di sekitar Renford. Fokus pada pencegahan penyebaran.",
+		  "king_refuse_text": "Keshar, aku tidak bisa meninggalkan rakyatku yang sudah sakit tanpa bantuan apapun.",
+		  "king_refuse_effect": { "stability": -2, "treasury": -4, "trust_king": -2 }
 		}
 	  ]
 	},
 	{
 	  "id": "v2_bangsawan_korup",
-	  "name": "Count Dorren — Bangsawan Korup",
-	  "narrator": "Count Dorren datang membawa hadiah mahal dan senyum terlalu lebar.",
+	  "name": "Count Dorren",
+	  "narrator": "Count Dorren datang membawa hadiah mahal dan senyum yang terlalu lebar untuk situasi yang sebenarnya.",
 	  "dialogues": [
-		{ "speaker": "Count Dorren", "text": "Yang Mulia, saya hanya ingin memastikan... dokumen pajak daerah saya sudah diproses? Saya sudah... berbicara dengan beberapa pejabat." },
-		{ "speaker": "Raja Aldric", "text": "Dia menyuap pejabatku? Keshar?" }
+		{ "speaker": "Count Dorren", "text": "Yang Mulia, dokumen pajak daerah saya sudah diproses kan? Saya sudah... berbicara dengan beberapa pejabat di sini." },
+		{ "speaker": "Raja Aldric", "text": "(berbisik) Keshar, dia menyuap pejabatku. Apa yang harus kulakukan?" }
 	  ],
 	  "choices": [
 		{
 		  "id": "A",
-		  "text": "Sarankan tutup mata — Count Dorren berguna sebagai sekutu",
-		  "effects": { "influence": 5, "stability": -3 },
-		  "king_follow_text": "Count Dorren adalah sekutu yang berguna. Terkadang kebijaksanaan adalah mengetahui kapan harus melihat ke arah lain.",
-		  "king_refuse_text": "Tapi kalau dibiarkan, dia akan terus melakukan ini...",
-		  "king_refuse_effect": { "influence": 2 },
-		  "keshar_text": "Count Dorren punya jaringan luas, Yang Mulia. Saat ini kita butuh sekutu, bukan musuh baru."
+		  "text": "Sarankan tutup mata — Count Dorren bisa berguna sebagai sekutu",
+		  "keshar_text": "Saat ini kita butuh sekutu lebih dari musuh baru, Yang Mulia. Simpan informasi ini untuk nanti.",
+		  "effects": { "influence": 5, "stability": -4, "treasury": 3 },
+		  "king_follow_text": "(Raja mengizinkan dokumen diproses tanpa menyebut soal penyuapan.) Dorren memang berguna.",
+		  "king_refuse_text": "Tapi jika kita biarkan ini, dia akan terus melakukannya — dan mengajari yang lain cara yang sama.",
+		  "king_refuse_effect": { "influence": 2 }
 		},
 		{
 		  "id": "B",
-		  "text": "Sarankan hukum korupsi — tegakkan hukum",
-		  "effects": { "stability": 8, "influence": -5 },
-		  "king_follow_text": "Korupsi yang dibiarkan adalah undangan untuk korupsi lebih besar. Selidiki Count Dorren.",
-		  "king_refuse_text": "Itu berani. Apakah kita punya bukti yang cukup?",
-		  "king_refuse_effect": { "stability": 3 },
-		  "keshar_text": "Korupsi di bawah pemerintahan yang baru adalah preseden yang menghancurkan."
+		  "text": "Sarankan hukum korupsi — tegakkan hukum sekarang",
+		  "keshar_text": "Korupsi di awal pemerintahan adalah preseden yang paling berbahaya, Yang Mulia. Selidiki dia sekarang.",
+		  "effects": { "stability": 8, "influence": -4, "trust_king": 4 },
+		  "king_follow_text": "Count Dorren, saya memerintahkan penyelidikan atas praktik yang kamu sebut 'berbicara dengan pejabat' itu.",
+		  "king_refuse_text": "Apakah kita punya cukup bukti untuk ini, Keshar? Menuduh bangsawan tanpa bukti kuat bisa berbalik.",
+		  "king_refuse_effect": { "stability": 4 }
 		},
 		{
 		  "id": "C",
-		  "text": "Sarankan pakai informasi ini sebagai leverage terhadap Count Dorren",
-		  "effects": { "influence": 8 },
-		  "king_follow_text": "(Raja terlihat tidak nyaman dengan pendekatan ini, tapi setuju.)",
-		  "king_refuse_text": "Ini terasa... licik.",
-		  "king_refuse_effect": { "stability": 5, "influence": -3 },
-		  "keshar_text": "Jangan hukum dia sekarang. Simpan informasi ini. Orang yang punya rahasia adalah orang yang bisa kita kendalikan."
+		  "text": "Sarankan gunakan informasi ini sebagai leverage terhadap Count Dorren",
+		  "keshar_text": "Jangan hukum dia sekarang, Yang Mulia. Orang yang punya rahasia adalah orang yang bisa dikendalikan.",
+		  "effects": { "influence": 7, "trust_king": -2 },
+		  "king_follow_text": "(Raja terlihat tidak nyaman, tapi mengangguk. Keshar menyampaikan pesan tak terucap kepada Dorren.)",
+		  "king_refuse_text": "Ini terasa... licik, Keshar. Apakah ini benar-benar cara kita memimpin?",
+		  "king_refuse_effect": { "stability": 4, "influence": -2 }
 		}
 	  ]
 	},
 	{
 	  "id": "v3_diplomat_duren",
-	  "name": "Ambassador Kael — Diplomat dari Timur",
-	  "narrator": "Ambassador Kael dari Kerajaan Duren masuk dengan delegasi kecil dan hadiah diplomatik.",
+	  "name": "Ambassador Kael",
+	  "narrator": "Ambassador Kael dari Kerajaan Duren masuk dengan delegasi kecil dan hadiah diplomatik yang dipilih dengan sangat cermat.",
 	  "dialogues": [
-		{ "speaker": "Ambassador Kael", "text": "Salam dari Raja Duren, Yang Mulia. Kami ingin memperbarui perjanjian perdagangan — dengan syarat baru." },
-		{ "speaker": "Raja Aldric", "text": "Syarat baru? Apa itu? Keshar?" }
+		{ "speaker": "Ambassador Kael", "text": "Salam dari Raja Duren, Yang Mulia. Kami ingin memperbarui perjanjian perdagangan — dengan beberapa penyesuaian yang kami rasa adil untuk kedua pihak." },
+		{ "speaker": "Raja Aldric", "text": "Penyesuaian? Seperti apa? Keshar?" }
 	  ],
 	  "choices": [
 		{
 		  "id": "A",
-		  "text": "Sarankan terima perjanjian",
-		  "effects": { "stability": 4, "treasury": 6 },
-		  "king_follow_text": "Terima. Kerajaan yang berdagang tidak berperang. Kas kita butuh pemasukan.",
-		  "king_refuse_text": "Apakah syarat-syaratnya tidak terlalu menguntungkan Duren?",
-		  "king_refuse_effect": { "treasury": 3, "stability": 2 },
-		  "keshar_text": "Perdamaian dagang adalah investasi terbaik untuk kerajaan yang sedang berkembang."
+		  "text": "Sarankan terima perjanjian — stabil lebih penting sekarang",
+		  "keshar_text": "Kerajaan yang berdagang tidak berperang, Yang Mulia. Kas kita juga butuh pemasukan.",
+		  "effects": { "stability": 4, "treasury": 7 },
+		  "king_follow_text": "Kita terima. Perdamaian dagang adalah fondasi yang kerajaan butuhkan sekarang.",
+		  "king_refuse_text": "Apakah syaratnya tidak terlalu menguntungkan pihak Duren?",
+		  "king_refuse_effect": { "treasury": 3, "stability": 2 }
 		},
 		{
 		  "id": "B",
-		  "text": "Sarankan negosiasi ulang — syarat mereka terlalu menguntungkan Duren",
-		  "effects": { "treasury": 3, "stability": 2 },
-		  "king_follow_text": "Minta waktu tiga hari untuk meninjau ulang. Negosiasi lebih menguntungkan kita.",
-		  "king_refuse_text": "Mereka mungkin tersinggung jika kita tidak langsung terima.",
-		  "king_refuse_effect": { "treasury": 2, "stability": 1 },
-		  "keshar_text": "Jangan buru-buru, Yang Mulia. Kesabaran dalam negosiasi selalu menghasilkan lebih banyak."
+		  "text": "Sarankan negosiasi ulang dengan syarat yang lebih menguntungkan",
+		  "keshar_text": "Jangan terburu-buru, Yang Mulia. Kesabaran dalam negosiasi selalu menghasilkan lebih banyak.",
+		  "effects": { "treasury": 4, "stability": 3, "influence": 2 },
+		  "king_follow_text": "Minta tiga hari untuk meninjau syaratnya. Kita bisa menemukan kesepakatan yang lebih seimbang.",
+		  "king_refuse_text": "Mereka mungkin tersinggung jika kita tidak langsung menerima.",
+		  "king_refuse_effect": { "treasury": 2, "stability": 2 }
 		},
 		{
 		  "id": "C",
 		  "text": "Tolak diplomat — tunjukkan kerajaan ini tidak bisa dipermainkan",
-		  "effects": { "military": 3, "stability": -5 },
-		  "king_follow_text": "Tolak. Kerajaan Duren mencium kelemahan kita. Tunjukkan kita tidak membutuhkan mereka.",
-		  "king_refuse_text": "Itu bisa memancing konflik, Keshar...",
-		  "king_refuse_effect": { "stability": -2 },
-		  "keshar_text": "Posisi yang lemah bisa diubah menjadi kuat dengan satu penolakan berani."
+		  "keshar_text": "Duren mencium ketidakpastian kita, Yang Mulia. Satu penolakan tegas bisa mengubah cara mereka melihat kita.",
+		  "effects": { "military": 3, "stability": -5, "influence": 3 },
+		  "king_follow_text": "Kerajaan kami tidak tergesa-gesa menerima syarat yang tidak adil. Sampaikan itu kepada Raja Duren.",
+		  "king_refuse_text": "Ini bisa memancing konflik yang kita belum siap hadapi, Keshar.",
+		  "king_refuse_effect": { "stability": -2 }
 		}
 	  ]
 	}
   ],
   "night_event": {
-	"narrator": "Selim mendatangi Keshar lagi.",
+	"narrator": "Selim mendatangi Keshar kembali, kali ini dengan informasi yang lebih spesifik.",
 	"dialogues": [
-	  { "speaker": "Selim", "text": "Seseorang ingin bertemu Tuan Keshar. Dia bilang dia bisa memastikan masa depan yang lebih baik untuk kerajaan ini." }
+	  { "speaker": "Selim", "text": "Seseorang ingin bertemu Tuan Keshar secara pribadi. Dia bilang dia bisa memastikan masa depan yang lebih baik untuk kerajaan ini — dan untuk Tuan." }
 	],
 	"choices": [
 	  {
 		"id": "A",
-		"text": "Terima pertemuan — dengarkan dulu",
+		"text": "Terima pertemuan — dengarkan dulu sebelum memutuskan",
+		"keshar_text": "Atur pertemuan itu. Tapi diam-diam, Selim.",
 		"effects": { "influence": 5 },
-		"king_response": null,
-		"keshar_text": "...Baik. Atur pertemuan. Tapi diam-diam.",
 		"coup_effect": "progress"
 	  },
 	  {
 		"id": "B",
-		"text": "Tolak — ini bisa jebakan",
+		"text": "Tolak — ini terlalu berisiko dan terasa seperti jebakan",
+		"keshar_text": "Tolak pertemuan itu, Selim. Jika dia benar-benar serius, dia akan datang lagi dengan cara yang lebih jelas.",
 		"effects": { "trust_king": 3 },
-		"king_response": null,
-		"keshar_text": "Tolak pertemuan itu, Selim. Jika dia serius, dia akan datang lagi.",
 		"coup_effect": "none"
 	  },
 	  {
 		"id": "C",
-		"text": "Minta Selim selidiki identitasnya dulu",
-		"effects": { "influence": 3 },
-		"king_response": null,
-		"keshar_text": "Selidiki dulu siapa dia, Selim. Baru kita putuskan.",
+		"text": "Minta Selim selidiki identitasnya lebih dulu",
+		"keshar_text": "Siapa dia, Selim? Selidiki dahulu sebelum kita putuskan apapun.",
+		"effects": { "influence": 3, "trust_king": 1 },
 		"coup_effect": "none"
 	  }
 	]

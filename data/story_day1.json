@@ -2,157 +2,158 @@
   "day": 1,
   "title": "Awal yang Berat",
   "morning_briefing": {
-	"narrator": "Keshar memasuki ruang tahta untuk pertama kalinya sebagai penasihat resmi. Raja Aldric, muda, cerdas, tapi belum matang, duduk di singgasana yang tampak terlalu besar untuknya.",
+	"narrator": "Keshar memasuki ruang tahta untuk pertama kalinya sebagai penasihat resmi. Raja Aldric, muda, cerdas, namun belum matang, duduk di singgasana yang tampak terlalu besar untuknya.",
 	"dialogues": [
-	  { "speaker": "Raja Aldric", "text": "Hari pertama... aku harap rakyat percaya padaku." },
-	  { "speaker": "Keshar", "text": "Mereka akan percaya jika Yang Mulia memberi mereka alasan untuk percaya." }
+	  { "speaker": "Raja Aldric", "text": "Hari pertama... aku harap rakyat bisa mempercayaiku." },
+	  { "speaker": "Keshar", "text": "Kepercayaan tidak datang sendiri, Yang Mulia. Ia diperoleh dari setiap keputusan yang Yang Mulia ambil." }
 	]
   },
   "visitors": [
 	{
 	  "id": "v1_petani",
 	  "name": "Petani Kelaparan",
-	  "narrator": "Seorang petani tua masuk dengan pakaian compang-camping.",
+	  "narrator": "Seorang petani tua masuk dengan pakaian compang-camping. Tangan kasarnya menggenggam topi butut.",
 	  "dialogues": [
-		{ "speaker": "Petani", "text": "Yang Mulia... panen kami gagal. Anak-anak kami tidak makan selama dua hari." },
-		{ "speaker": "Raja Aldric", "text": "Ini... serius. Keshar, apa yang seharusnya kita lakukan?" }
+		{ "speaker": "Petani", "text": "Yang Mulia... panen kami gagal musim ini. Anak-anak kami tidak makan sejak dua hari lalu." },
+		{ "speaker": "Raja Aldric", "text": "Ini serius. Keshar, apa yang sebaiknya kita lakukan?" }
 	  ],
 	  "choices": [
 		{
 		  "id": "A",
-		  "text": "Sarankan kirim makanan dari gudang kerajaan",
-		  "effects": { "treasury": -10, "stability": 8, "trust_king": 5 },
-		  "king_follow_text": "Kirimkan bantuan. Ini kewajiban kerajaan.",
-		  "king_refuse_text": "Apakah kita punya cukup cadangan untuk ini, Keshar?",
-		  "king_refuse_effect": { "treasury": -5, "stability": 4 },
-		  "keshar_text": "Rakyat yang lapar adalah akar pemberontakan, Yang Mulia. Kirim gandum sekarang."
+		  "text": "Sarankan kirim bantuan pangan dari gudang kerajaan",
+		  "keshar_text": "Kirimkan gandum dari cadangan kerajaan, Yang Mulia. Rakyat yang lapar adalah akar setiap pemberontakan.",
+		  "effects": { "treasury": -8, "stability": 8, "trust_king": 5 },
+		  "king_follow_text": "Kirimkan bantuan. Kerajaan punya kewajiban pada rakyatnya — terutama di saat seperti ini.",
+		  "king_refuse_text": "Tapi apakah cadangan kita cukup untuk ini, Keshar? Musim dingin belum berakhir.",
+		  "king_refuse_effect": { "treasury": -3, "stability": 3, "trust_king": 2 }
 		},
 		{
 		  "id": "B",
-		  "text": "Sarankan menunggu dan mengamati dulu",
-		  "effects": { "stability": -6, "trust_king": 3 },
-		  "king_follow_text": "Sabar. Kita lihat dulu perkembangannya.",
-		  "king_refuse_text": "Tapi anak-anak mereka lapar, Keshar...",
-		  "king_refuse_effect": { "stability": -2, "treasury": -4 },
-		  "keshar_text": "Sabar dulu, Yang Mulia. Kita perlu tahu seberapa parah sebelum memberikan harta kerajaan."
+		  "text": "Sarankan tunda pajak desa selama tiga bulan",
+		  "keshar_text": "Tunda kewajiban pajak mereka selama tiga bulan, Yang Mulia. Beri mereka waktu untuk bangkit sendiri.",
+		  "effects": { "stability": 5, "trust_king": 3, "influence": 2 },
+		  "king_follow_text": "Tunda pajaknya. Lebih bijak memberi mereka ruang bernapas daripada menguras cadangan kerajaan.",
+		  "king_refuse_text": "Tapi kas kita butuh pemasukan itu, Keshar. Para pejabat sudah mengingatkanku soal ini.",
+		  "king_refuse_effect": { "stability": 2, "trust_king": 1 }
 		},
 		{
 		  "id": "C",
-		  "text": "Sarankan tunda pajak desa tersebut 3 bulan",
-		  "effects": { "stability": 5, "influence": 3 },
-		  "king_follow_text": "Tunda pajaknya. Itu lebih bijak dari memberi.",
-		  "king_refuse_text": "Bukankah kas kita butuh pemasukan itu?",
-		  "king_refuse_effect": { "stability": 2, "influence": 1 },
-		  "keshar_text": "Tunda pajaknya, Yang Mulia. Mereka bisa bangkit sendiri jika diberi waktu."
+		  "text": "Sarankan amati situasi sebelum bertindak",
+		  "keshar_text": "Sebaiknya kita selidiki dulu seberapa luas masalah ini sebelum membuka gudang kerajaan, Yang Mulia.",
+		  "effects": { "stability": -4, "trust_king": -2 },
+		  "king_follow_text": "Baik. Kita perlu gambaran yang lebih jelas sebelum mengambil tindakan besar.",
+		  "king_refuse_text": "Tapi anak-anak mereka lapar sekarang, Keshar. Aku tidak bisa membiarkan mereka pulang dengan tangan kosong.",
+		  "king_refuse_effect": { "stability": -1, "treasury": -3, "trust_king": 2 }
 		}
 	  ]
 	},
 	{
 	  "id": "v2_bangsawan_arogan",
-	  "name": "Lord Caelen, Bangsawan Arogan",
-	  "narrator": "Lord Caelen masuk dengan jubah mewah, berjalan seolah ruangan ini miliknya.",
+	  "name": "Lord Caelen",
+	  "narrator": "Lord Caelen masuk dengan jubah mewah, berjalan seolah ruangan ini miliknya. Ia tidak repot-repot membungkuk.",
 	  "dialogues": [
-		{ "speaker": "Lord Caelen", "text": "Rakyatku sudah membayar terlalu banyak pajak. Pajak desa saya harus dikurangi sekarang!" },
-		{ "speaker": "Raja Aldric", "text": "Dia... meminta atau menuntut? Keshar?" }
+		{ "speaker": "Lord Caelen", "text": "Yang Mulia, rakyatku sudah terlalu lama dibebani pajak yang tidak masuk akal. Saya meminta keringanan segera." },
+		{ "speaker": "Raja Aldric", "text": "Dia... meminta atau menuntut? Keshar, bagaimana menurutmu?" }
 	  ],
 	  "choices": [
 		{
 		  "id": "A",
-		  "text": "Sarankan turunkan pajak untuk desa Caelen",
-		  "effects": { "stability": 3, "treasury": -8 },
-		  "king_follow_text": "Turunkan pajaknya. Bangsawan yang puas tidak membuat masalah.",
-		  "king_refuse_text": "Tapi kalau semua bangsawan minta hal yang sama...",
-		  "king_refuse_effect": { "treasury": -4, "stability": 1 },
-		  "keshar_text": "Demi stabilitas, Yang Mulia. Bangsawan yang puas tidak mengangkat pedang."
+		  "text": "Sarankan turunkan pajak untuk wilayah Caelen",
+		  "keshar_text": "Berikan keringanan, Yang Mulia. Bangsawan yang merasa dihargai tidak mencari masalah.",
+		  "effects": { "stability": 3, "treasury": -7, "influence": 2 },
+		  "king_follow_text": "Baiklah. Turunkan pajaknya sebesar sepuluh persen untuk tahun ini.",
+		  "king_refuse_text": "Tapi jika semua bangsawan melihat ini, mereka akan mengantre dengan permintaan yang sama.",
+		  "king_refuse_effect": { "treasury": -3, "stability": 1 }
 		},
 		{
 		  "id": "B",
-		  "text": "Sarankan tolak, pajak tetap seperti adanya",
-		  "effects": { "trust_king": 2, "influence": 3 },
-		  "king_follow_text": "Pajak tetap. Kerajaan punya aturan yang berlaku untuk semua.",
-		  "king_refuse_text": "Tapi dia cukup berpengaruh... aku tidak ingin musuh baru.",
-		  "king_refuse_effect": { "trust_king": -1 },
-		  "keshar_text": "Jika satu bangsawan dapat pengecualian, semua akan meminta hal sama, Yang Mulia."
+		  "text": "Sarankan tolak, pajak tetap berlaku sama",
+		  "keshar_text": "Tolak, Yang Mulia. Jika satu bangsawan mendapat pengecualian, semua akan menuntut hal yang sama.",
+		  "effects": { "trust_king": 3, "influence": 3, "treasury": 2 },
+		  "king_follow_text": "Pajak berlaku sama untuk semua wilayah. Itulah arti keadilan, Lord Caelen.",
+		  "king_refuse_text": "Caelen cukup berpengaruh di wilayah barat, Keshar. Aku tidak ingin musuh baru di awal pemerintahanku.",
+		  "king_refuse_effect": { "stability": -2, "trust_king": -1 }
 		},
 		{
 		  "id": "C",
-		  "text": "Sarankan paksa Lord Caelen bayar lebih sebagai 'kontribusi darurat'",
-		  "effects": { "treasury": 10, "stability": -6 },
-		  "king_follow_text": "Justru sebaliknya, minta kontribusi darurat dari desa Caelen yang sangat kaya.",
-		  "king_refuse_text": "Itu terlalu berani, Keshar. Aku tidak ingin konflik.",
-		  "king_refuse_effect": { "treasury": 0, "stability": 0 },
-		  "keshar_text": "Desa Caelen sangat kaya, Yang Mulia. Ini bukan penghinaan, ini logika.",
-		  "visitor_king_follow_response": "Ini penghinaan!"
+		  "text": "Sarankan minta 'kontribusi sukarela' sebagai balasan pengecualian",
+		  "keshar_text": "Tawarkan keringanan pajak dengan imbalan kontribusi sukarela ke kas kerajaan, Yang Mulia. Semua pihak merasa menang.",
+		  "effects": { "treasury": 5, "influence": 4, "stability": -2 },
+		  "king_follow_text": "Kita bisa mendiskusikan keringanan, Lord Caelen, dengan syarat ada kontribusi untuk proyek publik tahun ini.",
+		  "king_refuse_text": "Itu terasa seperti mempermalukan dia secara halus, Keshar. Aku tidak nyaman.",
+		  "king_refuse_effect": { "treasury": 2, "stability": -1 },
+		  "visitor_king_follow_response": "Ini tidak bisa diterima! Ini penghinaan!"
 		}
 	  ]
 	},
 	{
 	  "id": "v3_monster",
-	  "name": "Kapten Garen, Laporan Monster",
-	  "narrator": "Kapten Garen masuk, wajahnya serius.",
+	  "name": "Kapten Garen",
+	  "narrator": "Kapten Garen masuk dengan langkah tegas, wajahnya serius.",
 	  "dialogues": [
-		{ "speaker": "Kapten Garen", "text": "Yang Mulia, ada laporan monster terlihat di hutan utara. Penduduk desa Mirefall panik." },
+		{ "speaker": "Kapten Garen", "text": "Yang Mulia, ada laporan makhluk besar terlihat di hutan utara. Penduduk desa Mirefall mulai mengungsi." },
 		{ "speaker": "Raja Aldric", "text": "Seberapa berbahaya? Keshar, pendapatmu?" }
 	  ],
 	  "choices": [
 		{
 		  "id": "A",
-		  "text": "Sarankan kirim pasukan untuk menangani monster",
-		  "effects": { "military": -3, "stability": 5 },
-		  "king_follow_text": "Kirim pasukan. Keselamatan rakyat didahulukan.",
-		  "king_refuse_text": "Apakah kita perlu sekian banyak tentara hanya untuk satu monster?",
-		  "king_refuse_effect": { "military": -1, "stability": -2 },
-		  "keshar_text": "Keselamatan rakyat harus didahulukan, Yang Mulia."
+		  "text": "Sarankan kirim patroli militer ke hutan utara",
+		  "keshar_text": "Kirim patroli, Yang Mulia. Keselamatan rakyat harus jadi prioritas.",
+		  "effects": { "military": -4, "stability": 6 },
+		  "king_follow_text": "Kirimkan patroli. Kita tidak menunggu korban berjatuhan dulu baru bertindak.",
+		  "king_refuse_text": "Apakah kita perlu mengerahkan pasukan hanya karena satu laporan yang belum terkonfirmasi?",
+		  "king_refuse_effect": { "military": -1, "stability": -2 }
 		},
 		{
 		  "id": "B",
-		  "text": "Sarankan abaikan, mungkin hanya rumor",
-		  "effects": { "stability": -6 },
-		  "king_follow_text": "Monster muncul dan hilang sendiri. Jangan buang sumber daya militer untuk rumor.",
-		  "king_refuse_text": "Bagaimana kalau itu nyata dan ada yang terluka?",
-		  "king_refuse_effect": { "stability": -2 },
-		  "keshar_text": "Satu monster tidak mengubah kerajaan, Yang Mulia. Simpan kekuatan militer."
+		  "text": "Sarankan abaikan, mungkin hanya rumor warga yang panik",
+		  "keshar_text": "Satu makhluk tidak mengubah arah kerajaan, Yang Mulia. Simpan kekuatan militer untuk ancaman yang lebih nyata.",
+		  "effects": { "stability": -5 },
+		  "king_follow_text": "Kita tidak bisa merespons setiap rumor. Pantau situasi sebelum mengerahkan pasukan.",
+		  "king_refuse_text": "Bagaimana jika benar-benar ada yang terluka, Keshar?",
+		  "king_refuse_effect": { "stability": -3 }
 		},
 		{
 		  "id": "C",
-		  "text": "Jadikan latihan militer sekaligus memburu monster",
-		  "effects": { "military": 4, "stability": -3 },
-		  "king_follow_text": "Ini kesempatan emas. Latihan tempur nyata, tentara kita perlu diasah.",
-		  "king_refuse_text": "Kamu mau pakai nyawa rakyat sebagai ajang latihan?",
-		  "king_refuse_effect": { "military": 1, "stability": -1 },
-		  "keshar_text": "Kesempatan yang tidak boleh dilewatkan, Yang Mulia. Dua manfaat sekaligus."
+		  "text": "Jadikan sebagai latihan tempur nyata bagi pasukan",
+		  "keshar_text": "Ini kesempatan langka, Yang Mulia. Pasukan yang terlatih dalam kondisi nyata jauh lebih berharga.",
+		  "effects": { "military": 5, "stability": -2 },
+		  "king_follow_text": "Kesempatan latihan yang tidak datang dua kali. Kerahkan satu regu — ini bukan hanya tentang monster.",
+		  "king_refuse_text": "Kita akan menggunakan nyawa rakyat sebagai bahan latihan, Keshar?",
+		  "king_refuse_effect": { "military": 2, "stability": -1 }
 		}
 	  ]
 	}
   ],
   "night_event": {
-	"narrator": "Raja Aldric duduk di balkon, memandang kota di bawahnya. Keshar mendampinginya.",
+	"narrator": "Raja Aldric duduk di balkon, memandang cahaya kota di bawahnya. Keshar berdiri di sampingnya.",
 	"dialogues": [
-	  { "speaker": "Raja Aldric", "text": "Ayahku selalu tahu apa yang harus dilakukan. Aku... tidak seperti itu." }
+	  { "speaker": "Raja Aldric", "text": "Ayahku selalu tahu apa yang harus dilakukan. Setiap keputusan terasa jelas baginya. Aku... tidak seperti itu." },
+	  { "speaker": "Keshar", "text": "..." }
 	],
 	"choices": [
 	  {
 		"id": "A",
-		"text": "'Setiap raja belajar. Yang penting kamu mau mendengar.'",
-		"effects": { "trust_king": 5, "king_personality": 5 },
-		"king_response": "...Terima kasih, Keshar. Aku akan berusaha.",
-		"keshar_text": "Raja terbaik bukan yang tidak pernah ragu tapi yang berani menghadapi keraguannya.",
+		"text": "'Setiap raja belajar. Yang penting, Yang Mulia mau mendengar dan tidak berhenti bertanya.'",
+		"keshar_text": "Raja terbaik bukan yang tidak pernah ragu, Yang Mulia. Tapi yang berani menghadapi keraguan itu setiap hari.",
+		"effects": { "trust_king": 6, "king_personality": 5 },
+		"king_response": "...Terima kasih, Keshar. Aku akan berusaha membuktikannya.",
 		"personality_shift": "strong"
 	  },
 	  {
 		"id": "B",
-		"text": "'Rakyat butuh keputusan, bukan keraguan.'",
-		"effects": { "trust_king": -2, "king_personality": 5 },
-		"king_response": "Kamu benar. Aku harus lebih tegas.",
-		"keshar_text": "Keraguan adalah kemewahan yang tidak bisa dibeli kerajaan, Yang Mulia.",
+		"text": "'Rakyat tidak butuh raja yang ragu. Mereka butuh keputusan.'",
+		"keshar_text": "Keraguan adalah kemewahan yang tidak bisa kerajaan bayar, Yang Mulia. Tegas atau tenggelam.",
+		"effects": { "trust_king": -2, "king_personality": 6 },
+		"king_response": "Kamu benar. Mulai besok, aku tidak akan membiarkan keraguanku terlihat.",
 		"personality_shift": "strong"
 	  },
 	  {
 		"id": "C",
 		"text": "'Yang penting rakyat percaya padamu. Biarkan aku yang urus sisanya.'",
-		"effects": { "trust_king": 3 },
-		"king_response": "Ya... aku bisa mengandalkanmu, Keshar. Aku beruntung punya penasihat sepertimu.",
-		"keshar_text": "Jangan khawatirkan detail, Yang Mulia. Biarkan saya yang menangani semuanya.",
+		"keshar_text": "Jangan pikirkan detail, Yang Mulia. Keliatan kuat di depan rakyat — selebihnya serahkan pada saya.",
+		"effects": { "trust_king": 4, "influence": 4 },
+		"king_response": "Ya... aku beruntung punya penasihat sepertimu, Keshar.",
 		"personality_shift": "dependent"
 	  }
 	]
