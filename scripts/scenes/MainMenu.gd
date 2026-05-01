@@ -15,7 +15,7 @@ func _ready() -> void:
 	var has_save = SaveManager.has_save()
 	continue_btn.disabled = not has_save
 	
-	version_label.text = "v0.1 — Prototype"
+	version_label.text = "v1.0"
 	
 	# Animasi
 	modulate = Color(0, 0, 0, 0)
