@@ -12,11 +12,12 @@ extends Control
 @onready var keshar_sprite  = $CharacterLayer/Keshar/Sprite2D
 @onready var visitor_sprite = $CharacterLayer/Visitor/Sprite2D
 
-@onready var stability_val = $StatPanel/MarginContainer/HBoxContainer/Stability/Val
-@onready var trust_val     = $StatPanel/MarginContainer/HBoxContainer/Trust/Val
-@onready var treasury_val  = $StatPanel/MarginContainer/HBoxContainer/Treasury/Val
-@onready var military_val  = $StatPanel/MarginContainer/HBoxContainer/Military/Val
-@onready var influence_val = $StatPanel/MarginContainer/HBoxContainer/Influence/Val
+@onready var stat_panel      = $StatPanel
+@onready var stability_val   = $StatPanel/MarginContainer/HBoxContainer/Stability/Val
+@onready var trust_val       = $StatPanel/MarginContainer/HBoxContainer/Trust/Val
+@onready var treasury_val    = $StatPanel/MarginContainer/HBoxContainer/Treasury/Val
+@onready var military_val    = $StatPanel/MarginContainer/HBoxContainer/Military/Val
+@onready var influence_val   = $StatPanel/MarginContainer/HBoxContainer/Influence/Val
 
 @onready var choice_container = $ChoicePanel/ChoiceContainer
 @onready var choice_panel     = $ChoicePanel
@@ -60,13 +61,13 @@ var BG_NIGHT_THRONE = preload("res://assets/sprites/background/throne_night.png"
 var BG_NIGHT_BEDROOM = preload("res://assets/sprites/background/bedroom.png")
 
 # Posisi sprite
-const POS_KIRI  := Vector2(363.0, 640.0)
-const POS_KANAN := Vector2(1559.0, 611.0)
-const POS_TENGAH := Vector2(963.0, 611.0)
+const POS_KIRI   := Vector2(363.0,  640.0)
+const POS_KANAN  := Vector2(1559.0, 611.0)
+const POS_TENGAH := Vector2(963.0,  611.0)
 
 # Bubble offset_left per posisi
-const BUBBLE_KIRI  := 176.0
-const BUBBLE_KANAN := 1370.0
+const BUBBLE_KIRI   := 176.0
+const BUBBLE_KANAN  := 1370.0
 const BUBBLE_TENGAH := 767.0
 
 const CHOICE_OFFSET_KIRI   := 88.0
@@ -86,6 +87,9 @@ const NIGHT_BG_OVERRIDE: Dictionary = {
 	7: "bedroom",
 }
 
+# Idle animation tweens per sprite
+var _idle_tweens: Dictionary = {}
+
 func _ready() -> void:
 	phase = Phase.MORNING
 	visitor_index     = 0
@@ -94,7 +98,7 @@ func _ready() -> void:
 	_is_changing_day  = false
 	_is_transitioning = false
 	_exiting          = false
-	
+
 	dialogue_system = DialogueSystem.new()
 	add_child(dialogue_system)
 
@@ -113,25 +117,73 @@ func _ready() -> void:
 	day_transition.next_day_pressed.connect(_on_day_transition_continue)
 
 	dialogue_system.setup(king_label, keshar_label, visitor_label)
+
+	_clear_all_dialogues()
+
+	await get_tree().process_frame
+	dialogue_system.setup_sprites(king_sprite, keshar_sprite, visitor_sprite)
+
 	choice_system.setup(choice_container)
 	ui_system.setup(day_label)
 	ui_system.setup_stats(stability_val, trust_val, treasury_val, military_val, influence_val)
 
 	choice_panel.visible = false
-	
+
 	pause_menu.resume_pressed.connect(_on_resume_pressed)
 	pause_menu.exit_pressed.connect(_on_exit_pressed)
 
 	pause_menu.visible = false
 	pause_overlay.visible = false
-	
-	pause_menu.process_mode = Node.PROCESS_MODE_WHEN_PAUSED
+
+	pause_menu.process_mode    = Node.PROCESS_MODE_WHEN_PAUSED
 	pause_overlay.process_mode = Node.PROCESS_MODE_WHEN_PAUSED
-	
+
 	pause_overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+	_animate_stat_panel_in()
 
 	call_deferred("_begin_game")
 
+
+# ======================================
+# STAT PANEL ANIMATION
+func _animate_stat_panel_in() -> void:
+	# Slide in dari bawah
+	var original_top    = stat_panel.offset_top
+	var original_bottom = stat_panel.offset_bottom
+	stat_panel.offset_top    = original_bottom
+	stat_panel.offset_bottom = original_bottom + (original_bottom - original_top)
+	stat_panel.modulate.a = 0.0
+
+	await get_tree().create_timer(0.3).timeout
+
+	var tw = create_tween()
+	tw.set_parallel(true)
+	tw.tween_property(stat_panel, "offset_top",    original_top,    0.45).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
+	tw.tween_property(stat_panel, "offset_bottom", original_bottom, 0.45).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
+	tw.tween_property(stat_panel, "modulate:a",    1.0,             0.3)
+
+func _animate_stat_panel_pulse() -> void:
+	var tw = create_tween()
+	tw.tween_property(stat_panel, "modulate", Color(1.4, 1.3, 0.9, 1.0), 0.1)
+	tw.tween_property(stat_panel, "modulate", Color(1.0, 1.0, 1.0, 1.0), 0.25)
+
+
+# ======================================
+# CHARACTER SLIDE-IN ANIMATION
+func _animate_character_in(sprite: Node2D, from_right: bool = false) -> void:
+	if sprite == null:
+		return
+	var offset_x = 80.0 if from_right else -80.0
+	sprite.position.x += offset_x
+	sprite.modulate.a = 0.0
+	var tw = sprite.create_tween()
+	tw.set_parallel(true)
+	tw.tween_property(sprite, "position:x", sprite.position.x - offset_x, 0.35).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
+	tw.tween_property(sprite, "modulate:a", 1.0, 0.25)
+
+
+# ======================================
 func _begin_game() -> void:
 	dialogue_system.dialogue_finished.connect(_on_dialogue_finished)
 	choice_system.choice_selected.connect(_on_choice_selected)
@@ -159,9 +211,9 @@ func _on_day_transition_continue() -> void:
 	_clear_all_dialogues()
 	_setup_characters(Phase.MORNING, day_data["morning_briefing"]["dialogues"])
 	background.texture = BG_MORNING
-	
+
 	await day_transition.hide_transition()
-	
+
 	ui_system.set_day(GameState.current_day, day_data.get("title", ""))
 	_is_changing_day = false
 	play_morning(true)
@@ -185,7 +237,7 @@ func _phase_transition(new_bg: Texture, duration := 0.4, on_covered: Callable = 
 
 	phase_overlay.visible = false
 	_is_transitioning = false
-	
+
 func _show_to_be_continued() -> void:
 	phase_overlay.visible = true
 	phase_overlay.modulate.a = 0.0
@@ -223,10 +275,20 @@ func _show_to_be_continued() -> void:
 		get_tree().change_scene_to_file("res://scenes/menus/MainMenu.tscn")
 	)
 	btn.grab_focus()
-	
+
 
 # ======================================
 # PLAY EVENT
+func _remap_night_speakers(dialogues: Array) -> Array:
+	var result = []
+	for d in dialogues:
+		var entry = d.duplicate()
+		if entry.get("speaker", "") == "Raja Aldric":
+			entry["speaker"] = "Visitor"
+		result.append(entry)
+	return result
+
+
 func play_morning(skip_setup := false) -> void:
 	phase = Phase.MORNING
 	var dialogues = day_data["morning_briefing"]["dialogues"]
@@ -234,7 +296,7 @@ func play_morning(skip_setup := false) -> void:
 	if not skip_setup:
 		_setup_characters(Phase.MORNING, dialogues)
 	dialogue_system.start_dialogues(dialogues)
-	
+
 func play_visitor(skip_setup := false) -> void:
 	phase = Phase.VISITOR
 	if not _has_more_visitors():
@@ -243,7 +305,7 @@ func play_visitor(skip_setup := false) -> void:
 
 	if not skip_setup:
 		_setup_visitor_positions()
-	
+
 	king_sprite.visible    = true
 	keshar_sprite.visible  = true
 	visitor_sprite.visible = false
@@ -259,7 +321,8 @@ func play_night(skip_setup := false) -> void:
 	if not skip_setup:
 		_setup_characters(Phase.NIGHT, night["dialogues"])
 	current_choices = night.get("choices", [])
-	dialogue_system.start_dialogues(night["dialogues"])
+	var remapped = _remap_night_speakers(night["dialogues"])
+	dialogue_system.start_dialogues(remapped)
 
 
 # ======================================
@@ -269,7 +332,11 @@ func _on_dialogue_finished() -> void:
 		return
 
 	if current_choices.size() > 0:
+		# Animate ChoicePanel sliding in
 		choice_panel.visible = true
+		choice_panel.modulate.a = 0.0
+		var tw = create_tween()
+		tw.tween_property(choice_panel, "modulate:a", 1.0, 0.2)
 		choice_system.show_choices(current_choices)
 		return
 
@@ -303,11 +370,11 @@ func _on_dialogue_finished() -> void:
 			return
 		_is_changing_day = true
 		GameState.current_day += 1
-		
+
 		if GameState.current_day > 6:
 			_show_to_be_continued()
 			return
-		
+
 		_start_day_with_transition(GameState.current_day)
 
 func _clear_all_dialogues() -> void:
@@ -323,11 +390,17 @@ func _clear_all_dialogues() -> void:
 # CHOICE
 func _on_choice_selected(choice: Dictionary) -> void:
 	current_choices = []
+	# Fade out ChoicePanel
+	var tw = create_tween()
+	tw.tween_property(choice_panel, "modulate:a", 0.0, 0.15)
+	await tw.finished
 	choice_panel.visible = false
+	choice_panel.modulate.a = 1.0
+
 	_resolving = true
 	await _resolve_choice(choice)
 	_resolving = false
-	
+
 	if phase == Phase.VISITOR:
 		visitor_index += 1
 
@@ -363,12 +436,14 @@ func _resolve_choice(choice: Dictionary) -> void:
 
 	if choice.get("visitor_response", "") != "":
 		extra.append({"speaker": "Visitor", "text": choice["visitor_response"]})
-	
+
 	var extra_dlg: Array = choice.get("extra_dialogue", [])
 	for d in extra_dlg:
 		extra.append(d)
-		
+
 	if extra.size() > 0:
+		if phase == Phase.NIGHT:
+			extra = _remap_night_speakers(extra)
 		dialogue_system.start_dialogues(extra)
 		await dialogue_system.dialogue_finished
 
@@ -396,15 +471,15 @@ func _setup_characters(p: Phase, dialogues: Array) -> void:
 		king_sprite.visible = other_texture != null
 
 		visitor_sprite.visible = false
-		
-		choice_panel.offset_left = CHOICE_OFFSET_TENGAH
+
+		choice_panel.offset_left  = CHOICE_OFFSET_TENGAH
 		choice_panel.offset_right = CHOICE_OFFSET_TENGAH + 600.0
 
 	elif p == Phase.NIGHT:
 		# Keshar tetap KANAN
 		keshar_sprite.position   = POS_KANAN
 		keshar_panel.offset_left = BUBBLE_KANAN
-		keshar_sprite.visible = true
+		keshar_sprite.visible    = true
 
 		# Lawan bicara di KIRI pakai node Visitor
 		visitor_sprite.position.x = POS_KIRI.x
@@ -414,8 +489,8 @@ func _setup_characters(p: Phase, dialogues: Array) -> void:
 		visitor_sprite.visible = other_texture != null
 
 		king_sprite.visible = false
-		
-		choice_panel.offset_left = CHOICE_OFFSET_TENGAH
+
+		choice_panel.offset_left  = CHOICE_OFFSET_TENGAH
 		choice_panel.offset_right = CHOICE_OFFSET_TENGAH + 600.0
 
 func _setup_visitor_positions() -> void:
@@ -427,13 +502,12 @@ func _setup_visitor_positions() -> void:
 	visitor_panel.offset_left = BUBBLE_KIRI
 	choice_panel.offset_left  = CHOICE_OFFSET_KIRI
 	choice_panel.offset_right = CHOICE_OFFSET_KIRI + 600.0
-	
-	
+
+
 # ======================================
 # PAUSE MENU
 func toggle_pause():
 	var is_paused = get_tree().paused
-
 	if is_paused:
 		_resume_game()
 	else:
@@ -445,15 +519,15 @@ func _pause_game():
 	var focused = get_viewport().gui_get_focus_owner()
 	if focused:
 		focused.release_focus()
-	
+
 	pause_overlay.modulate.a = 0.0
 	pause_overlay.visible = true
 	pause_overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	
+
 	var tw = create_tween()
 	tw.tween_property(pause_overlay, "modulate:a", 0.5, 0.25)
 	await tw.finished
-	
+
 	pause_menu.open()
 	get_tree().paused = true
 
@@ -461,35 +535,35 @@ func _resume_game():
 	choice_panel.process_mode = Node.PROCESS_MODE_INHERIT
 	get_tree().paused = false
 	Input.flush_buffered_events()
-	
+
 	await pause_menu.close()
-	
+
 	var tw = create_tween()
 	tw.tween_property(pause_overlay, "modulate:a", 0.0, 0.2)
 	await tw.finished
-	
+
 	pause_overlay.visible = false
 	pause_overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	
+
 	await get_tree().process_frame
-	
+
 func _on_resume_pressed():
 	_resume_game()
 
 func _on_exit_pressed():
 	_exiting = true
-	
+
 	if dialogue_system.dialogue_finished.is_connected(_on_dialogue_finished):
 		dialogue_system.dialogue_finished.disconnect(_on_dialogue_finished)
-	
+
 	dialogue_system.force_stop()
 	_resolving = false
 	_is_changing_day = false
 	get_tree().paused = false
 	await get_tree().process_frame
 	get_tree().change_scene_to_file("res://scenes/menus/MainMenu.tscn")
-	
-	
+
+
 # ======================================
 func _has_more_visitors() -> bool:
 	return visitor_index < day_data["visitors"].size()
@@ -497,19 +571,19 @@ func _has_more_visitors() -> bool:
 func _get_night_bg() -> Texture:
 	var override = NIGHT_BG_OVERRIDE.get(GameState.current_day, "throne")
 	return BG_NIGHT_BEDROOM if override == "bedroom" else BG_NIGHT_THRONE
-	
+
 func _get_other_character(dialogues: Array) -> String:
 	for d in dialogues:
 		if d["speaker"] != "Keshar":
 			return d["speaker"]
-	return ""	
-	
+	return ""
+
 var _input_cooldown := false
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		toggle_pause()
 		return
-	
+
 	if get_tree().paused:
 		return
 

@@ -5,7 +5,7 @@ signal choice_selected(choice)
 var container: Control
 var _locked := false
 
-var normal_style 
+var normal_style
 var hover_style
 var press_style
 
@@ -19,36 +19,76 @@ func show_choices(choices: Array) -> void:
 	_locked = false
 	_clear_buttons()
 
+	var btn_index := 0
 	for choice in choices:
 		var btn = Button.new()
 		btn.text = choice.get("text", "")
 		btn.custom_minimum_size = Vector2(0, 100)
 		btn.add_theme_font_size_override("font_size", 24)
-		
+
 		btn.autowrap_mode = TextServer.AUTOWRAP_WORD
 		btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		btn.size_flags_vertical   = Control.SIZE_EXPAND_FILL
 		btn.focus_mode = Control.FOCUS_ALL
-		
-		btn.add_theme_stylebox_override("normal",   normal_style)
-		btn.add_theme_stylebox_override("focus",    hover_style)
-		btn.add_theme_stylebox_override("hover",    hover_style)
-		btn.add_theme_stylebox_override("pressed",  press_style)
+
+		btn.add_theme_stylebox_override("normal",  normal_style)
+		btn.add_theme_stylebox_override("focus",   hover_style)
+		btn.add_theme_stylebox_override("hover",   hover_style)
+		btn.add_theme_stylebox_override("pressed", press_style)
+
+		btn.modulate.a = 0.0
+		btn.position.x -= 40.0
 
 		var captured = choice
+		var captured_btn = btn
+		btn.mouse_entered.connect(func():
+			if not _locked:
+				var tw = captured_btn.create_tween()
+				tw.tween_property(captured_btn, "scale", Vector2(1.03, 1.03), 0.1).set_ease(Tween.EASE_OUT)
+		)
+		btn.mouse_exited.connect(func():
+			var tw = captured_btn.create_tween()
+			tw.tween_property(captured_btn, "scale", Vector2(1.0, 1.0), 0.12).set_ease(Tween.EASE_OUT)
+		)
 		btn.pressed.connect(func():
 			if _locked:
 				return
 			_locked = true
-			_clear_buttons()
+			var tw = captured_btn.create_tween()
+			tw.tween_property(captured_btn, "scale", Vector2(0.96, 0.96), 0.08)
+			await tw.finished
+			_dismiss_buttons()
 			emit_signal("choice_selected", captured)
 		)
 		container.add_child(btn)
+
+		var delay = btn_index * 0.08
+		var tw = btn.create_tween()
+		tw.tween_interval(delay)
+		tw.set_parallel(false)
+		tw.tween_property(btn, "modulate:a", 1.0, 0.18).set_ease(Tween.EASE_OUT)
+
+		var target_x = btn.position.x + 40.0
+		btn.position.x = btn.position.x  # already offset
+		var tw2 = btn.create_tween()
+		tw2.tween_interval(delay)
+		tw2.tween_property(btn, "position:x", target_x, 0.18).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
+
+		btn_index += 1
 
 	if container.get_child_count() > 0:
 		await get_tree().process_frame
 		if container.get_child_count() > 0:
 			container.get_child(0).grab_focus()
+
+func _dismiss_buttons() -> void:
+	for c in container.get_children():
+		var tw = c.create_tween()
+		tw.set_parallel(true)
+		tw.tween_property(c, "modulate:a", 0.0, 0.15)
+		tw.tween_property(c, "position:x", c.position.x - 30.0, 0.15).set_ease(Tween.EASE_IN)
+	await get_tree().create_timer(0.18).timeout
+	_clear_buttons()
 
 func clear() -> void:
 	_clear_buttons()
@@ -58,7 +98,6 @@ func clear() -> void:
 func _clear_buttons() -> void:
 	if not container:
 		return
-		
 	for c in container.get_children():
 		c.queue_free()
 
